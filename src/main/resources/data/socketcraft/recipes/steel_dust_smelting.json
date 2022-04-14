@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "socketcraft:steel_dust"
+  },
+  "result": "socketcraft:steel_ingot",
+  "experience": 1,
+  "cookingtime": 200
+}

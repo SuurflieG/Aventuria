@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " x ",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:steel_block"
+    },
+    "s": {
+      "item": "minecraft:iron_sword"
+    }
+  },
+  "result": {
+    "item": "socketcraft:steel_sword",
+    "count": 1
+  }
+}

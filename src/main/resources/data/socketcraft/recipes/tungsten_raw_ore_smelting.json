@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "socketcraft:tungsten_raw_ore"
+  },
+  "result": "socketcraft:tungsten_ingot",
+  "experience": 1.5,
+  "cookingtime": 200
+}

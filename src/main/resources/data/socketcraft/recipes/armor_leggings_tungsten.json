@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xbx",
+    "xnx"
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:tungsten_block"
+    },
+    "b": {
+      "item": "socketcraft:titanium_leggings"
+    },
+    "n": {
+      "item": "minecraft:netherite_leggings"
+    }
+  },
+  "result": {
+    "item": "socketcraft:tungsten_leggings",
+    "count": 1
+  }
+}

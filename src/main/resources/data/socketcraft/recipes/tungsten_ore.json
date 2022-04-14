@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xsx",
+    "sxs",
+    "xsx"
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:tungsten_raw_ore"
+    },
+    "s": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "socketcraft:tungsten_ore",
+    "count": 2
+  }
+}

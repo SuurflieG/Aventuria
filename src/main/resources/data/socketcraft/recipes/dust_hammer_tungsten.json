@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:tungsten_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "socketcraft:dust_hammer_tungsten",
+    "count": 1
+  }
+}

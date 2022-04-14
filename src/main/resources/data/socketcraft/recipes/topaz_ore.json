@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xsx",
+    "sxs",
+    "xsx"
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:raw_topaz"
+    },
+    "s": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "socketcraft:topaz_ore",
+    "count": 2
+  }
+}

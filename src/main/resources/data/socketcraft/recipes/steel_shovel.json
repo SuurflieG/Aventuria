@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " t ",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:steel_block"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "t": {
+      "item": "minecraft:iron_shovel"
+    }
+  },
+  "result": {
+    "item": "socketcraft:steel_shovel",
+    "count": 1
+  }
+}

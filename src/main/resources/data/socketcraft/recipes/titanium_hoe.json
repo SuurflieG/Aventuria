@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xx ",
+    " t ",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:titanium_block"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "t": {
+      "item": "socketcraft:steel_hoe"
+    }
+  },
+  "result": {
+    "item": "socketcraft:titanium_hoe",
+    "count": 1
+  }
+}

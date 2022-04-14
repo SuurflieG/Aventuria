@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " t ",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "socketcraft:tungsten_block"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "t": {
+      "item": "socketcraft:titanium_shovel"
+    }
+  },
+  "result": {
+    "item": "socketcraft:tungsten_shovel",
+    "count": 1
+  }
+}

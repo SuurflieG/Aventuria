@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "socketcraft:tungsten_dust"
+  },
+  "result": "socketcraft:tungsten_ingot",
+  "experience": 1,
+  "cookingtime": 100
+}
