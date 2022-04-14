@@ -1,6 +1,7 @@
 package com.gypsyhost.socketcraft.registry;
 
 import com.gypsyhost.socketcraft.SocketCraft;
+import com.gypsyhost.socketcraft.custom.block.block.MachineCasingBlock;
 import com.gypsyhost.socketcraft.custom.block.block.MetalFormerBlock;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -38,6 +39,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> TUNGSTEN_BLOCK = registerBlock("tungsten_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
 
     public static final RegistryObject<Block> METAL_FORMER = registerBlock("metal_former", () -> new MetalFormerBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> MACHINE_CASING = registerBlock("machine_casing", () -> new MachineCasingBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
 
 
     //Register Block with tooltip field

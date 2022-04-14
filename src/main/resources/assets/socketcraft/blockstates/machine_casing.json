@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "socketcraft:block/machine_casing" },
+    "facing=east": { "model": "socketcraft:block/machine_casing", "y": 90 },
+    "facing=south": { "model": "socketcraft:block/machine_casing", "y": 180 },
+    "facing=west": { "model": "socketcraft:block/machine_casing", "y": 270 }
+  }
+}

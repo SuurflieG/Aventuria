@@ -1,6 +1,16 @@
 {
   "replace": false,
   "values": [
-    "mccourse:cobalt_block"
+    "socketcraft:steel_block",
+    "socketcraft:titanium_block",
+    "socketcraft:tungsten_block",
+    "socketcraft:titanium_ore",
+    "socketcraft:tungsten_ore",
+    "socketcraft.aventurine_ore",
+    "socketcraft.calcite_ore",
+    "socketcraft.pyrite_ore",
+    "socketcraft.ruby_ore",
+    "socketcraft.topaz_ore",
+    "socketcraft.unakite_ore"
   ]
 }

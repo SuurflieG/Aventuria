@@ -15,17 +15,13 @@ public class SocketCraftCommonConfig {
 
 
     static {
-        BUILDER.push("Configs for MCCourseMod");
+        BUILDER.push("Configs for SocketCraft");
 
-        TITANIUM_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Titanium Ore Veins spawn per chunk!")
-                .define("Veins Per Chunk", 7);
-        TITANIUM_ORE_VEIN_SIZE = BUILDER.comment("How many Titanium Ore Blocks spawn in one Vein!")
-                .define("Vein Size", 9);
+        TITANIUM_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Titanium Ore Veins spawn per chunk!").define("Veins Per Chunk", 7);
+        TITANIUM_ORE_VEIN_SIZE = BUILDER.comment("How many Titanium Ore Blocks spawn in one Vein!").define("Vein Size", 9);
 
-        TUNGSTEN_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Tungsten Ore Veins spawn per chunk!")
-                .define("Veins Per Chunk", 7);
-        TUNGSTEN_ORE_VEIN_SIZE = BUILDER.comment("How many Tungsten Ore Blocks spawn in one Vein!")
-                .define("Vein Size", 9);
+        TUNGSTEN_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Tungsten Ore Veins spawn per chunk!").define("Veins Per Chunk", 7);
+        TUNGSTEN_ORE_VEIN_SIZE = BUILDER.comment("How many Tungsten Ore Blocks spawn in one Vein!").define("Vein Size", 9);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

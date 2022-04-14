@@ -14,7 +14,7 @@ public class ModPlacedFeatures {
                             HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
 
     public static final Holder<PlacedFeature> TUNGSTEN_ORE_PLACED = PlacementUtils.register("tungsten_ore_placed",
-            ModConfiguredFeature.TUNGSTEN_ORE, ModOrePlacement.commonOrePlacement(SocketCraftCommonConfig.TITANIUM_ORE_VEINS_PER_CHUNK.get(), // VeinsPerChunk
+            ModConfiguredFeature.TUNGSTEN_ORE, ModOrePlacement.commonOrePlacement(SocketCraftCommonConfig.TUNGSTEN_ORE_VEINS_PER_CHUNK.get(), // VeinsPerChunk
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
 
 }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-
+    "socketcraft:titanium_ore",
+    "socketcraft:tungsten_ore"
   ]
 }
