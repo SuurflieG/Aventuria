@@ -7,7 +7,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab MOD_TAB = new CreativeModeTab("socketcrafttab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.DUST_HAMMER_TITANIUM.get());
+            return new ItemStack(ModItems.CRAFTING_HAMMER_TITANIUM.get());
         }
     };
 }
