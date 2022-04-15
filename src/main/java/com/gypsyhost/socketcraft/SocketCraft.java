@@ -2,10 +2,9 @@ package com.gypsyhost.socketcraft;
 
 import com.gypsyhost.socketcraft.custom.gui.metalformer.MetalFormerScreen;
 import com.gypsyhost.socketcraft.registry.*;
-import com.gypsyhost.socketcraft.util.config.SocketCraftCommonConfig;
+import com.gypsyhost.socketcraft.config.SocketCraftCommonConfigs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -50,7 +49,7 @@ public class SocketCraft
 //        GeckoLib.initialize();
 
 //        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, SocketCraftClientConfigs.SPEC, "socketcraft-client.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SocketCraftCommonConfig.SPEC, "socketcraft-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SocketCraftCommonConfigs.SPEC, "socketcraft-common.toml");
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
@@ -63,14 +62,7 @@ public class SocketCraft
 
     private void clientSetup(final FMLClientSetupEvent event) {
 
-//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TURNIP_CROP.get(), RenderType.cutout());
-//
-//        ModItemProperties.addCustomItemProperties();
-//
         MenuScreens.register(ModMenuTypes.METAL_FORMER_MENU.get(), MetalFormerScreen::new);
-//
-//        WoodType.register(ModWoodTypes.CHERRY_BLOSSOM);
-
 
     }
 
