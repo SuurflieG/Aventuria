@@ -1,11 +1,17 @@
 {
   "replace": false,
   "values": [
-    "socketcraft.aventurine_ore",
-    "socketcraft.calcite_ore",
-    "socketcraft.pyrite_ore",
-    "socketcraft.ruby_ore",
-    "socketcraft.topaz_ore",
-    "socketcraft.unakite_ore"
+    "socketcraft:aventurine_ore",
+    "socketcraft:calcite_ore",
+    "socketcraft:pyrite_ore",
+    "socketcraft:ruby_ore",
+    "socketcraft:topaz_ore",
+    "socketcraft:unakite_ore",
+    "socketcraft:deepslate_aventurine_ore",
+    "socketcraft:deepslate_calcite_ore",
+    "socketcraft:deepslate_pyrite_ore",
+    "socketcraft:deepslate_ruby_ore",
+    "socketcraft:deepslate_topaz_ore",
+    "socketcraft:deepslate_unakite_ore"
   ]
 }

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "socketcraft:titanium_ore",
-    "socketcraft:tungsten_ore"
+    "socketcraft:tungsten_ore",
+    "socketcraft:deepslate_titanium_ore",
+    "socketcraft:deepslate_tungsten_ore"
   ]
 }

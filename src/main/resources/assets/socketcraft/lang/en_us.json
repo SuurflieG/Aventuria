@@ -34,6 +34,15 @@
   "block.socketcraft.titanium_ore": "Titanium Ore",
   "block.socketcraft.tungsten_ore": "Tungsten Ore",
 
+  "block.socketcraft.deepslate_aventurine_ore": "Deepslate Aventurine Ore",
+  "block.socketcraft.deepslate_calcite_ore": "Deepslate Calcite Ore",
+  "block.socketcraft.deepslate_pyrite_ore": "Deepslate Pyrite Ore",
+  "block.socketcraft.deepslate_ruby_ore": "Deepslate Ruby Ore",
+  "block.socketcraft.deepslate_topaz_ore": "Deepslate Topaz Ore",
+  "block.socketcraft.deepslate_unakite_ore": "Deepslate Unakite Ore",
+  "block.socketcraft.deepslate_titanium_ore": "Deepslate Titanium Ore",
+  "block.socketcraft.deepslate_tungsten_ore": "Deepslate Tungsten Ore",
+
   "item.socketcraft.titanium_raw_ore": "Titanium Raw Ore",
   "item.socketcraft.tungsten_raw_ore": "Tungsten Raw Ore",
 
@@ -50,6 +59,7 @@
   "block.socketcraft.tungsten_block": "Block of Tungsten",
 
   "block.socketcraft.machine_casing": "Machine Casing",
+  "block.socketcraft.metal_former": "Metal Former",
 
   "item.socketcraft.raw_aventurine": "Raw Aventurine",
   "item.socketcraft.raw_calcite": "Raw Calcite",
