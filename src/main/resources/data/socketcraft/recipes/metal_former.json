@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " g ",
+    "rmr",
+    "bpb"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "m": {
+      "item": "socketcraft:machine_frame"
+    },
+    "b": {
+      "item": "minecraft:iron_block"
+    },
+    "p": {
+      "item": "minecraft:piston"
+    }
+  },
+  "result": {
+    "item": "socketcraft:metal_former",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "socketcraft:metal_forming",
+  "ingredients": [
+    {
+      "item": "socketcraft:raw_aventurine"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:aventurine_plate"
+  },
+  "crafttime": 150
+}

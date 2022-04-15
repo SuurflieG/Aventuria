@@ -1,0 +1,12 @@
+{
+  "type": "socketcraft:metal_forming",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:iron_plate"
+  },
+    "crafttime": 100
+}

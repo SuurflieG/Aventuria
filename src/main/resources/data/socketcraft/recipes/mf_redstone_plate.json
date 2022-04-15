@@ -1,0 +1,12 @@
+{
+  "type": "socketcraft:metal_forming",
+  "ingredients": [
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:redstone_plate"
+  },
+  "crafttime": 50
+}

@@ -1,0 +1,12 @@
+{
+  "type": "socketcraft:metal_forming",
+  "ingredients": [
+    {
+      "item": "socketcraft:raw_ruby"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:ruby_plate"
+  },
+  "crafttime": 150
+}

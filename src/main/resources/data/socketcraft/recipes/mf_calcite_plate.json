@@ -1,0 +1,12 @@
+{
+  "type": "socketcraft:metal_forming",
+  "ingredients": [
+    {
+      "item": "socketcraft:raw_calcite"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:calcite_plate"
+  },
+  "crafttime": 150
+}

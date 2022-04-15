@@ -1,0 +1,12 @@
+{
+  "type": "socketcraft:metal_forming",
+  "ingredients": [
+    {
+      "item": "socketcraft:titanium_ingot"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:titanium_plate"
+  },
+  "crafttime": 200
+}

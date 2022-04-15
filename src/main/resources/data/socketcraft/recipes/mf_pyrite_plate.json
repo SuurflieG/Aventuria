@@ -1,0 +1,12 @@
+{
+  "type": "socketcraft:metal_forming",
+  "ingredients": [
+    {
+      "item": "socketcraft:raw_pyrite"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:pyrite_plate"
+  },
+  "crafttime": 150
+}
