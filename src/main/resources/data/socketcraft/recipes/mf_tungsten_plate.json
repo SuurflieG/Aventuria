@@ -2,7 +2,7 @@
   "type": "socketcraft:metal_forming",
   "ingredients": [
     {
-      "tag": "socketcraft:dust_hammer"
+      "tag": "socketcraft:crafting_hammer"
     },
     {
       "item": "socketcraft:tungsten_ingot"
