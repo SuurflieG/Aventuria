@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "socketcraft:dust_hammer_iron",
-    "socketcraft:dust_hammer_steel",
-    "socketcraft:dust_hammer_titanium",
-    "socketcraft:dust_hammer_tungsten"
-  ]
-}

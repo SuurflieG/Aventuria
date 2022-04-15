@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "socketcraft:crafting_hammer_iron",
+    "socketcraft:crafting_hammer_steel",
+    "socketcraft:crafting_hammer_titanium",
+    "socketcraft:crafting_hammer_tungsten"
+  ]
+}

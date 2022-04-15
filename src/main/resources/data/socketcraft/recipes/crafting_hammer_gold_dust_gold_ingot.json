@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "tag": "socketcraft:crafting_hammer"
+    }
+  ],
+  "result": {
+    "item": "socketcraft:gold_dust",
+    "count": 1
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "socketcraft:tungsten_ore"
+    },
+    {
+      "tag": "socketcraft:crafting_hammer"
+    }
+  ],
+  "result": {
+    "item": "socketcraft:tungsten_dust",
+    "count": 2
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "tag": "socketcraft:crafting_hammer"
+    }
+  ],
+  "result": {
+    "item": "socketcraft:coal_dust",
+    "count": 2
+  }
+}
