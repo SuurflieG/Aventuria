@@ -15,20 +15,26 @@ import javax.annotation.Nullable;
 
 public class MetalFormerRecipe implements Recipe<SimpleContainer> {
 
+
+    private static final int INPUT_SLOT_A = 1;
+    private static final int TOOL_SLOT = 3;
+
     private final ResourceLocation id;
     private final ItemStack output;
+    private final int maxProgress;
     private final NonNullList<Ingredient> recipeItems;
 
-    public MetalFormerRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
+    public MetalFormerRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, int maxProgress) {
         this.id = id;
         this.output = output;
+        this.maxProgress = maxProgress;
         this.recipeItems = recipeItems;
     }
 
     @Override
     public boolean matches(SimpleContainer pContainer, net.minecraft.world.level.Level pLevel) {
-        if(recipeItems.get(0).test(pContainer.getItem(1))) {
-            return recipeItems.get(1).test(pContainer.getItem(2));
+        if(recipeItems.get(1).test(pContainer.getItem(INPUT_SLOT_A))) {
+            return recipeItems.get(0).test(pContainer.getItem(TOOL_SLOT));
         }
 
         return false;
@@ -49,6 +55,10 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
         return output.copy();
     }
 
+    public int getMaxProgress() {
+        return this.maxProgress;
+    }
+
     @Override
     public ResourceLocation getId() {
         return id;
@@ -67,17 +77,17 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
     public static class Type implements RecipeType<MetalFormerRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
-        public static final String ID = "cobalt_blasting";
+        public static final String ID = "metal_forming";
     }
 
     public static class Serializer implements RecipeSerializer<MetalFormerRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(SocketCraft.MOD_ID,"cobalt_blasting");
+        public static final ResourceLocation ID = new ResourceLocation(SocketCraft.MOD_ID,"metal_forming");
 
         @Override
         public MetalFormerRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-
+            int maxProgress = GsonHelper.getAsInt(json, "crafttime");
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
 
@@ -85,7 +95,7 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new MetalFormerRecipe(id, output, inputs);
+            return new MetalFormerRecipe(id, output, inputs, maxProgress);
         }
 
         @Override
@@ -97,7 +107,8 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
             }
 
             ItemStack output = buf.readItem();
-            return new MetalFormerRecipe(id, output, inputs);
+            int maxProgress = buf.readInt();
+            return new MetalFormerRecipe(id, output, inputs, maxProgress);
         }
 
         @Override
@@ -107,6 +118,7 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
                 ing.toNetwork(buf);
             }
             buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeVarInt(recipe.getMaxProgress());
         }
 
         @Override

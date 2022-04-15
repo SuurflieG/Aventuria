@@ -21,8 +21,8 @@ public class MetalFormerMenu extends AbstractContainerMenu {
     private final ContainerData data;
     private final int FUEL_SLOT = 0;
     private final int INPUT_SLOT_A = 1;
-    private final int INPUT_SLOT_B = 2;
-    private final int RESULT_SLOT = 3;
+    private final int RESULT_SLOT = 2;
+    private final int TOOL_SLOT = 3;
 
     public MetalFormerMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
         this(windowId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
@@ -39,10 +39,10 @@ public class MetalFormerMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 18, 50));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_A, 66, 16));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_B, 66, 50));
-            this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 114, 33));
+            this.addSlot(new SlotItemHandler(handler, TOOL_SLOT, 19, 17));
+            this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 56, 53));
+            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_A, 56, 17));
+            this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 116, 35));
         });
 
         addDataSlots(data);
@@ -59,7 +59,7 @@ public class MetalFormerMenu extends AbstractContainerMenu {
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 26; // This is the width in pixels of your arrow
+        int progressArrowSize = 24; // This is the width in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
@@ -67,7 +67,7 @@ public class MetalFormerMenu extends AbstractContainerMenu {
     public int getScaledFuelProgress() {
         int fuelProgress = this.data.get(2);
         int maxFuelProgress = this.data.get(3);
-        int fuelProgressSize = 14;
+        int fuelProgressSize = 14; // This is the width in pixels of your flame
 
         return maxFuelProgress != 0 ? (int)(((float)fuelProgress / (float)maxFuelProgress) * fuelProgressSize) : 0;
     }
@@ -132,14 +132,14 @@ public class MetalFormerMenu extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 }

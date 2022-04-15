@@ -1,8 +1,10 @@
 package com.gypsyhost.socketcraft.custom.block.entity;
 
 import com.gypsyhost.socketcraft.custom.gui.metalformer.MetalFormerMenu;
+import com.gypsyhost.socketcraft.custom.item.CraftingHammer;
 import com.gypsyhost.socketcraft.custom.recipe.MetalFormerRecipe;
 import com.gypsyhost.socketcraft.registry.ModBlockEntities;
+import com.gypsyhost.socketcraft.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -31,6 +33,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import java.util.Optional;
+import java.util.Random;
 
 public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -42,9 +45,14 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     };
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
+    private static final int FUEL_SLOT = 0;
+    private static final int INPUT_SLOT_A = 1;
+    private static final int RESULT_SLOT = 2;
+    private static final int TOOL_SLOT = 3;
+
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress;
     private int fuelTime = 0;
     private int maxFuelTime = 0;
 
@@ -78,7 +86,7 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public Component getDisplayName() {
-        return new TextComponent("Cobalt Blaster");
+        return new TextComponent("Metal Former");
     }
 
     @Nullable
@@ -112,9 +120,9 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
-        tag.putInt("blaster.progress", progress);
-        tag.putInt("blaster.fuelTime", fuelTime);
-        tag.putInt("blaster.maxFuelTime", maxFuelTime);
+        tag.putInt("former.progress", progress);
+        tag.putInt("former.fuelTime", fuelTime);
+        tag.putInt("former.maxFuelTime", maxFuelTime);
         super.saveAdditional(tag);
     }
 
@@ -122,9 +130,9 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("blaster.progress");
-        fuelTime = nbt.getInt("blaster.fuelTime");
-        maxFuelTime = nbt.getInt("blaster.maxFuelTime");
+        progress = nbt.getInt("former.progress");
+        fuelTime = nbt.getInt("former.fuelTime");
+        maxFuelTime = nbt.getInt("former.maxFuelTime");
     }
 
     public void drops() {
@@ -137,8 +145,8 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private void consumeFuel() {
-        if(!itemHandler.getStackInSlot(0).isEmpty()) {
-            this.fuelTime = ForgeHooks.getBurnTime(this.itemHandler.extractItem(0, 1, false),
+        if(!itemHandler.getStackInSlot(FUEL_SLOT).isEmpty()) {
+            this.fuelTime = ForgeHooks.getBurnTime(this.itemHandler.extractItem(FUEL_SLOT, 1, false),
                     RecipeType.SMELTING);
             this.maxFuelTime = this.fuelTime;
         }
@@ -156,6 +164,7 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
             }
             if(isConsumingFuel(pBlockEntity)) {
                 pBlockEntity.progress++;
+                pBlockEntity.maxProgress = pBlockEntity.getMaxProgress();
                 setChanged(pLevel, pPos, pState);
                 if(pBlockEntity.progress > pBlockEntity.maxProgress) {
                     craftItem(pBlockEntity);
@@ -168,7 +177,7 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private static boolean hasFuelInFuelSlot(MetalFormerBlockEntity entity) {
-        return !entity.itemHandler.getStackInSlot(0).isEmpty();
+        return !entity.itemHandler.getStackInSlot(FUEL_SLOT).isEmpty();
     }
 
     private static boolean isConsumingFuel(MetalFormerBlockEntity entity) {
@@ -182,11 +191,9 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
         //This checks the inventory on the gui and if any of the input slot items match a recipe from the recipe type defined then it returns true which means it can start crafting
-        Optional<MetalFormerRecipe> match = level.getRecipeManager()
-                .getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
+        Optional<MetalFormerRecipe> match = level.getRecipeManager().getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
     }
 
     private static void craftItem(MetalFormerBlockEntity entity) {
@@ -196,15 +203,13 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        Optional<MetalFormerRecipe> match = level.getRecipeManager()
-                .getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
+        Optional<MetalFormerRecipe> match = level.getRecipeManager().getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
 
         if(match.isPresent()) {
-            entity.itemHandler.extractItem(1,1, false);
-            entity.itemHandler.extractItem(2,1, false);
+            entity.itemHandler.extractItem(INPUT_SLOT_A,1, false);
+            entity.itemHandler.getStackInSlot(TOOL_SLOT).hurt(1, new Random(), null);
+            entity.itemHandler.setStackInSlot(RESULT_SLOT, new ItemStack(match.get().getResultItem().getItem(),entity.itemHandler.getStackInSlot(RESULT_SLOT).getCount() + 1));
 
-            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(3).getCount() + 1));
 
             entity.resetProgress();
         }
@@ -215,10 +220,20 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(3).getItem() == output.getItem() || inventory.getItem(3).isEmpty();
+        return inventory.getItem(RESULT_SLOT).getItem() == output.getItem() || inventory.getItem(RESULT_SLOT).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
+        return inventory.getItem(RESULT_SLOT).getMaxStackSize() > inventory.getItem(RESULT_SLOT).getCount();
     }
+
+    public int getMaxProgress() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+        Optional<MetalFormerRecipe> recipe = level.getRecipeManager().getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
+        return recipe.map(MetalFormerRecipe::getMaxProgress).orElse(200);
+    }
+
 }
