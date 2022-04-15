@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " g ",
+    "ccc",
     "rmr",
     "bpb"
   ],
   "key": {
-    "g": {
-      "item": "minecraft:gold_ingot"
+    "c": {
+      "item": "minecraft:copper_ingot"
     },
     "r": {
       "item": "minecraft:redstone"
     },
     "m": {
-      "item": "socketcraft:machine_frame"
+      "item": "socketcraft:machine_casing"
     },
     "b": {
       "item": "minecraft:iron_block"
