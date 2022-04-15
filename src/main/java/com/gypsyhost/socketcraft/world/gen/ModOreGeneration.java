@@ -14,5 +14,11 @@ public class ModOreGeneration {
 
         base.add(ModPlacedFeatures.TITANIUM_ORE_PLACED);
         base.add(ModPlacedFeatures.TUNGSTEN_ORE_PLACED);
+        base.add(ModPlacedFeatures.AVENTURINE_ORE_PLACED);
+        base.add(ModPlacedFeatures.CALCITE_ORE_PLACED);
+        base.add(ModPlacedFeatures.PYRITE_ORE_PLACED);
+        base.add(ModPlacedFeatures.RUBY_ORE_PLACED);
+        base.add(ModPlacedFeatures.TOPAZ_ORE_PLACED);
+        base.add(ModPlacedFeatures.UNAKITE_ORE_PLACED);
     }
 }

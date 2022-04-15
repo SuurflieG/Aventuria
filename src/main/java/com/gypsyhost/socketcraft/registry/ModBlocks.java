@@ -25,7 +25,9 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SocketCraft.MOD_ID);
 
     public static final RegistryObject<Block> TITANIUM_ORE = registerBlock("titanium_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_TITANIUM_ORE = registerBlock("deepslate_titanium_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> TUNGSTEN_ORE = registerBlock("tungsten_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_TUNGSTEN_ORE = registerBlock("deepslate_tungsten_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
 
     public static final RegistryObject<Block> AVENTURINE_ORE = registerBlock("aventurine_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> CALCITE_ORE = registerBlock("calcite_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
@@ -33,6 +35,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> RUBY_ORE = registerBlock("ruby_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> TOPAZ_ORE = registerBlock("topaz_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> UNAKITE_ORE = registerBlock("unakite_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+
+    public static final RegistryObject<Block> DEEPSLATE_AVENTURINE_ORE = registerBlock("deepslate_aventurine_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_CALCITE_ORE = registerBlock("deepslate_calcite_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_PYRITE_ORE = registerBlock("deepslate_pyrite_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerBlock("deepslate_topaz_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> DEEPSLATE_UNAKITE_ORE = registerBlock("deepslate_unakite_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
+
 
     public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
