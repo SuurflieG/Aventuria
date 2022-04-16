@@ -1,6 +1,6 @@
 package com.gypsyhost.socketcraft;
 
-import com.gypsyhost.socketcraft.custom.gui.metalformer.MetalFormerScreen;
+import com.gypsyhost.socketcraft.custom.gui.metalformer.PressScreen;
 import com.gypsyhost.socketcraft.registry.*;
 import com.gypsyhost.socketcraft.config.SocketCraftCommonConfigs;
 import com.mojang.logging.LogUtils;
@@ -62,7 +62,7 @@ public class SocketCraft
 
     private void clientSetup(final FMLClientSetupEvent event) {
 
-        MenuScreens.register(ModMenuTypes.METAL_FORMER_MENU.get(), MetalFormerScreen::new);
+        MenuScreens.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
 
     }
 

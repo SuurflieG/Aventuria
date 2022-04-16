@@ -25,7 +25,7 @@
                   }
                 }
               ],
-              "name": "socketcraft:raw_ruby"
+              "name": "socketcraft:gem_raw_ruby"
             },
             {
               "type": "minecraft:item",
@@ -48,7 +48,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "socketcraft:raw_ruby"
+              "name": "socketcraft:gem_raw_ruby"
             }
           ]
         }

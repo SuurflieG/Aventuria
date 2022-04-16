@@ -25,12 +25,12 @@ public class SCItemTags extends ItemTagsProvider {
                 .add(ModItems.TITANIUM_DUST.get())
                 .add(ModItems.TUNGSTEN_DUST.get());
         tag(Tags.Items.GEMS)
-                .add(ModItems.RAW_AVENTURINE.get())
-                .add(ModItems.RAW_CALCITE.get())
-                .add(ModItems.RAW_PYRITE.get())
-                .add(ModItems.RAW_RUBY.get())
-                .add(ModItems.RAW_TOPAZ.get())
-                .add(ModItems.RAW_UNAKITE.get());
+                .add(ModItems.GEM_RAW_AVENTURINE.get())
+                .add(ModItems.GEM_RAW_CALCITE.get())
+                .add(ModItems.GEM_RAW_PYRITE.get())
+                .add(ModItems.GEM_RAW_RUBY.get())
+                .add(ModItems.GEM_RAW_TOPAZ.get())
+                .add(ModItems.GEM_RAW_UNAKITE.get());
         tag(Tags.Items.INGOTS)
                 .add(ModItems.STEEL_INGOT.get())
                 .add(ModItems.TITANIUM_INGOT.get())
