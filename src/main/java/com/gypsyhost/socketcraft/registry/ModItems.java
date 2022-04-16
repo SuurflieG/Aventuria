@@ -1,7 +1,8 @@
 package com.gypsyhost.socketcraft.registry;
 
 import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.custom.item.CraftingHammer;
+import com.gypsyhost.socketcraft.custom.item.CatalystItem;
+import com.gypsyhost.socketcraft.custom.item.CraftingHammerItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,10 +30,12 @@ public class ModItems {
     public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
 
-    public static final RegistryObject<Item> CRAFTING_HAMMER_IRON = ITEMS.register("crafting_hammer_iron", () -> new CraftingHammer(new Item.Properties().durability(32).tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> CRAFTING_HAMMER_STEEL = ITEMS.register("crafting_hammer_steel", () -> new CraftingHammer(new Item.Properties().durability(128).tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> CRAFTING_HAMMER_TITANIUM = ITEMS.register("crafting_hammer_titanium", () -> new CraftingHammer(new Item.Properties().durability(256).tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> CRAFTING_HAMMER_TUNGSTEN = ITEMS.register("crafting_hammer_tungsten", () -> new CraftingHammer(new Item.Properties().durability(512).tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> CRAFTING_HAMMER_IRON = ITEMS.register("crafting_hammer_iron", () -> new CraftingHammerItem(new Item.Properties().durability(32).tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> CRAFTING_HAMMER_STEEL = ITEMS.register("crafting_hammer_steel", () -> new CraftingHammerItem(new Item.Properties().durability(128).tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> CRAFTING_HAMMER_TITANIUM = ITEMS.register("crafting_hammer_titanium", () -> new CraftingHammerItem(new Item.Properties().durability(256).tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> CRAFTING_HAMMER_TUNGSTEN = ITEMS.register("crafting_hammer_tungsten", () -> new CraftingHammerItem(new Item.Properties().durability(512).tab(ModCreativeModeTab.MOD_TAB)));
+
+    public static final RegistryObject<Item> CATALYST = ITEMS.register("catalyst", () -> new CatalystItem(new Item.Properties().durability(128).tab(ModCreativeModeTab.MOD_TAB)));
 
     public static final RegistryObject<Item> IRON_PLATE = ITEMS.register("iron_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> REDSTONE_PLATE = ITEMS.register("redstone_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));

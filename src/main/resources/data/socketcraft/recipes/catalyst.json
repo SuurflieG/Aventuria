@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "123",
+    "789",
+    "456"
+  ],
+  "key": {
+    "1": {
+      "item": "socketcraft:gem_raw_aventurine"
+    },
+    "2": {
+      "item": "socketcraft:gem_raw_calcite"
+    },
+    "3": {
+      "item": "socketcraft:gem_raw_pyrite"
+    },
+    "4": {
+      "item": "socketcraft:gem_raw_gem_ruby"
+    },
+    "5": {
+      "item": "socketcraft:gem_raw_gem_topaz"
+    },
+    "6": {
+      "item": "socketcraft:gem_raw_gem_unakite"
+    },
+    "7": {
+      "item": "socketcraft:steel_plate"
+    },
+    "8": {
+      "item": "socketcraft:titanium_plate"
+    },
+    "9": {
+      "item": "socketcraft:tungsten_plate"
+    }
+  },
+  "result": {
+    "item": "socketcraft:catalyst",
+    "count": 1
+  }
+}

@@ -5,8 +5,8 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.Random;
 
-public class CraftingHammer extends Item {
-    public CraftingHammer(Properties pProperties) {
+public class CatalystItem extends Item {
+    public CatalystItem(Properties pProperties) {
         super(pProperties);
     }
 
