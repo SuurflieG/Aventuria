@@ -39,26 +39,20 @@ public class ModItems {
     public static final RegistryObject<Item> STEEL_PLATE = ITEMS.register("steel_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> TITANIUM_PLATE = ITEMS.register("titanium_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> TUNGSTEN_PLATE = ITEMS.register("tungsten_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> AVENTURINE_PLATE = ITEMS.register("aventurine_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> CALCITE_PLATE = ITEMS.register("calcite_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> PYRITE_PLATE = ITEMS.register("pyrite_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> RUBY_PLATE = ITEMS.register("ruby_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> TOPAZ_PLATE = ITEMS.register("topaz_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> UNAKITE_PLATE = ITEMS.register("unakite_plate", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
 
-    public static final RegistryObject<Item> RAW_AVENTURINE = ITEMS.register("raw_aventurine", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> RAW_CALCITE = ITEMS.register("raw_calcite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> RAW_PYRITE = ITEMS.register("raw_pyrite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> RAW_RUBY = ITEMS.register("raw_ruby", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> RAW_TOPAZ = ITEMS.register("raw_topaz", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> RAW_UNAKITE = ITEMS.register("raw_unakite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_RAW_AVENTURINE = ITEMS.register("gem_raw_aventurine", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_RAW_CALCITE = ITEMS.register("gem_raw_calcite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_RAW_PYRITE = ITEMS.register("gem_raw_pyrite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_RAW_RUBY = ITEMS.register("gem_raw_ruby", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_RAW_TOPAZ = ITEMS.register("gem_raw_topaz", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_RAW_UNAKITE = ITEMS.register("gem_raw_unakite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
 
-    public static final RegistryObject<Item> POLISHED_AVENTURINE = ITEMS.register("polished_aventurine", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> POLISHED_CALCITE = ITEMS.register("polished_calcite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> POLISHED_PYRITE = ITEMS.register("polished_pyrite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> POLISHED_RUBY = ITEMS.register("polished_ruby", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> POLISHED_TOPAZ = ITEMS.register("polished_topaz", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
-    public static final RegistryObject<Item> POLISHED_UNAKITE = ITEMS.register("polished_unakite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_AVENTURINE = ITEMS.register("gem_aventurine", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_CALCITE = ITEMS.register("gem_calcite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_PYRITE = ITEMS.register("gem_pyrite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_RUBY = ITEMS.register("gem_ruby", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_TOPAZ = ITEMS.register("gem_topaz", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    public static final RegistryObject<Item> GEM_UNAKITE = ITEMS.register("gem_unakite", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
 
 
 
