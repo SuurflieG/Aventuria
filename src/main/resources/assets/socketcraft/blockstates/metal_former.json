@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "socketcraft:block/metal_former" },
-    "facing=east": { "model": "socketcraft:block/metal_former", "y": 90 },
-    "facing=south": { "model": "socketcraft:block/metal_former", "y": 180 },
-    "facing=west": { "model": "socketcraft:block/metal_former", "y": 270 }
-  }
-}

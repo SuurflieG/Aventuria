@@ -9,11 +9,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class MetalFormerScreen extends AbstractContainerScreen<MetalFormerMenu> {
+public class PressScreen extends AbstractContainerScreen<PressMenu> {
         private static final ResourceLocation TEXTURE =
-        new ResourceLocation(SocketCraft.MOD_ID, "textures/gui/metal_former_gui.png");
+        new ResourceLocation(SocketCraft.MOD_ID, "textures/gui/press_gui.png");
 
-        public MetalFormerScreen(MetalFormerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+        public PressScreen(PressMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         }
 

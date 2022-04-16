@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "socketcraft:block/press" },
+    "facing=east": { "model": "socketcraft:block/press", "y": 90 },
+    "facing=south": { "model": "socketcraft:block/press", "y": 180 },
+    "facing=west": { "model": "socketcraft:block/press", "y": 270 }
+  }
+}

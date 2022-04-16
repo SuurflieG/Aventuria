@@ -1,10 +1,8 @@
 package com.gypsyhost.socketcraft.custom.block.entity;
 
-import com.gypsyhost.socketcraft.custom.gui.metalformer.MetalFormerMenu;
-import com.gypsyhost.socketcraft.custom.item.CraftingHammer;
-import com.gypsyhost.socketcraft.custom.recipe.MetalFormerRecipe;
+import com.gypsyhost.socketcraft.custom.gui.metalformer.PressMenu;
+import com.gypsyhost.socketcraft.custom.recipe.PressRecipe;
 import com.gypsyhost.socketcraft.registry.ModBlockEntities;
-import com.gypsyhost.socketcraft.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -35,7 +33,7 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.Random;
 
-public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider {
+public class PressBlockEntity extends BlockEntity implements MenuProvider {
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
@@ -56,25 +54,25 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     private int fuelTime = 0;
     private int maxFuelTime = 0;
 
-    public MetalFormerBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.METAL_FORMER.get(), pWorldPosition, pBlockState);
+    public PressBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
+        super(ModBlockEntities.PRESS.get(), pWorldPosition, pBlockState);
         this.data = new ContainerData() {
             public int get(int index) {
                 switch (index) {
-                    case 0: return MetalFormerBlockEntity.this.progress;
-                    case 1: return MetalFormerBlockEntity.this.maxProgress;
-                    case 2: return MetalFormerBlockEntity.this.fuelTime;
-                    case 3: return MetalFormerBlockEntity.this.maxFuelTime;
+                    case 0: return PressBlockEntity.this.progress;
+                    case 1: return PressBlockEntity.this.maxProgress;
+                    case 2: return PressBlockEntity.this.fuelTime;
+                    case 3: return PressBlockEntity.this.maxFuelTime;
                     default: return 0;
                 }
             }
 
             public void set(int index, int value) {
                 switch(index) {
-                    case 0: MetalFormerBlockEntity.this.progress = value; break;
-                    case 1: MetalFormerBlockEntity.this.maxProgress = value; break;
-                    case 2: MetalFormerBlockEntity.this.fuelTime = value; break;
-                    case 3: MetalFormerBlockEntity.this.maxFuelTime = value; break;
+                    case 0: PressBlockEntity.this.progress = value; break;
+                    case 1: PressBlockEntity.this.maxProgress = value; break;
+                    case 2: PressBlockEntity.this.fuelTime = value; break;
+                    case 3: PressBlockEntity.this.maxFuelTime = value; break;
                 }
             }
 
@@ -86,13 +84,13 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public Component getDisplayName() {
-        return new TextComponent("Metal Former");
+        return new TextComponent("Press");
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new MetalFormerMenu(pContainerId, pInventory, this, this.data);
+        return new PressMenu(pContainerId, pInventory, this, this.data);
     }
 
     @Nonnull
@@ -120,9 +118,9 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
-        tag.putInt("former.progress", progress);
-        tag.putInt("former.fuelTime", fuelTime);
-        tag.putInt("former.maxFuelTime", maxFuelTime);
+        tag.putInt("press.progress", progress);
+        tag.putInt("press.fuelTime", fuelTime);
+        tag.putInt("press.maxFuelTime", maxFuelTime);
         super.saveAdditional(tag);
     }
 
@@ -130,9 +128,9 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
     public void load(CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("former.progress");
-        fuelTime = nbt.getInt("former.fuelTime");
-        maxFuelTime = nbt.getInt("former.maxFuelTime");
+        progress = nbt.getInt("press.progress");
+        fuelTime = nbt.getInt("press.fuelTime");
+        maxFuelTime = nbt.getInt("press.maxFuelTime");
     }
 
     public void drops() {
@@ -152,7 +150,7 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
         }
     }
 
-    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, MetalFormerBlockEntity pBlockEntity) {
+    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, PressBlockEntity pBlockEntity) {
         if(isConsumingFuel(pBlockEntity)) {
             pBlockEntity.fuelTime--;
         }
@@ -176,34 +174,34 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
         }
     }
 
-    private static boolean hasFuelInFuelSlot(MetalFormerBlockEntity entity) {
+    private static boolean hasFuelInFuelSlot(PressBlockEntity entity) {
         return !entity.itemHandler.getStackInSlot(FUEL_SLOT).isEmpty();
     }
 
-    private static boolean isConsumingFuel(MetalFormerBlockEntity entity) {
+    private static boolean isConsumingFuel(PressBlockEntity entity) {
         return entity.fuelTime > 0;
     }
 
-    private static boolean hasRecipe(MetalFormerBlockEntity entity) {
+    private static boolean hasRecipe(PressBlockEntity entity) {
         Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
         //This checks the inventory on the gui and if any of the input slot items match a recipe from the recipe type defined then it returns true which means it can start crafting
-        Optional<MetalFormerRecipe> match = level.getRecipeManager().getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
+        Optional<PressRecipe> match = level.getRecipeManager().getRecipeFor(PressRecipe.Type.INSTANCE, inventory, level);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
     }
 
-    private static void craftItem(MetalFormerBlockEntity entity) {
+    private static void craftItem(PressBlockEntity entity) {
         Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        Optional<MetalFormerRecipe> match = level.getRecipeManager().getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
+        Optional<PressRecipe> match = level.getRecipeManager().getRecipeFor(PressRecipe.Type.INSTANCE, inventory, level);
 
         if(match.isPresent()) {
             entity.itemHandler.extractItem(INPUT_SLOT_A,1, false);
@@ -232,8 +230,8 @@ public class MetalFormerBlockEntity extends BlockEntity implements MenuProvider 
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             inventory.setItem(i, itemHandler.getStackInSlot(i));
         }
-        Optional<MetalFormerRecipe> recipe = level.getRecipeManager().getRecipeFor(MetalFormerRecipe.Type.INSTANCE, inventory, level);
-        return recipe.map(MetalFormerRecipe::getMaxProgress).orElse(200);
+        Optional<PressRecipe> recipe = level.getRecipeManager().getRecipeFor(PressRecipe.Type.INSTANCE, inventory, level);
+        return recipe.map(PressRecipe::getMaxProgress).orElse(200);
     }
 
 }

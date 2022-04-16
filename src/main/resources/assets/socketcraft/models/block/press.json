@@ -3,7 +3,7 @@
   "texture_size": [64, 64],
   "textures": {
     "0": "socketcraft:block/machine_casing",
-    "1": "socketcraft:block/metal_former",
+    "1": "socketcraft:block/press",
     "particle": "socketcraft:block/machine_casing"
   },
   "elements": [

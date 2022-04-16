@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.*;
 
 import javax.annotation.Nullable;
 
-public class MetalFormerRecipe implements Recipe<SimpleContainer> {
+public class PressRecipe implements Recipe<SimpleContainer> {
 
 
     private static final int INPUT_SLOT_A = 1;
@@ -24,7 +24,7 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
     private final int maxProgress;
     private final NonNullList<Ingredient> recipeItems;
 
-    public MetalFormerRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, int maxProgress) {
+    public PressRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, int maxProgress) {
         this.id = id;
         this.output = output;
         this.maxProgress = maxProgress;
@@ -74,18 +74,18 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements RecipeType<MetalFormerRecipe> {
+    public static class Type implements RecipeType<PressRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
         public static final String ID = "metal_forming";
     }
 
-    public static class Serializer implements RecipeSerializer<MetalFormerRecipe> {
+    public static class Serializer implements RecipeSerializer<PressRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(SocketCraft.MOD_ID,"metal_forming");
 
         @Override
-        public MetalFormerRecipe fromJson(ResourceLocation id, JsonObject json) {
+        public PressRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
             int maxProgress = GsonHelper.getAsInt(json, "crafttime");
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
@@ -95,11 +95,11 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new MetalFormerRecipe(id, output, inputs, maxProgress);
+            return new PressRecipe(id, output, inputs, maxProgress);
         }
 
         @Override
-        public MetalFormerRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public PressRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
@@ -108,11 +108,11 @@ public class MetalFormerRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = buf.readItem();
             int maxProgress = buf.readInt();
-            return new MetalFormerRecipe(id, output, inputs, maxProgress);
+            return new PressRecipe(id, output, inputs, maxProgress);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, MetalFormerRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, PressRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);

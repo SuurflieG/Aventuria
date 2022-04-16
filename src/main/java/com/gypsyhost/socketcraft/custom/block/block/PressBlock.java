@@ -1,6 +1,6 @@
 package com.gypsyhost.socketcraft.custom.block.block;
 
-import com.gypsyhost.socketcraft.custom.block.entity.MetalFormerBlockEntity;
+import com.gypsyhost.socketcraft.custom.block.entity.PressBlockEntity;
 import com.gypsyhost.socketcraft.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -29,11 +29,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
 
-public class MetalFormerBlock extends BaseEntityBlock {
+public class PressBlock extends BaseEntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public MetalFormerBlock(Properties properties) {
+    public PressBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
@@ -300,8 +300,8 @@ public class MetalFormerBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof MetalFormerBlockEntity) {
-                ((MetalFormerBlockEntity) blockEntity).drops();
+            if (blockEntity instanceof PressBlockEntity) {
+                ((PressBlockEntity) blockEntity).drops();
             }
         }
     }
@@ -311,8 +311,8 @@ public class MetalFormerBlock extends BaseEntityBlock {
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if(entity instanceof MetalFormerBlockEntity) {
-                NetworkHooks.openGui(((ServerPlayer)pPlayer), (MetalFormerBlockEntity)entity, pPos);
+            if(entity instanceof PressBlockEntity) {
+                NetworkHooks.openGui(((ServerPlayer)pPlayer), (PressBlockEntity)entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
@@ -324,12 +324,12 @@ public class MetalFormerBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new MetalFormerBlockEntity(pPos, pState);
+        return new PressBlockEntity(pPos, pState);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.METAL_FORMER.get(), MetalFormerBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.PRESS.get(), PressBlockEntity::tick);
     }
 }

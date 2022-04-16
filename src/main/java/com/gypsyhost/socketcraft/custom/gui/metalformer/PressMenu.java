@@ -1,6 +1,6 @@
 package com.gypsyhost.socketcraft.custom.gui.metalformer;
 
-import com.gypsyhost.socketcraft.custom.block.entity.MetalFormerBlockEntity;
+import com.gypsyhost.socketcraft.custom.block.entity.PressBlockEntity;
 import com.gypsyhost.socketcraft.custom.gui.slot.ModFuelSlot;
 import com.gypsyhost.socketcraft.custom.gui.slot.ModResultSlot;
 import com.gypsyhost.socketcraft.registry.ModBlocks;
@@ -15,8 +15,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class MetalFormerMenu extends AbstractContainerMenu {
-    private final MetalFormerBlockEntity blockEntity;
+public class PressMenu extends AbstractContainerMenu {
+    private final PressBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
     private final int FUEL_SLOT = 0;
@@ -24,14 +24,14 @@ public class MetalFormerMenu extends AbstractContainerMenu {
     private final int RESULT_SLOT = 2;
     private final int TOOL_SLOT = 3;
 
-    public MetalFormerMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
+    public PressMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
         this(windowId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
-    public MetalFormerMenu(int windowId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.METAL_FORMER_MENU.get(), windowId);
+    public PressMenu(int windowId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.PRESS_MENU.get(), windowId);
         checkContainerSize(inv, 4);
-        blockEntity = ((MetalFormerBlockEntity) entity);
+        blockEntity = ((PressBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
 
@@ -126,7 +126,7 @@ public class MetalFormerMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.METAL_FORMER.get());
+                pPlayer, ModBlocks.PRESS.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
