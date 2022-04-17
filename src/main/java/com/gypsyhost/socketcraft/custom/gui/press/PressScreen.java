@@ -1,4 +1,4 @@
-package com.gypsyhost.socketcraft.custom.gui.metalformer;
+package com.gypsyhost.socketcraft.custom.gui.press;
 
 import com.gypsyhost.socketcraft.SocketCraft;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -33,14 +33,13 @@ public class PressScreen extends AbstractContainerScreen<PressMenu> {
                 this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
         
                 if(menu.isCrafting()) {
-                blit(pPoseStack, x + 79, y + 34, 176, 14, menu.getScaledProgress(), 36);
+                blit(pPoseStack, x + 97, y + 24, 176, 16, menu.getScaledProgress(), 40);
                 }
         
                 if(menu.hasFuel()) {
-                blit(pPoseStack, x + 56, y + 36 + 14 - menu.getScaledFuelProgress(), 176,
-                14 - menu.getScaledFuelProgress(), 14, menu.getScaledFuelProgress());
+                blit(pPoseStack, x + 56, y + 36 + 15 - menu.getScaledFuelProgress(), 176, 15 - menu.getScaledFuelProgress(), 11, menu.getScaledFuelProgress());
                 }
-                }
+        }
         
         @Override
         public void render(PoseStack pPoseStack, int mouseX, int mouseY, float delta) {

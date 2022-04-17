@@ -1,5 +1,5 @@
 {
-  "type": "socketcraft:metal_forming",
+  "type": "socketcraft:pressing",
   "ingredients": [
     {
       "tag": "socketcraft:crafting_hammer"

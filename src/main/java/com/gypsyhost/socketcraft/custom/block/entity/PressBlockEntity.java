@@ -1,6 +1,6 @@
 package com.gypsyhost.socketcraft.custom.block.entity;
 
-import com.gypsyhost.socketcraft.custom.gui.metalformer.PressMenu;
+import com.gypsyhost.socketcraft.custom.gui.press.PressMenu;
 import com.gypsyhost.socketcraft.custom.recipe.PressRecipe;
 import com.gypsyhost.socketcraft.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -144,8 +144,7 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
 
     private void consumeFuel() {
         if(!itemHandler.getStackInSlot(FUEL_SLOT).isEmpty()) {
-            this.fuelTime = ForgeHooks.getBurnTime(this.itemHandler.extractItem(FUEL_SLOT, 1, false),
-                    RecipeType.SMELTING);
+            this.fuelTime = ForgeHooks.getBurnTime(this.itemHandler.extractItem(FUEL_SLOT, 1, false), RecipeType.SMELTING);
             this.maxFuelTime = this.fuelTime;
         }
     }
@@ -164,7 +163,7 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
                 pBlockEntity.progress++;
                 pBlockEntity.maxProgress = pBlockEntity.getMaxProgress();
                 setChanged(pLevel, pPos, pState);
-                if(pBlockEntity.progress > pBlockEntity.maxProgress) {
+                if(pBlockEntity.progress >= pBlockEntity.maxProgress) {
                     craftItem(pBlockEntity);
                 }
             }

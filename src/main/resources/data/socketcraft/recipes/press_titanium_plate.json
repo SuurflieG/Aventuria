@@ -1,15 +1,15 @@
 {
-  "type": "socketcraft:metal_forming",
+  "type": "socketcraft:pressing",
   "ingredients": [
     {
       "tag": "socketcraft:crafting_hammer"
     },
     {
-      "item": "socketcraft:steel_ingot"
+      "item": "socketcraft:titanium_ingot"
     }
   ],
   "output": {
-    "item": "socketcraft:steel_plate"
+    "item": "socketcraft:titanium_plate"
   },
   "crafttime": 200
 }

@@ -77,12 +77,12 @@ public class PressRecipe implements Recipe<SimpleContainer> {
     public static class Type implements RecipeType<PressRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
-        public static final String ID = "metal_forming";
+        public static final String ID = "pressing";
     }
 
     public static class Serializer implements RecipeSerializer<PressRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(SocketCraft.MOD_ID,"metal_forming");
+        public static final ResourceLocation ID = new ResourceLocation(SocketCraft.MOD_ID,"pressing");
 
         @Override
         public PressRecipe fromJson(ResourceLocation id, JsonObject json) {

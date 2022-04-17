@@ -1,4 +1,4 @@
-package com.gypsyhost.socketcraft.custom.gui.metalformer;
+package com.gypsyhost.socketcraft.custom.gui.press;
 
 import com.gypsyhost.socketcraft.custom.block.entity.PressBlockEntity;
 import com.gypsyhost.socketcraft.custom.gui.slot.ModFuelSlot;
@@ -39,10 +39,10 @@ public class PressMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, TOOL_SLOT, 19, 17));
-            this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 56, 53));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_A, 56, 17));
-            this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 116, 35));
+            this.addSlot(new SlotItemHandler(handler, TOOL_SLOT, 79, 52));
+            this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 26, 35));
+            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_A, 79, 18));
+            this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 148, 36));
         });
 
         addDataSlots(data);
@@ -59,7 +59,7 @@ public class PressMenu extends AbstractContainerMenu {
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 24; // This is the width in pixels of your arrow
+        int progressArrowSize = 44; // This is the width in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
@@ -67,7 +67,7 @@ public class PressMenu extends AbstractContainerMenu {
     public int getScaledFuelProgress() {
         int fuelProgress = this.data.get(2);
         int maxFuelProgress = this.data.get(3);
-        int fuelProgressSize = 14; // This is the width in pixels of your flame
+        int fuelProgressSize = 11; // This is the width in pixels of your flame
 
         return maxFuelProgress != 0 ? (int)(((float)fuelProgress / (float)maxFuelProgress) * fuelProgressSize) : 0;
     }
