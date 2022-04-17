@@ -1,6 +1,7 @@
 package com.gypsyhost.socketcraft;
 
-import com.gypsyhost.socketcraft.custom.gui.metalformer.PressScreen;
+import com.gypsyhost.socketcraft.custom.gui.catalyzer.CatalyzerScreen;
+import com.gypsyhost.socketcraft.custom.gui.press.PressScreen;
 import com.gypsyhost.socketcraft.registry.*;
 import com.gypsyhost.socketcraft.config.SocketCraftCommonConfigs;
 import com.mojang.logging.LogUtils;
@@ -63,6 +64,7 @@ public class SocketCraft
     private void clientSetup(final FMLClientSetupEvent event) {
 
         MenuScreens.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
+        MenuScreens.register(ModMenuTypes.CATALYZER_MENU.get(), CatalyzerScreen::new);
 
     }
 

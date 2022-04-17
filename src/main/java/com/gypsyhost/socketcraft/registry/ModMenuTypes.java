@@ -1,7 +1,8 @@
 package com.gypsyhost.socketcraft.registry;
 
 import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.custom.gui.metalformer.PressMenu;
+import com.gypsyhost.socketcraft.custom.gui.catalyzer.CatalyzerMenu;
+import com.gypsyhost.socketcraft.custom.gui.press.PressMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -15,6 +16,7 @@ public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.CONTAINERS, SocketCraft.MOD_ID);
 
     public static final RegistryObject<MenuType<PressMenu>> PRESS_MENU = registerMenuType(PressMenu::new, "press_menu");
+    public static final RegistryObject<MenuType<CatalyzerMenu>> CATALYZER_MENU = registerMenuType(CatalyzerMenu::new, "catalyzer_menu");
 
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {
