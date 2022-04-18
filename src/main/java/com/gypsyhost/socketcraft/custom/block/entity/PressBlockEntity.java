@@ -58,21 +58,21 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
         super(ModBlockEntities.PRESS.get(), pWorldPosition, pBlockState);
         this.data = new ContainerData() {
             public int get(int index) {
-                switch (index) {
-                    case 0: return PressBlockEntity.this.progress;
-                    case 1: return PressBlockEntity.this.maxProgress;
-                    case 2: return PressBlockEntity.this.fuelTime;
-                    case 3: return PressBlockEntity.this.maxFuelTime;
-                    default: return 0;
-                }
+                return switch (index) {
+                    case 0 -> PressBlockEntity.this.progress;
+                    case 1 -> PressBlockEntity.this.maxProgress;
+                    case 2 -> PressBlockEntity.this.fuelTime;
+                    case 3 -> PressBlockEntity.this.maxFuelTime;
+                    default -> 0;
+                };
             }
 
             public void set(int index, int value) {
-                switch(index) {
-                    case 0: PressBlockEntity.this.progress = value; break;
-                    case 1: PressBlockEntity.this.maxProgress = value; break;
-                    case 2: PressBlockEntity.this.fuelTime = value; break;
-                    case 3: PressBlockEntity.this.maxFuelTime = value; break;
+                switch (index) {
+                    case 0 -> PressBlockEntity.this.progress = value;
+                    case 1 -> PressBlockEntity.this.maxProgress = value;
+                    case 2 -> PressBlockEntity.this.fuelTime = value;
+                    case 3 -> PressBlockEntity.this.maxFuelTime = value;
                 }
             }
 

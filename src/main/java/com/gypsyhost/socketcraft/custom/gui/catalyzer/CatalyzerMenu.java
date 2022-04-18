@@ -63,7 +63,7 @@ public class CatalyzerMenu extends AbstractContainerMenu {
         return data.get(2) > 0;
     }
 
-    public int getScaledProgressSide() {
+    public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);  // Max Progress
         int progressArrowSize = 11; // This is the width in pixels of your arrow
@@ -71,18 +71,10 @@ public class CatalyzerMenu extends AbstractContainerMenu {
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
-    public int getScaledProgressTopBottom() {
-        int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 11; // This is the height in pixels of your arrow
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
-
     public int getScaledFuelProgress() {
         int fuelProgress = this.data.get(2);
         int maxFuelProgress = this.data.get(3);
-        int fuelProgressSize = 11; // This is the width in pixels of your flame
+        int fuelProgressSize = 15; // This is the width in pixels of your flame
 
         return maxFuelProgress != 0 ? (int)(((float)fuelProgress / (float)maxFuelProgress) * fuelProgressSize) : 0;
     }

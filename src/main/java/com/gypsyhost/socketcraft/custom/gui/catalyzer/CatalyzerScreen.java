@@ -21,11 +21,14 @@ public class CatalyzerScreen extends AbstractContainerScreen<CatalyzerMenu> {
 
         public CatalyzerScreen(CatalyzerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
+
         }
 
         @Override
         protected void init() {
                 super.init();
+                this.leftPos = (this.width - this.imageWidth) / 2; // this is needed so that the Menu class knows what the width and height of the gui is in order to draw the slots in the correct positions
+                this.topPos = (this.height - this.imageHeight) / 2;
         }
 
         @Override
@@ -47,14 +50,14 @@ public class CatalyzerScreen extends AbstractContainerScreen<CatalyzerMenu> {
                 this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
         
                 if(menu.isCrafting()) {
-                blit(pPoseStack, x + 65, y + 53, 176, 16, menu.getScaledProgressSide(), 2); // Left Slot Progress Bar
-                blit(pPoseStack, x + 87, y + 31, 179, 22, 2, menu.getScaledProgressTopBottom()); // Top Slot Progress Bar
-                blit(pPoseStack, x + 110, y + 53, 176, 19, menu.getScaledProgressSide(), 2); // Right Slot Progress Bar
-                blit(pPoseStack, x + 87, y + 76, 176, 22, 2, menu.getScaledProgressTopBottom()); // Bottom Slot Progress Bar
+                blit(pPoseStack, x + 65, y + 53, 176, 16, menu.getScaledProgress(), 2); // Left Slot Progress Bar
+                blit(pPoseStack, x + 87, y + 31, 179, 22, 2, menu.getScaledProgress()); // Top Slot Progress Bar
+                blit(pPoseStack, x + 111 - menu.getScaledProgress(), y + 53, 186 - menu.getScaledProgress(), 19, menu.getScaledProgress(), 2); // Right Slot Progress Bar
+                blit(pPoseStack, x + 87, y + 77 - menu.getScaledProgress(), 176, 32 - menu.getScaledProgress(), 2, menu.getScaledProgress()); // Bottom Slot Progress Bar
                 }
         
                 if(menu.hasFuel()) {
-                blit(pPoseStack, x + 56, y + 36 + 15 - menu.getScaledFuelProgress(), 176, 15 - menu.getScaledFuelProgress(), 11, menu.getScaledFuelProgress());
+                blit(pPoseStack, x + 10, y + 68 + 15 - menu.getScaledFuelProgress(), 176, 15 - menu.getScaledFuelProgress(), 11, menu.getScaledFuelProgress());
                 }
         }
         

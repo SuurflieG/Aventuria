@@ -63,6 +63,8 @@ public class SocketCraft
 
     private void clientSetup(final FMLClientSetupEvent event) {
 
+        //ItemBlockRenderTypes.setRenderLayer(ModBlocks.GENERATOR_BASIC.get(), RenderType.translucent());
+
         MenuScreens.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         MenuScreens.register(ModMenuTypes.CATALYZER_MENU.get(), CatalyzerScreen::new);
 

@@ -2,6 +2,7 @@ package com.gypsyhost.socketcraft.registry;
 
 import com.gypsyhost.socketcraft.SocketCraft;
 import com.gypsyhost.socketcraft.custom.block.entity.CatalyzerBlockEntity;
+import com.gypsyhost.socketcraft.custom.block.entity.EnergyStorageBasicBlockEntity;
 import com.gypsyhost.socketcraft.custom.block.entity.PressBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +19,9 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<CatalyzerBlockEntity>> CATALYZER = BLOCK_ENTITIES.register("catalyzer" ,
             () -> BlockEntityType.Builder.of(CatalyzerBlockEntity::new, ModBlocks.CATALYZER.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<EnergyStorageBasicBlockEntity>> ENERGY_STORAGE_BASIC = BLOCK_ENTITIES.register("energy_storage_basic" ,
+            () -> BlockEntityType.Builder.of(EnergyStorageBasicBlockEntity::new, ModBlocks.ENERGY_STORAGE_BASIC.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

@@ -61,21 +61,21 @@ public class CatalyzerBlockEntity extends BlockEntity implements MenuProvider {
         super(ModBlockEntities.CATALYZER.get(), pWorldPosition, pBlockState);
         this.data = new ContainerData() {
             public int get(int index) {
-                switch (index) {
-                    case 0: return CatalyzerBlockEntity.this.progress;
-                    case 1: return CatalyzerBlockEntity.this.maxProgress;
-                    case 2: return CatalyzerBlockEntity.this.fuelTime;
-                    case 3: return CatalyzerBlockEntity.this.maxFuelTime;
-                    default: return 0;
-                }
+                return switch (index) {
+                    case 0 -> CatalyzerBlockEntity.this.progress;
+                    case 1 -> CatalyzerBlockEntity.this.maxProgress;
+                    case 2 -> CatalyzerBlockEntity.this.fuelTime;
+                    case 3 -> CatalyzerBlockEntity.this.maxFuelTime;
+                    default -> 0;
+                };
             }
 
             public void set(int index, int value) {
-                switch(index) {
-                    case 0: CatalyzerBlockEntity.this.progress = value; break;
-                    case 1: CatalyzerBlockEntity.this.maxProgress = value; break;
-                    case 2: CatalyzerBlockEntity.this.fuelTime = value; break;
-                    case 3: CatalyzerBlockEntity.this.maxFuelTime = value; break;
+                switch (index) {
+                    case 0 -> CatalyzerBlockEntity.this.progress = value;
+                    case 1 -> CatalyzerBlockEntity.this.maxProgress = value;
+                    case 2 -> CatalyzerBlockEntity.this.fuelTime = value;
+                    case 3 -> CatalyzerBlockEntity.this.maxFuelTime = value;
                 }
             }
 
@@ -206,11 +206,14 @@ public class CatalyzerBlockEntity extends BlockEntity implements MenuProvider {
         Optional<CatalyzerRecipe> match = level.getRecipeManager().getRecipeFor(CatalyzerRecipe.Type.INSTANCE, inventory, level);
 
         if(match.isPresent()) {
+            ItemStack item = entity.itemHandler.getStackInSlot(CATALYZER_SLOT);
             entity.itemHandler.extractItem(INPUT_SLOT_A,1, false);
             entity.itemHandler.extractItem(INPUT_SLOT_B,1, false);
             entity.itemHandler.extractItem(INPUT_SLOT_C,1, false);
             entity.itemHandler.extractItem(INPUT_SLOT_D,1, false);
-            entity.itemHandler.getStackInSlot(CATALYZER_SLOT).hurt(1, new Random(), null);
+            item = item.copy();
+            item.hurt(1, new Random(), null);
+            entity.itemHandler.setStackInSlot(CATALYZER_SLOT, item);
             entity.itemHandler.setStackInSlot(RESULT_SLOT, new ItemStack(match.get().getResultItem().getItem(),entity.itemHandler.getStackInSlot(RESULT_SLOT).getCount() + 1));
             
             entity.resetProgress();
