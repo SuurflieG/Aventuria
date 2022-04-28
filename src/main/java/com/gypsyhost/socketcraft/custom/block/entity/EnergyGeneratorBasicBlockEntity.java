@@ -1,5 +1,6 @@
 package com.gypsyhost.socketcraft.custom.block.entity;
 
+import com.gypsyhost.socketcraft.config.SocketCraftCommonConfigs;
 import com.gypsyhost.socketcraft.custom.gui.energygeneratorbasic.EnergyGeneratorBasicMenu;
 import com.gypsyhost.socketcraft.custom.util.energy.CustomEnergyStorage;
 import com.gypsyhost.socketcraft.registry.ModBlockEntities;
@@ -34,7 +35,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class EnergyGeneratorBasicBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -51,22 +51,22 @@ public class EnergyGeneratorBasicBlockEntity extends BlockEntity implements Menu
     private static final int FUEL_SLOT = 0;
 
     protected final ContainerData data;
-    private int maxCapacity = 10000;
-    private int maxGenerate = 60;
-    private int maxExtract = 200;
+    private int maxCapacity = SocketCraftCommonConfigs.ENERGY_GENERATOR_BASIC_CAPACITY.get();
+    private int maxGenerate = SocketCraftCommonConfigs.ENERGY_GENERATOR_BASIC_GENERATE.get();
+    private int maxSend = SocketCraftCommonConfigs.ENERGY_GENERATOR_BASIC_SEND.get();
     private int fuelProgress = 0;
     private int maxFuelProgress = 0;
 
     public EnergyGeneratorBasicBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.ENERGY_GENERATOR_BASIC.get(), pWorldPosition, pBlockState);
-        this.energyStorage = new CustomEnergyStorage(maxCapacity, 0, maxExtract , maxGenerate,0);
+        this.energyStorage = new CustomEnergyStorage(maxCapacity, 0, maxSend, maxGenerate,0);
         this.lazyEnergyHandler = LazyOptional.of(() -> this.energyStorage);
         this.data = new ContainerData() {
             public int get(int index) {
                 return switch (index) {
                     case 0 -> EnergyGeneratorBasicBlockEntity.this.maxCapacity;
                     case 1 -> EnergyGeneratorBasicBlockEntity.this.maxGenerate;
-                    case 2 -> EnergyGeneratorBasicBlockEntity.this.maxExtract;
+                    case 2 -> EnergyGeneratorBasicBlockEntity.this.maxSend;
                     case 3 -> EnergyGeneratorBasicBlockEntity.this.fuelProgress;
                     case 4 -> EnergyGeneratorBasicBlockEntity.this.maxFuelProgress;
                     default -> 0;
@@ -77,7 +77,7 @@ public class EnergyGeneratorBasicBlockEntity extends BlockEntity implements Menu
                 switch (index) {
                     case 0 -> EnergyGeneratorBasicBlockEntity.this.maxCapacity = value;
                     case 1 -> EnergyGeneratorBasicBlockEntity.this.maxGenerate = value;
-                    case 2 -> EnergyGeneratorBasicBlockEntity.this.maxExtract = value;
+                    case 2 -> EnergyGeneratorBasicBlockEntity.this.maxSend = value;
                     case 3 -> EnergyGeneratorBasicBlockEntity.this.fuelProgress = value;
                     case 4 -> EnergyGeneratorBasicBlockEntity.this.maxFuelProgress = value;
                 }
@@ -229,7 +229,7 @@ public class EnergyGeneratorBasicBlockEntity extends BlockEntity implements Menu
     }
 
     public void outputEnergy() { // This is not my own don't fully understand it
-        if (this.energyStorage.getEnergyStored() >= maxExtract && this.energyStorage.canExtract()) {
+        if (this.energyStorage.getEnergyStored() >= maxSend && this.energyStorage.canExtract()) {
             for (final var direction : Direction.values()) {
                 final BlockEntity pBlockEntity = this.level.getBlockEntity(this.worldPosition.relative(direction));
                 if (pBlockEntity == null) {
@@ -238,7 +238,7 @@ public class EnergyGeneratorBasicBlockEntity extends BlockEntity implements Menu
 
                 pBlockEntity.getCapability(CapabilityEnergy.ENERGY, direction.getOpposite()).ifPresent(storage -> {
                     if (pBlockEntity != this && storage.getEnergyStored() < storage.getMaxEnergyStored()) {
-                        final int toSend = EnergyGeneratorBasicBlockEntity.this.energyStorage.extractEnergy(maxExtract, false);
+                        final int toSend = EnergyGeneratorBasicBlockEntity.this.energyStorage.extractEnergy(maxSend, false);
                         final int received = storage.receiveEnergy(toSend, false);
 
                         EnergyGeneratorBasicBlockEntity.this.energyStorage.setEnergy(EnergyGeneratorBasicBlockEntity.this.energyStorage.getEnergyStored() + toSend - received);
