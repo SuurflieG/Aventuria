@@ -10,20 +10,19 @@ public class CustomEnergyStorage  implements IEnergyStorage, INBTSerializable<Co
     protected int energy;
     protected int capacity;
     protected int maxReceive;
-    protected int maxExtract;
+    protected int maxSend;
     protected int maxGenerate;
 
-    public CustomEnergyStorage(int capacity, int maxReceive, int maxExtract, int energy) {
+    public CustomEnergyStorage(int capacity, int maxSend, int energy) {
         this.capacity = capacity;
-        this.maxReceive = maxReceive;
-        this.maxExtract = maxExtract;
+        this.maxSend = maxSend;
         this.energy = Math.max(0 , Math.min(capacity, energy));
     }
 
-    public CustomEnergyStorage(int capacity, int maxReceive, int maxExtract, int maxGenerate, int energy) {
+    public CustomEnergyStorage(int capacity, int maxReceive, int maxSend, int maxGenerate, int energy) {
         this.capacity = capacity;
         this.maxReceive = maxReceive;
-        this.maxExtract = maxExtract;
+        this.maxSend = maxSend;
         this.maxGenerate = maxGenerate;
         this.energy = Math.max(0 , Math.min(capacity, energy));
     }
@@ -48,7 +47,7 @@ public class CustomEnergyStorage  implements IEnergyStorage, INBTSerializable<Co
                 "energy=" + energy +
                 ", capacity=" + capacity +
                 ", maxReceive=" + maxReceive +
-                ", maxExtract=" + maxExtract +
+                ", maxSend=" + maxSend +
                 ", maxGenerate=" + maxGenerate +
                 '}';
     }
@@ -66,12 +65,12 @@ public class CustomEnergyStorage  implements IEnergyStorage, INBTSerializable<Co
     }
 
     @Override
-    public int extractEnergy(int maxExtract, boolean simulate)
+    public int extractEnergy(int maxSend, boolean simulate)
     {
         if (!canExtract())
             return 0;
 
-        int energyExtracted = Math.min(energy, maxExtract);
+        int energyExtracted = Math.min(energy, maxSend);
         if (!simulate)
             energy -= energyExtracted;
         return energyExtracted;
@@ -83,7 +82,7 @@ public class CustomEnergyStorage  implements IEnergyStorage, INBTSerializable<Co
     }
 
     public int consumeEnergy(int energy) {
-        this.energy -= maxExtract;
+        this.energy -= maxSend;
         return energy;
     }
 
@@ -106,7 +105,7 @@ public class CustomEnergyStorage  implements IEnergyStorage, INBTSerializable<Co
     @Override
     public boolean canExtract()
     {
-        return this.maxExtract > 0;
+        return this.maxSend > 0;
     }
 
     @Override
