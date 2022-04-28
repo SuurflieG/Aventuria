@@ -1,5 +1,6 @@
 package com.gypsyhost.socketcraft.custom.block.entity;
 
+import com.gypsyhost.socketcraft.config.SocketCraftCommonConfigs;
 import com.gypsyhost.socketcraft.custom.gui.energystoragebasic.EnergyStorageBasicMenu;
 import com.gypsyhost.socketcraft.custom.util.energy.CustomEnergyStorage;
 import com.gypsyhost.socketcraft.registry.ModBlockEntities;
@@ -26,28 +27,24 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
-
 public class EnergyStorageBasicBlockEntity extends BlockEntity implements MenuProvider {
-
-
+    
     public CustomEnergyStorage energyStorage;
     private LazyOptional<CustomEnergyStorage> lazyEnergyHandler;
 
     protected final ContainerData data;
-
-    private int maxCapacity = 10000;
-    private int maxExtract = 100;
-    private int maxReceive = 500;
+    private int maxCapacity = SocketCraftCommonConfigs.ENERGY_STORAGE_BASIC_CAPACITY.get();
+    private int maxSend = SocketCraftCommonConfigs.ENERGY_STORAGE_BASIC_SEND.get();
 
     public EnergyStorageBasicBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.ENERGY_STORAGE_BASIC.get(), pWorldPosition, pBlockState);
-        this.energyStorage = new CustomEnergyStorage(maxCapacity, maxReceive, maxExtract,0);
+        this.energyStorage = new CustomEnergyStorage(maxCapacity, maxSend, 0);
+        this.lazyEnergyHandler = LazyOptional.of(() -> this.energyStorage);
         this.data = new ContainerData() {
             public int get(int index) {
                 return switch (index) {
                     case 0 -> EnergyStorageBasicBlockEntity.this.maxCapacity;
-                    case 1 -> EnergyStorageBasicBlockEntity.this.maxExtract;
-                    case 2 -> EnergyStorageBasicBlockEntity.this.maxReceive;
+                    case 1 -> EnergyStorageBasicBlockEntity.this.maxSend;
                     default -> 0;
                 };
             }
@@ -55,13 +52,12 @@ public class EnergyStorageBasicBlockEntity extends BlockEntity implements MenuPr
             public void set(int index, int value) {
                 switch (index) {
                     case 0 -> EnergyStorageBasicBlockEntity.this.maxCapacity = value;
-                    case 1 -> EnergyStorageBasicBlockEntity.this.maxExtract = value;
-                    case 2 -> EnergyStorageBasicBlockEntity.this.maxReceive = value;
+                    case 1 -> EnergyStorageBasicBlockEntity.this.maxSend = value;
                 }
             }
 
             public int getCount() {
-                return 3;
+                return 2;
             }
         };
     }
@@ -71,15 +67,22 @@ public class EnergyStorageBasicBlockEntity extends BlockEntity implements MenuPr
         return new TextComponent("Basic Energy Storage");
     }
 
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+        return new EnergyStorageBasicMenu(pContainerId, pInventory, this, this.data);
+    }
+
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
         if (cap == CapabilityEnergy.ENERGY) {
             return lazyEnergyHandler.cast();
         }
-
         return super.getCapability(cap, side);
     }
+
+
 
     @Override
     public void onLoad() {
@@ -127,28 +130,22 @@ public class EnergyStorageBasicBlockEntity extends BlockEntity implements MenuPr
         load(pkt.getTag());
     }
 
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new EnergyStorageBasicMenu(pContainerId, pInventory, this, this.data);
-    }
-
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, EnergyStorageBasicBlockEntity pBlockEntity) {
-        if (canExtract(pBlockEntity))
+        if(hasEnergy(pBlockEntity)){
+            pBlockEntity.outputEnergy();
             setChanged(pLevel, pPos, pState);
-        pBlockEntity.outputEnergy();
+        }
+        if (pBlockEntity.energyStorage.getEnergyStored() == pBlockEntity.maxCapacity) {
+            return;
+        }
     }
 
-    private static boolean canReceive(EnergyStorageBasicBlockEntity pBlockEntity) {
+    private static boolean hasEnergy(EnergyStorageBasicBlockEntity pBlockEntity) {
         return pBlockEntity.energyStorage.getEnergyStored() <= pBlockEntity.energyStorage.getMaxEnergyStored();
     }
 
-    private static boolean canExtract(EnergyStorageBasicBlockEntity pBlockEntity) {
-        return pBlockEntity.energyStorage.getEnergyStored() > pBlockEntity.maxExtract;
-    }
-
-    public void outputEnergy() {
-        if (this.energyStorage.getEnergyStored() >= maxExtract) {
+    public void outputEnergy() { // This is not my own don't fully understand it
+        if (this.energyStorage.getEnergyStored() >= maxSend && this.energyStorage.canExtract()) {
             for (final var direction : Direction.values()) {
                 final BlockEntity pBlockEntity = this.level.getBlockEntity(this.worldPosition.relative(direction));
                 if (pBlockEntity == null) {
@@ -157,7 +154,7 @@ public class EnergyStorageBasicBlockEntity extends BlockEntity implements MenuPr
 
                 pBlockEntity.getCapability(CapabilityEnergy.ENERGY, direction.getOpposite()).ifPresent(storage -> {
                     if (pBlockEntity != this && storage.getEnergyStored() < storage.getMaxEnergyStored()) {
-                        final int toSend = EnergyStorageBasicBlockEntity.this.energyStorage.extractEnergy(maxExtract, false);
+                        final int toSend = EnergyStorageBasicBlockEntity.this.energyStorage.extractEnergy(maxSend, false);
                         final int received = storage.receiveEnergy(toSend, false);
 
                         EnergyStorageBasicBlockEntity.this.energyStorage.setEnergy(EnergyStorageBasicBlockEntity.this.energyStorage.getEnergyStored() + toSend - received);
@@ -166,5 +163,4 @@ public class EnergyStorageBasicBlockEntity extends BlockEntity implements MenuPr
             }
         }
     }
-
 }

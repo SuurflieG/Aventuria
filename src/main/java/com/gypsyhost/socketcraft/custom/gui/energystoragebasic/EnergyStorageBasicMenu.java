@@ -21,12 +21,11 @@ public class EnergyStorageBasicMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public EnergyStorageBasicMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
-        this(windowId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+        this(windowId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
     public EnergyStorageBasicMenu(int windowId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.ENERGY_STORAGE_BASIC_MENU.get(), windowId);
-        checkContainerSize(inv, 3);
         blockEntity = ((EnergyStorageBasicBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
@@ -44,7 +43,11 @@ public class EnergyStorageBasicMenu extends AbstractContainerMenu {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0) > 0;
     }
 
-    public int getStorageCapacity() {
+    public int getMaxCapacity() {
+        return this.data.get(0);
+    }
+
+    public int getCurrentEnergy() {
         int currentCapacity = getEnergy();  // Current Capacity
         int maxCapacity = this.data.get(0); // Max Capacity
         int progressArrowSize = 51; // This is the width in pixels of your arrow

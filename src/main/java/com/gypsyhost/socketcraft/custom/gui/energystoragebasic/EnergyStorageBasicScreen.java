@@ -33,7 +33,10 @@ public class EnergyStorageBasicScreen extends AbstractContainerScreen<EnergyStor
         protected void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
                 this.font.draw(pPoseStack, this.title, (float)this.titleLabelX, (float)this.titleLabelY, 4210752);
                 this.font.draw(pPoseStack, this.playerInventoryTitle, (float)this.inventoryLabelX, (float)this.inventoryLabelY, 4210752);
-                drawString(pPoseStack, this.minecraft.font, "Energy:" + menu.getEnergy(), 63,54,4210752);
+                pPoseStack.pushPose();
+                pPoseStack.scale(0.5F, 0.5F, 0.5F);
+                drawString(pPoseStack, this.minecraft.font, "Energy:" + menu.getEnergy() + "/" + menu.getMaxCapacity(), 80,82,8234367);
+                pPoseStack.popPose();
         }
 
         @Override
@@ -49,7 +52,7 @@ public class EnergyStorageBasicScreen extends AbstractContainerScreen<EnergyStor
                 this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
                 if(menu.hasEnergy()) {
-                        blit(pPoseStack, x + 65, y + 63, 176, 0, menu.getStorageCapacity(), 7); // Power Capacity Display
+                        blit(pPoseStack, x + 65, y + 63, 176, 0, menu.getCurrentEnergy(), 7); // Power Capacity Display
                 }
 
         }
