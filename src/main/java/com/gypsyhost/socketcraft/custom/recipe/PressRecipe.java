@@ -36,8 +36,11 @@ public class PressRecipe implements Recipe<SimpleContainer> {
         if(recipeItems.get(1).test(pContainer.getItem(INPUT_SLOT_A))) {
             return recipeItems.get(0).test(pContainer.getItem(TOOL_SLOT));
         }
-
         return false;
+    }
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
     }
 
     @Override
