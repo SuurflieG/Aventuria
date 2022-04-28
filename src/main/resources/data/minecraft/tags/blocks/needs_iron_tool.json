@@ -12,6 +12,9 @@
     "socketcraft:deepslate_pyrite_ore",
     "socketcraft:deepslate_ruby_ore",
     "socketcraft:deepslate_topaz_ore",
-    "socketcraft:deepslate_unakite_ore"
+    "socketcraft:deepslate_unakite_ore",
+    "socketcraft:energy_generator_basic",
+    "socketcraft:catalyzer",
+    "socketcraft:press"
   ]
 }

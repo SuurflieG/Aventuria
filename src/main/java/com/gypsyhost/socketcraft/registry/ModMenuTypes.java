@@ -1,7 +1,9 @@
 package com.gypsyhost.socketcraft.registry;
 
 import com.gypsyhost.socketcraft.SocketCraft;
+import com.gypsyhost.socketcraft.custom.gui.energygeneratorbasic.EnergyGeneratorBasicMenu;
 import com.gypsyhost.socketcraft.custom.gui.catalyzer.CatalyzerMenu;
+import com.gypsyhost.socketcraft.custom.gui.energystoragebasic.EnergyStorageBasicMenu;
 import com.gypsyhost.socketcraft.custom.gui.press.PressMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -17,6 +19,8 @@ public class ModMenuTypes {
 
     public static final RegistryObject<MenuType<PressMenu>> PRESS_MENU = registerMenuType(PressMenu::new, "press_menu");
     public static final RegistryObject<MenuType<CatalyzerMenu>> CATALYZER_MENU = registerMenuType(CatalyzerMenu::new, "catalyzer_menu");
+    public static final RegistryObject<MenuType<EnergyStorageBasicMenu>> ENERGY_STORAGE_BASIC_MENU = registerMenuType(EnergyStorageBasicMenu::new, "energy_storage_basic_menu");
+    public static final RegistryObject<MenuType<EnergyGeneratorBasicMenu>> ENERGY_GENERATOR_BASIC_MENU = registerMenuType(EnergyGeneratorBasicMenu::new, "energy_generator_basic_menu");
 
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {

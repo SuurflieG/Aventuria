@@ -1,4 +1,4 @@
-package com.gypsyhost.socketcraft.custom.gui.press;
+package com.gypsyhost.socketcraft.custom.gui.energystoragebasic;
 
 import com.gypsyhost.socketcraft.SocketCraft;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -9,19 +9,17 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class PressScreen extends AbstractContainerScreen<PressMenu> {
-        private static final ResourceLocation TEXTURE =
-        new ResourceLocation(SocketCraft.MOD_ID, "textures/gui/press_gui_new.png");
+public class EnergyStorageBasicScreen extends AbstractContainerScreen<EnergyStorageBasicMenu> {
+        private static final ResourceLocation TEXTURE = new ResourceLocation(SocketCraft.MOD_ID, "textures/gui/energy_storage_basic_gui.png");
 
-        int imageHeight = 178;
-        int imageWidth = 176;
-        int titleLabelX = 10;
-        int titleLabelY = 10;
+        int titleLabelX = 8;
+        int titleLabelY = 6;
         int inventoryLabelX = 8;
-        int inventoryLabelY = this.imageHeight - 78;
+        int inventoryLabelY = this.imageHeight - 90;
 
-        public PressScreen(PressMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+        public EnergyStorageBasicScreen(EnergyStorageBasicMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
+
         }
 
         @Override
@@ -33,18 +31,9 @@ public class PressScreen extends AbstractContainerScreen<PressMenu> {
 
         @Override
         protected void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-
-                this.font.draw(pPoseStack, this.title, (float)this.titleLabelX, (float)this.titleLabelY, 8234367);
-
-                pPoseStack.pushPose();
-                pPoseStack.scale(0.8F, 0.8F, 0.8F);
-                this.font.draw(pPoseStack, this.playerInventoryTitle, (float)this.inventoryLabelX, (float)this.inventoryLabelY, 8234367);
-                pPoseStack.popPose();
-
-                pPoseStack.pushPose();
-                pPoseStack.scale(0.5F, 0.5F, 0.5F);
-                drawString(pPoseStack, this.minecraft.font, "Progress:" + menu.getCurrentProgress() + "/" + menu.getMaxProgress(), 188,60,8234367);
-                pPoseStack.popPose();
+                this.font.draw(pPoseStack, this.title, (float)this.titleLabelX, (float)this.titleLabelY, 4210752);
+                this.font.draw(pPoseStack, this.playerInventoryTitle, (float)this.inventoryLabelX, (float)this.inventoryLabelY, 4210752);
+                drawString(pPoseStack, this.minecraft.font, "Energy:" + menu.getEnergy(), 63,54,4210752);
         }
 
         @Override
@@ -52,18 +41,17 @@ public class PressScreen extends AbstractContainerScreen<PressMenu> {
                 RenderSystem.setShader(GameRenderer::getPositionTexShader);
                 RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
                 RenderSystem.setShaderTexture(0, TEXTURE);
-                int x = (width - imageWidth) / 2;
-                int y = (height - imageHeight) / 2;
+
+
+                int x = (width / 2 )  - (imageWidth / 2);/* find center of screen */ /*move image over by half its width */
+                int y = (height / 2 ) - (imageHeight / 2);
         
                 this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
-        
-                if(menu.isCrafting()) {
-                blit(pPoseStack, x + 94, y + 38, 176, 13, menu.getScaledProgress(), 3);
+
+                if(menu.hasEnergy()) {
+                        blit(pPoseStack, x + 65, y + 63, 176, 0, menu.getStorageCapacity(), 7); // Power Capacity Display
                 }
-        
-                if(menu.hasFuel()) {
-                blit(pPoseStack, x + 49, y + 33 + 12 - menu.getScaledFuelProgress(), 176, 12 - menu.getScaledFuelProgress(), 12, menu.getScaledFuelProgress());
-                }
+
         }
         
         @Override

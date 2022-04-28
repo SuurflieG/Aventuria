@@ -1,6 +1,6 @@
 package com.gypsyhost.socketcraft.custom.block.block;
 
-import com.gypsyhost.socketcraft.custom.block.entity.CatalyzerBlockEntity;
+import com.gypsyhost.socketcraft.custom.block.entity.EnergyStorageBasicBlockEntity;
 import com.gypsyhost.socketcraft.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -22,12 +22,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-
-public class CatalyzerBlock extends BaseEntityBlock {
-
+public class EnergyStorageBasicBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public CatalyzerBlock(Properties properties) {
+    public EnergyStorageBasicBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
@@ -59,21 +57,15 @@ public class CatalyzerBlock extends BaseEntityBlock {
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock()) {
-            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof CatalyzerBlockEntity) {
-                ((CatalyzerBlockEntity) blockEntity).drops();
-            }
-        }
+        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos,
-                                 Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if(entity instanceof CatalyzerBlockEntity) {
-                NetworkHooks.openGui(((ServerPlayer)pPlayer), (CatalyzerBlockEntity)entity, pPos);
+            if(entity instanceof EnergyStorageBasicBlockEntity) {
+                NetworkHooks.openGui(((ServerPlayer)pPlayer), (EnergyStorageBasicBlockEntity)entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
@@ -85,12 +77,12 @@ public class CatalyzerBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new CatalyzerBlockEntity(pPos, pState);
+        return new EnergyStorageBasicBlockEntity(pPos, pState);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.CATALYZER.get(), CatalyzerBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.ENERGY_STORAGE_BASIC.get(), EnergyStorageBasicBlockEntity::tick);
     }
 }

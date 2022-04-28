@@ -1,11 +1,16 @@
 package com.gypsyhost.socketcraft;
 
 import com.gypsyhost.socketcraft.custom.gui.catalyzer.CatalyzerScreen;
+import com.gypsyhost.socketcraft.custom.gui.energygeneratorbasic.EnergyGeneratorBasicScreen;
+import com.gypsyhost.socketcraft.custom.gui.energystoragebasic.EnergyStorageBasicMenu;
+import com.gypsyhost.socketcraft.custom.gui.energystoragebasic.EnergyStorageBasicScreen;
 import com.gypsyhost.socketcraft.custom.gui.press.PressScreen;
 import com.gypsyhost.socketcraft.registry.*;
 import com.gypsyhost.socketcraft.config.SocketCraftCommonConfigs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -58,15 +63,16 @@ public class SocketCraft
         MinecraftForge.EVENT_BUS.register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
 
-        //ItemBlockRenderTypes.setRenderLayer(ModBlocks.GENERATOR_BASIC.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ENERGY_GENERATOR_BASIC.get(), RenderType.translucent());
 
         MenuScreens.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         MenuScreens.register(ModMenuTypes.CATALYZER_MENU.get(), CatalyzerScreen::new);
+        MenuScreens.register(ModMenuTypes.ENERGY_STORAGE_BASIC_MENU.get(), EnergyStorageBasicScreen::new);
+        MenuScreens.register(ModMenuTypes.ENERGY_GENERATOR_BASIC_MENU.get(), EnergyGeneratorBasicScreen::new);
 
     }
 

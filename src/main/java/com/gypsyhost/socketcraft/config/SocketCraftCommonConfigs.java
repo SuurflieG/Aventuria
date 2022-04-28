@@ -25,9 +25,17 @@ public class SocketCraftCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> TOPAZ_ORE_VEIN_SIZE;
     public static final ForgeConfigSpec.ConfigValue<Integer> UNAKITE_ORE_VEIN_SIZE;
 
+    public static final ForgeConfigSpec.ConfigValue<Integer> GENERATOR_BASIC_MAX_CAPACITY;
+
 
     static {
         BUILDER.push("Configs for SocketCraft");
+
+        BUILDER.push("Basic Power Generator");
+        GENERATOR_BASIC_MAX_CAPACITY = BUILDER.define("Max Power Storage", 50000);
+        BUILDER.pop();
+
+
         BUILDER.comment("Ore Configs");
         BUILDER.pop();
         BUILDER.push("Titanium Ore");

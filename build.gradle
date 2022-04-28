@@ -182,8 +182,6 @@ dependencies {
 
     implementation fg.deobf("curse.maven:the-one-probe-245211:3671753")
 
-    compileOnly "mekanism:Mekanism:${mekanism_version}:api"
-
     // If you want to test/use Mekanism & its modules during `runClient` invocation, use the following
     runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core
     runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:additions")// Mekanism: Additions

@@ -1,8 +1,7 @@
-package com.gypsyhost.socketcraft.custom.gui.press;
+package com.gypsyhost.socketcraft.custom.gui.energystoragebasic;
 
-import com.gypsyhost.socketcraft.custom.block.entity.PressBlockEntity;
-import com.gypsyhost.socketcraft.custom.gui.slot.ModFuelSlot;
-import com.gypsyhost.socketcraft.custom.gui.slot.ModResultSlot;
+import com.gypsyhost.socketcraft.custom.block.entity.EnergyStorageBasicBlockEntity;
+import com.gypsyhost.socketcraft.custom.util.energy.CustomEnergyStorage;
 import com.gypsyhost.socketcraft.registry.ModBlocks;
 import com.gypsyhost.socketcraft.registry.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
@@ -12,71 +11,78 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.IEnergyStorage;
 
-public class PressMenu extends AbstractContainerMenu {
-    private final PressBlockEntity blockEntity;
+public class EnergyStorageBasicMenu extends AbstractContainerMenu {
+
+    private final EnergyStorageBasicBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
-    private final int FUEL_SLOT = 0;
-    private final int INPUT_SLOT_A = 1;
-    private final int RESULT_SLOT = 2;
-    private final int TOOL_SLOT = 3;
 
-    public PressMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
-        this(windowId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+    public EnergyStorageBasicMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
+        this(windowId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
     }
 
-    public PressMenu(int windowId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.PRESS_MENU.get(), windowId);
-        checkContainerSize(inv, 4);
-        blockEntity = ((PressBlockEntity) entity);
+    public EnergyStorageBasicMenu(int windowId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.ENERGY_STORAGE_BASIC_MENU.get(), windowId);
+        checkContainerSize(inv, 3);
+        blockEntity = ((EnergyStorageBasicBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
-
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
-
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, TOOL_SLOT, 70, 49));
-            this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 17, 31));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_A, 70, 14));
-            this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 139, 32));
-        });
-
         addDataSlots(data);
+        trackPower();
     }
 
-    public boolean isCrafting() {
-        return data.get(0) > 0;
+    public int getEnergy() {
+        return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
 
-    public int getCurrentProgress() {
-        return data.get(0);
-    }
-    public int getMaxProgress() {
-        return data.get(1);
+    public boolean hasEnergy() {
+        return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0) > 0;
     }
 
-    public boolean hasFuel() {
-        return data.get(2) > 0;
+    public int getStorageCapacity() {
+        int currentCapacity = getEnergy();  // Current Capacity
+        int maxCapacity = this.data.get(0); // Max Capacity
+        int progressArrowSize = 51; // This is the width in pixels of your arrow
+
+        return maxCapacity != 0 ? (int)(((float)currentCapacity / (float)maxCapacity) * progressArrowSize) : currentCapacity;
     }
 
-    public int getScaledProgress() {
-        int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 35; // This is the width in pixels of your arrow
+    private void trackPower() {
+        // Unfortunatelly on a dedicated server ints are actually truncated to short so we need
+        // to split our integer here (split our 32 bit integer into two 16 bit integers)
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return getEnergy() & 0xffff;
+            }
 
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
+            @Override
+            public void set(int value) {
+                blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
+                    int energyStored = h.getEnergyStored() & 0xffff0000;
+                    ((CustomEnergyStorage)h).setEnergy(energyStored + (value & 0xffff));
+                });
+            }
+        });
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                return (getEnergy() >> 16) & 0xffff;
+            }
 
-    public int getScaledFuelProgress() {
-        int fuelProgress = this.data.get(2);
-        int maxFuelProgress = this.data.get(3);
-        int fuelProgressSize = 12; // This is the width in pixels of your flame
-
-        return maxFuelProgress != 0 ? (int)(((float)fuelProgress / (float)maxFuelProgress) * fuelProgressSize) : 0;
+            @Override
+            public void set(int value) {
+                blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(h -> {
+                    int energyStored = h.getEnergyStored() & 0x0000ffff;
+                    ((CustomEnergyStorage)h).setEnergy(energyStored | (value << 16));
+                });
+            }
+        });
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
@@ -95,7 +101,7 @@ public class PressMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 0;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
@@ -133,20 +139,20 @@ public class PressMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.PRESS.get());
+                pPlayer, ModBlocks.CATALYZER.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 96 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 106 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 154));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 164));
         }
     }
 }
