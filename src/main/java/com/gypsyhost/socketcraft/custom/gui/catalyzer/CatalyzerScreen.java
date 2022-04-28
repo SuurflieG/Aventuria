@@ -10,14 +10,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class CatalyzerScreen extends AbstractContainerScreen<CatalyzerMenu> {
-        private static final ResourceLocation TEXTURE = new ResourceLocation(SocketCraft.MOD_ID, "textures/gui/catalyzer_gui.png");
+        private static final ResourceLocation TEXTURE = new ResourceLocation(SocketCraft.MOD_ID, "textures/gui/catalyzer_gui_new.png");
 
-        int imageHeight = 188;
+        int imageHeight = 210;
         int imageWidth = 176;
-        int titleLabelX = 8;
-        int titleLabelY = 6;
+        int titleLabelX = 12;
+        int titleLabelY = 12;
         int inventoryLabelX = 8;
-        int inventoryLabelY = this.imageHeight - 96;
+        int inventoryLabelY = this.imageHeight - 97;
 
         public CatalyzerScreen(CatalyzerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -50,14 +50,14 @@ public class CatalyzerScreen extends AbstractContainerScreen<CatalyzerMenu> {
                 this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
         
                 if(menu.isCrafting()) {
-                blit(pPoseStack, x + 65, y + 53, 176, 16, menu.getScaledProgress(), 2); // Left Slot Progress Bar
-                blit(pPoseStack, x + 87, y + 31, 179, 22, 2, menu.getScaledProgress()); // Top Slot Progress Bar
-                blit(pPoseStack, x + 111 - menu.getScaledProgress(), y + 53, 186 - menu.getScaledProgress(), 19, menu.getScaledProgress(), 2); // Right Slot Progress Bar
-                blit(pPoseStack, x + 87, y + 77 - menu.getScaledProgress(), 176, 32 - menu.getScaledProgress(), 2, menu.getScaledProgress()); // Bottom Slot Progress Bar
+                blit(pPoseStack, x + 58, y + 55, 176, 13, menu.getScaledProgress(), 3); // Left Slot Progress Bar
+                blit(pPoseStack, x + 81, y + 32, 176, 32, 3, menu.getScaledProgress()); // Top Slot Progress Bar
+                blit(pPoseStack, x + 106 - menu.getScaledProgress(), y + 55, 186 - menu.getScaledProgress(), 17, menu.getScaledProgress(), 3); // Right Slot Progress Bar
+                blit(pPoseStack, x + 81, y + 80 - menu.getScaledProgress(), 176, 31 - menu.getScaledProgress(), 3, menu.getScaledProgress()); // Bottom Slot Progress Bar
                 }
         
                 if(menu.hasFuel()) {
-                blit(pPoseStack, x + 10, y + 68 + 15 - menu.getScaledFuelProgress(), 176, 15 - menu.getScaledFuelProgress(), 11, menu.getScaledFuelProgress());
+                blit(pPoseStack, x + 35, y + 85 + 12 - menu.getScaledFuelProgress(), 176, 12 - menu.getScaledFuelProgress(), 12, menu.getScaledFuelProgress());
                 }
         }
         

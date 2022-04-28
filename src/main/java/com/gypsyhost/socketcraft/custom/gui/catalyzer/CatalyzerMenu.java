@@ -1,7 +1,6 @@
 package com.gypsyhost.socketcraft.custom.gui.catalyzer;
 
 import com.gypsyhost.socketcraft.custom.block.entity.CatalyzerBlockEntity;
-import com.gypsyhost.socketcraft.custom.block.entity.PressBlockEntity;
 import com.gypsyhost.socketcraft.custom.gui.slot.ModFuelSlot;
 import com.gypsyhost.socketcraft.custom.gui.slot.ModResultSlot;
 import com.gypsyhost.socketcraft.registry.ModBlocks;
@@ -43,13 +42,13 @@ public class CatalyzerMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 8, 46));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_LEFT, 47, 46));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_TOP, 80, 13));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_RIGHT, 113, 46));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_BOTTOM, 80, 79));
-            this.addSlot(new SlotItemHandler(handler, CATALYZER, 80, 46));
-            this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 148, 46));
+            this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 12, 83));
+            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_LEFT, 40, 48));
+            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_TOP, 74, 14));
+            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_RIGHT, 108, 48));
+            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_BOTTOM, 74, 82));
+            this.addSlot(new SlotItemHandler(handler, CATALYZER, 74, 48));
+            this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 140, 48));
         });
 
         addDataSlots(data);
@@ -74,7 +73,7 @@ public class CatalyzerMenu extends AbstractContainerMenu {
     public int getScaledFuelProgress() {
         int fuelProgress = this.data.get(2);
         int maxFuelProgress = this.data.get(3);
-        int fuelProgressSize = 15; // This is the width in pixels of your flame
+        int fuelProgressSize = 13; // This is the width in pixels of your flame
 
         return maxFuelProgress != 0 ? (int)(((float)fuelProgress / (float)maxFuelProgress) * fuelProgressSize) : 0;
     }
@@ -139,14 +138,14 @@ public class CatalyzerMenu extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 106 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 128 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 164));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 186));
         }
     }
 }
