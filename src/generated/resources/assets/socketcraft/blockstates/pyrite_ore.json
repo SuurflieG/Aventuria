@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "socketcraft:block/pyrite_ore"
+    }
+  }
+}
