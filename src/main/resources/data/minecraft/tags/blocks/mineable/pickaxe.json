@@ -22,6 +22,8 @@
     "socketcraft:deepslate_unakite_ore",
     "socketcraft:energy_generator_basic",
     "socketcraft:catalyzer",
-    "socketcraft:press"
+    "socketcraft:press",
+    "socketcraft:gem_ruby_block",
+    "socketcraft:gem_raw_ruby_block"
   ]
 }

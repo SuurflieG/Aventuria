@@ -24,4 +24,6 @@ public class CatalystItem extends Item {
     public boolean hasContainerItem(ItemStack stack) {
         return true;
     }
+
+
 }

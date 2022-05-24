@@ -29,6 +29,7 @@ public class ModItems {
     public static final RegistryObject<Item> COAL_DUST = ITEMS.register("coal_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
+    //public static final RegistryObject<Item> COPPER_DUST = ITEMS.register("copper_dust", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
 
     public static final RegistryObject<Item> CRAFTING_HAMMER_IRON = ITEMS.register("crafting_hammer_iron", () -> new CraftingHammerItem(new Item.Properties().durability(32).tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> CRAFTING_HAMMER_STEEL = ITEMS.register("crafting_hammer_steel", () -> new CraftingHammerItem(new Item.Properties().durability(128).tab(ModCreativeModeTab.MOD_TAB)));

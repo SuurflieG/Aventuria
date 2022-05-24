@@ -204,7 +204,9 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
 
         if(match.isPresent()) {
             entity.itemHandler.extractItem(INPUT_SLOT_A,1, false);
-            entity.itemHandler.getStackInSlot(TOOL_SLOT).hurt(1, new Random(), null);
+            if(entity.itemHandler.getStackInSlot(TOOL_SLOT).hurt(1, new Random(), null)){
+                entity.itemHandler.extractItem(TOOL_SLOT,1, false);
+            }
             entity.itemHandler.setStackInSlot(RESULT_SLOT, new ItemStack(match.get().getResultItem().getItem(),entity.itemHandler.getStackInSlot(RESULT_SLOT).getCount() + 1));
 
 

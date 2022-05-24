@@ -206,14 +206,13 @@ public class CatalyzerBlockEntity extends BlockEntity implements MenuProvider {
         Optional<CatalyzerRecipe> match = level.getRecipeManager().getRecipeFor(CatalyzerRecipe.Type.INSTANCE, inventory, level);
 
         if(match.isPresent()) {
-            ItemStack item = entity.itemHandler.getStackInSlot(CATALYZER_SLOT);
             entity.itemHandler.extractItem(INPUT_SLOT_A,1, false);
             entity.itemHandler.extractItem(INPUT_SLOT_B,1, false);
             entity.itemHandler.extractItem(INPUT_SLOT_C,1, false);
             entity.itemHandler.extractItem(INPUT_SLOT_D,1, false);
-            item = item.copy();
-            item.hurt(1, new Random(), null);
-            entity.itemHandler.setStackInSlot(CATALYZER_SLOT, item);
+            if(entity.itemHandler.getStackInSlot(CATALYZER_SLOT).hurt(1, new Random(), null)){
+                entity.itemHandler.extractItem(CATALYZER_SLOT,1, false);
+            }
             entity.itemHandler.setStackInSlot(RESULT_SLOT, new ItemStack(match.get().getResultItem().getItem(),entity.itemHandler.getStackInSlot(RESULT_SLOT).getCount() + 1));
             
             entity.resetProgress();

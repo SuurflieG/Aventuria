@@ -61,13 +61,8 @@
   "block.socketcraft.machine_casing": "Machine Casing",
   "block.socketcraft.press": "Press",
   "block.socketcraft.catalyzer": "Catalyzer",
-  "block.socketcraft.energy_machine_casing": "Energy Machine Casing",
-  "block.socketcraft.energy_generator_basic": "Basic Energy Generator",
-  "block.socketcraft.energy_storage_basic": "Basic Energy Storage",
 
-
-  "message.powergen": "Basic Generator generating %s per tick!",
-  "screen.socketcraft.powergen": "Basic Generator",
+  "item.socketcraft.catalyst:": "Catalyst",
 
   "item.socketcraft.gem_raw_aventurine": "Raw Aventurine",
   "item.socketcraft.gem_raw_calcite": "Raw Calcite",
@@ -114,5 +109,9 @@
   "item.socketcraft.tungsten_boots": "Tungsten Boots",
   "item.socketcraft.tungsten_leggings": "Tungsten Leggings",
   "item.socketcraft.tungsten_chestplate": "Tungsten Chestplate",
-  "item.socketcraft.tungsten_helmet": "Tungsten Helmet"
+  "item.socketcraft.tungsten_helmet": "Tungsten Helmet",
+
+  "item.socketcraft.wood_handle": "Wood Handle",
+  "socketcraft.tooltip.item.wood_handle_type": "Handle Type: %1$d",
+  "socketcraft.tooltip.item.wood_handle_durability": "Durability: %1$d"
 }

@@ -47,12 +47,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> TUNGSTEN_BLOCK = registerBlock("tungsten_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
 
+    //public static final RegistryObject<Block> GEM_RUBY_BLOCK = registerBlock("gem_ruby_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
+    //public static final RegistryObject<Block> GEM_RAW_RUBY_BLOCK = registerBlock("gem_raw_ruby_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
+
     public static final RegistryObject<Block> PRESS = registerBlock("press", () -> new PressBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> CATALYZER = registerBlock("catalyzer", () -> new CatalyzerBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> MACHINE_CASING = registerBlock("machine_casing", () -> new MachineCasingBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
-    public static final RegistryObject<Block> ENERGY_MACHINE_CASING = registerBlock("energy_machine_casing", () -> new EnergyMachineCasingBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
-    public static final RegistryObject<Block> ENERGY_STORAGE_BASIC = registerBlock("energy_storage_basic", () -> new EnergyStorageBasicBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
-    public static final RegistryObject<Block> ENERGY_GENERATOR_BASIC = registerBlock("energy_generator_basic", () -> new EnergyGeneratorBasicBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
 
 
     //Register Block with tooltip field

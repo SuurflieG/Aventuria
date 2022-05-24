@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "TTT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "socketcraft:tungsten_ingot"
+    }
+  },
+  "result": {
+    "item": "socketcraft:tungsten_block"
+  }
+}

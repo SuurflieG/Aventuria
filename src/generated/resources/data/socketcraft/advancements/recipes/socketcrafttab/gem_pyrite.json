@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "socketcraft:gem_pyrite"
+    ]
+  },
+  "criteria": {
+    "has_gem_raw_aventurine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "socketcraft:gem_raw_pyrite"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "socketcraft:gem_pyrite"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gem_raw_aventurine",
+      "has_the_recipe"
+    ]
+  ]
+}

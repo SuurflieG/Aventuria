@@ -1,0 +1,24 @@
+{
+  "type": "socketcraft:catalyzing",
+  "ingredients": [
+    {
+      "item": "socketcraft:gem_raw_topaz"
+    },
+    {
+      "item": "socketcraft:gem_raw_topaz"
+    },
+    {
+      "item": "socketcraft:gem_raw_topaz"
+    },
+    {
+      "item": "socketcraft:gem_raw_topaz"
+    },
+    {
+      "item": "socketcraft:catalyst"
+    }
+  ],
+  "output": {
+    "item": "socketcraft:gem_topaz"
+  },
+  "crafttime": 200
+}

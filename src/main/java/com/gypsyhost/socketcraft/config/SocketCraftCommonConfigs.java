@@ -2,6 +2,8 @@ package com.gypsyhost.socketcraft.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
+
+
 public class SocketCraftCommonConfigs {
 
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
@@ -25,19 +27,43 @@ public class SocketCraftCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> TOPAZ_ORE_VEIN_SIZE;
     public static final ForgeConfigSpec.ConfigValue<Integer> UNAKITE_ORE_VEIN_SIZE;
 
-    public static final ForgeConfigSpec.ConfigValue<Integer> GENERATOR_BASIC_MAX_CAPACITY;
+    public static final ForgeConfigSpec.ConfigValue<Integer> ENERGY_GENERATOR_BASIC_CAPACITY;
+    public static final ForgeConfigSpec.ConfigValue<Integer> ENERGY_GENERATOR_BASIC_GENERATE;
+    public static final ForgeConfigSpec.ConfigValue<Integer> ENERGY_GENERATOR_BASIC_SEND;
+
+    public static final ForgeConfigSpec.ConfigValue<Integer> ENERGY_STORAGE_BASIC_CAPACITY;
+    public static final ForgeConfigSpec.ConfigValue<Integer> ENERGY_STORAGE_BASIC_SEND;
+    public static final ForgeConfigSpec.ConfigValue<Integer> ENERGY_STORAGE_BASIC_RECEIVE;
 
 
     static {
         BUILDER.push("Configs for SocketCraft");
+        BUILDER.pop();
 
+        BUILDER.comment("Basic Power Generator Configs");
         BUILDER.push("Basic Power Generator");
-        GENERATOR_BASIC_MAX_CAPACITY = BUILDER.define("Max Power Storage", 50000);
+        ENERGY_GENERATOR_BASIC_CAPACITY = BUILDER.define("Max Power Storage", 50000);
+        BUILDER.pop();
+        BUILDER.push("Basic Power Generator");
+        ENERGY_GENERATOR_BASIC_GENERATE = BUILDER.define("Max Power Generation", 60);
+        BUILDER.pop();
+        BUILDER.push("Basic Power Generator");
+        ENERGY_GENERATOR_BASIC_SEND = BUILDER.define("Max Power Send", 200);
+        BUILDER.pop();
+
+        BUILDER.comment("Basic Power Storage Configs");
+        BUILDER.push("Basic Power Storage");
+        ENERGY_STORAGE_BASIC_CAPACITY = BUILDER.define("Max Power Storage", 100000);
+        BUILDER.pop();
+        BUILDER.push("Basic Power Storage");
+        ENERGY_STORAGE_BASIC_SEND = BUILDER.define("Max Power Send", 500);
+        BUILDER.pop();
+        BUILDER.push("Basic Power Storage");
+        ENERGY_STORAGE_BASIC_RECEIVE = BUILDER.define("Max Power Receive", 1000);
         BUILDER.pop();
 
 
         BUILDER.comment("Ore Configs");
-        BUILDER.pop();
         BUILDER.push("Titanium Ore");
         TITANIUM_ORE_VEINS_PER_CHUNK = BUILDER.define("Titanium Ore Veins Per Chunk", 10);
         TITANIUM_ORE_VEIN_SIZE = BUILDER.define("Titanium Ore Vein Size", 13);
@@ -74,3 +100,4 @@ public class SocketCraftCommonConfigs {
         SPEC = BUILDER.build();
     }
 }
+
