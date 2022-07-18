@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "aventuria:block/catalyzer"
+    },
+    "facing=south": {
+      "model": "aventuria:block/catalyzer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aventuria:block/catalyzer",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "aventuria:block/catalyzer",
+      "y": 90
+    }
+  }
+}

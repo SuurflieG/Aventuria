@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "aventuria:titanium_nugget"
+    ]
+  },
+  "criteria": {
+    "has_titanium_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aventuria:titanium_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "aventuria:titanium_nugget"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_titanium_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "TTT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "aventuria:tungsten_ingot"
+    }
+  },
+  "result": {
+    "item": "aventuria:tungsten_block"
+  }
+}
