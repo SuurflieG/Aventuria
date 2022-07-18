@@ -1,0 +1,24 @@
+{
+  "type": "aventuria:catalyzing",
+  "ingredients": [
+    {
+      "item": "aventuria:gem_raw_pyrite"
+    },
+    {
+      "item": "aventuria:gem_raw_pyrite"
+    },
+    {
+      "item": "aventuria:gem_raw_pyrite"
+    },
+    {
+      "item": "aventuria:gem_raw_pyrite"
+    },
+    {
+      "item": "aventuria:catalyst"
+    }
+  ],
+  "output": {
+    "item": "aventuria:gem_pyrite"
+  },
+  "crafttime": 80
+}

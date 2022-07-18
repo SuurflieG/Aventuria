@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "socketcraft:item/socket_card_three_by_three"
-  }
-}

@@ -1,0 +1,24 @@
+{
+  "type": "aventuria:catalyzing",
+  "ingredients": [
+    {
+      "item": "aventuria:gem_raw_aventurine"
+    },
+    {
+      "item": "aventuria:gem_raw_aventurine"
+    },
+    {
+      "item": "aventuria:gem_raw_aventurine"
+    },
+    {
+      "item": "aventuria:gem_raw_aventurine"
+    },
+    {
+      "item": "aventuria:catalyst"
+    }
+  ],
+  "output": {
+    "item": "aventuria:gem_aventurine"
+  },
+  "crafttime": 80
+}

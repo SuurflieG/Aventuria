@@ -1,0 +1,24 @@
+{
+  "type": "aventuria:catalyzing",
+  "ingredients": [
+    {
+      "item": "aventuria:gem_raw_calcite"
+    },
+    {
+      "item": "aventuria:gem_raw_calcite"
+    },
+    {
+      "item": "aventuria:gem_raw_calcite"
+    },
+    {
+      "item": "aventuria:gem_raw_calcite"
+    },
+    {
+      "item": "aventuria:catalyst"
+    }
+  ],
+  "output": {
+    "item": "aventuria:gem_calcite"
+  },
+  "crafttime": 80
+}

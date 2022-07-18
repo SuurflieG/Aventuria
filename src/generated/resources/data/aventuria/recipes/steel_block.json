@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "aventuria:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "aventuria:steel_block"
+  }
+}
