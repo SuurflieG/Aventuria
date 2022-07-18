@@ -11,6 +11,8 @@ import com.gypsyhost.aventuria.custom.renderer.CatalyzerBER;
 import com.gypsyhost.aventuria.custom.renderer.UpgradeStationBER;
 import com.gypsyhost.aventuria.network.PacketHandler;
 import com.gypsyhost.aventuria.registry.*;
+import com.gypsyhost.aventuria.world.feature.ModConfiguredFeature;
+import com.gypsyhost.aventuria.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -49,8 +51,13 @@ public class Aventuria
         ModRecipes.register(eventBus);
         ModMenuTypes.register(eventBus);
 
+
+
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfigs.SPEC, "aventuria-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfigs.SPEC, "aventuria-common.toml");
+
+        ModConfiguredFeature.register(eventBus);
+        ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);

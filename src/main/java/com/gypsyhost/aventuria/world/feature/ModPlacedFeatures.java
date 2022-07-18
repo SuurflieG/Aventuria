@@ -1,44 +1,75 @@
 package com.gypsyhost.aventuria.world.feature;
 
+import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.config.CommonConfigs;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModPlacedFeatures {
 
-    public static final Holder<PlacedFeature> TITANIUM_ORE_PLACED = PlacementUtils.register("titanium_ore_placed",
-            ModConfiguredFeature.TITANIUM_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.titaniumOreVeinsPerChunk.get(), // VeinsPerChunk
-                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+    public static final DeferredRegister<PlacedFeature> PLACED_FEATURE = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, Aventuria.MOD_ID);
 
-    public static final Holder<PlacedFeature> TUNGSTEN_ORE_PLACED = PlacementUtils.register("tungsten_ore_placed",
-            ModConfiguredFeature.TUNGSTEN_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.tungstenOreVeinsPerChunk.get(), // VeinsPerChunk
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+    public static final RegistryObject<PlacedFeature> TITANIUM_ORE_PLACED = PLACED_FEATURE.register("titanium_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.TITANIUM_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.titaniumOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
 
-    public static final Holder<PlacedFeature> AVENTURINE_ORE_PLACED = PlacementUtils.register("aventurine_ore_placed",
-            ModConfiguredFeature.AVENTURINE_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.aventurineOreVeinsPerChunk.get(), // VeinsPerChunk
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
 
-    public static final Holder<PlacedFeature> CALCITE_ORE_PLACED = PlacementUtils.register("calcite_ore_placed",
-            ModConfiguredFeature.CALCITE_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.calciteOreVeinsPerChunk.get(), // VeinsPerChunk
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+    public static final RegistryObject<PlacedFeature> TUNGSTEN_ORE_PLACED = PLACED_FEATURE.register("tungsten_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.TUNGSTEN_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.tungstenOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
 
-    public static final Holder<PlacedFeature> PYRITE_ORE_PLACED = PlacementUtils.register("pyrite_ore_placed",
-            ModConfiguredFeature.PYRITE_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.pyriteOreVeinsPerChunk.get(), // VeinsPerChunk
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+    public static final RegistryObject<PlacedFeature> AVENTURINE_ORE_PLACED = PLACED_FEATURE.register("aventurine_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.AVENTURINE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.aventurineOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
 
-    public static final Holder<PlacedFeature> RUBY_ORE_PLACED = PlacementUtils.register("ruby_ore_placed",
-            ModConfiguredFeature.RUBY_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.rubyOreVeinsPerChunk.get(), // VeinsPerChunk
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+    public static final RegistryObject<PlacedFeature> CALCITE_ORE_PLACED = PLACED_FEATURE.register("calcite_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.CALCITE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.calciteOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
 
-    public static final Holder<PlacedFeature> TOPAZ_ORE_PLACED = PlacementUtils.register("topaz_ore_placed",
-            ModConfiguredFeature.TOPAZ_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.topazOreVeinsPerChunk.get(), // VeinsPerChunk
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+    public static final RegistryObject<PlacedFeature> PYRITE_ORE_PLACED = PLACED_FEATURE.register("pyrite_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.PYRITE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.pyriteOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
 
-    public static final Holder<PlacedFeature> UNAKITE_ORE_PLACED = PlacementUtils.register("unakite_ore_placed",
-            ModConfiguredFeature.UNAKITE_ORE, ModOrePlacement.commonOrePlacement(CommonConfigs.unakiteOreVeinsPerChunk.get(), // VeinsPerChunk
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))));
+    public static final RegistryObject<PlacedFeature> RUBY_ORE_PLACED = PLACED_FEATURE.register("ruby_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.RUBY_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.rubyOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> TOPAZ_ORE_PLACED = PLACED_FEATURE.register("topaz_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.TOPAZ_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.topazOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> UNAKITE_ORE_PLACED = PLACED_FEATURE.register("unakite_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.UNAKITE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.unakiteOreVeinsPerChunk.get(), // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                    VerticalAnchor.aboveBottom(80)))));
+
+    public static void register(IEventBus eventBus) {
+        PLACED_FEATURE.register(eventBus);
+    }
 
 }
