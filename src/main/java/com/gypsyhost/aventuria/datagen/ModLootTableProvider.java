@@ -1,8 +1,7 @@
-package com.gypsyhost.socketcraft.datagen;
+package com.gypsyhost.aventuria.datagen;
 
 import com.google.common.collect.ImmutableList;
-import com.gypsyhost.socketcraft.datagen.loot.ModBlockLootTables;
-import com.gypsyhost.socketcraft.datagen.loot.ModChestLootTables;
+import com.gypsyhost.aventuria.datagen.loot.ModBlockLootTables;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;

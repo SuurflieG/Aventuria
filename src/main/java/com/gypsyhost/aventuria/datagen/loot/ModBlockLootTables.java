@@ -1,7 +1,7 @@
-package com.gypsyhost.socketcraft.datagen.loot;
+package com.gypsyhost.aventuria.datagen.loot;
 
-import com.gypsyhost.socketcraft.registry.ModBlocks;
-import com.gypsyhost.socketcraft.registry.ModItems;
+import com.gypsyhost.aventuria.registry.ModBlocks;
+import com.gypsyhost.aventuria.registry.ModItems;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
@@ -17,6 +17,8 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.CATALYZER.get());
         this.dropSelf(ModBlocks.PRESS.get());
         this.dropSelf(ModBlocks.MACHINE_CASING.get());
+        this.dropSelf(ModBlocks.UPGRADE_STATION.get());
+        this.dropSelf(ModBlocks.ELECTRIC_RAIL.get());
         //endregion
 
         //region Ore Blocks that drop raw ores

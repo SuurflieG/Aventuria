@@ -1,7 +1,7 @@
-package com.gypsyhost.socketcraft.modtiers;
+package com.gypsyhost.aventuria.modtiers;
 
-import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.registry.ModItems;
+import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.registry.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -66,7 +66,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
     }
 
     public String getName() {
-        return SocketCraft.MOD_ID + ":" + this.name;
+        return Aventuria.MOD_ID + ":" + this.name;
     }
 
     public float getToughness() {

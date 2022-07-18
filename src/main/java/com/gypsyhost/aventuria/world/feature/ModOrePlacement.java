@@ -1,4 +1,4 @@
-package com.gypsyhost.socketcraft.world.feature;
+package com.gypsyhost.aventuria.world.feature;
 
 import net.minecraft.world.level.levelgen.placement.*;
 

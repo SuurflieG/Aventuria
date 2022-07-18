@@ -1,14 +1,15 @@
-package com.gypsyhost.socketcraft.datagen;
+package com.gypsyhost.aventuria.datagen;
 
-import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.registry.ModBlocks;
+import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.registry.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, SocketCraft.MOD_ID, existingFileHelper);
+        super(generator, Aventuria.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -34,6 +35,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.DEEPSLATE_UNAKITE_ORE.get());
         simpleBlock(ModBlocks.DEEPSLATE_TITANIUM_ORE.get());
         simpleBlock(ModBlocks.DEEPSLATE_TUNGSTEN_ORE.get());
+
+        horizontalBlock(ModBlocks.UPGRADE_STATION.get(), new ModelFile.UncheckedModelFile(modLoc("block/upgrade_station")));
+        horizontalBlock(ModBlocks.CATALYZER.get(), new ModelFile.UncheckedModelFile(modLoc("block/catalyzer")));
+
+
 
 
     }

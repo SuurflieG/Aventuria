@@ -1,6 +1,6 @@
-package com.gypsyhost.socketcraft.world.gen;
+package com.gypsyhost.aventuria.world.gen;
 
-import com.gypsyhost.socketcraft.world.feature.ModPlacedFeatures;
+import com.gypsyhost.aventuria.world.feature.ModPlacedFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;

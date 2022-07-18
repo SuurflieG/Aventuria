@@ -1,18 +1,20 @@
-package com.gypsyhost.socketcraft.datagen;
+package com.gypsyhost.aventuria.datagen;
 
-import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.registry.*;
+import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.registry.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, SocketCraft.MOD_ID, existingFileHelper);
+        super(generator, Aventuria.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -39,6 +41,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("deepslate_unakite_ore", modLoc("block/deepslate_unakite_ore"));
         withExistingParent("deepslate_titanium_ore", modLoc("block/deepslate_titanium_ore"));
         withExistingParent("deepslate_tungsten_ore", modLoc("block/deepslate_tungsten_ore"));
+
+        withExistingParent("upgrade_station", modLoc("block/upgrade_station"));
+        withExistingParent("catalyzer", modLoc("block/catalyzer"));
 
 
         simpleItem(ModItems.CATALYST.get());
@@ -115,23 +120,20 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModWeaponItems.TITANIUM_SWORD.get());
         handheldItem(ModWeaponItems.TUNGSTEN_SWORD.get());
 
-        simpleItem(ModSocketCards.BLANK.get());
-        simpleItem(ModSocketCards.FORTUNE_1.get());
-        simpleItem(ModSocketCards.FORTUNE_2.get());
-        simpleItem(ModSocketCards.FORTUNE_3.get());
-        simpleItem(ModSocketCards.EFFICIENCY_1.get());
-        simpleItem(ModSocketCards.EFFICIENCY_2.get());
-        simpleItem(ModSocketCards.EFFICIENCY_3.get());
-        simpleItem(ModSocketCards.EFFICIENCY_4.get());
-        simpleItem(ModSocketCards.EFFICIENCY_5.get());
-        simpleItem(ModSocketCards.MAGNET.get());
-        simpleItem(ModSocketCards.VOID_JUNK.get());
-        simpleItem(ModSocketCards.SILK.get());
-        simpleItem(ModSocketCards.THREE_BY_THREE.get());
+        simpleItem(ModUpgradeCards.BLANK.get());
+        simpleItem(ModUpgradeCards.FORTUNE_1.get());
+        simpleItem(ModUpgradeCards.FORTUNE_2.get());
+        simpleItem(ModUpgradeCards.FORTUNE_3.get());
+        simpleItem(ModUpgradeCards.EFFICIENCY_1.get());
+        simpleItem(ModUpgradeCards.EFFICIENCY_2.get());
+        simpleItem(ModUpgradeCards.EFFICIENCY_3.get());
+        simpleItem(ModUpgradeCards.EFFICIENCY_4.get());
+        simpleItem(ModUpgradeCards.EFFICIENCY_5.get());
+        //simpleItem(ModUpgradeCards.MAGNET.get());
+        //simpleItem(ModUpgradeCards.VOID_JUNK.get());
+        simpleItem(ModUpgradeCards.SILK.get());
+        simpleItem(ModUpgradeCards.THREE_BY_THREE.get());
 
-        simpleItem(ModHandleItems.WOOD.get());
-
-        simpleItem(ModPickaxeHeadItems.WOOD.get());
 
 
 
@@ -140,12 +142,20 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder simpleItem(Item item) {
         return withExistingParent(item.getRegistryName().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(SocketCraft.MOD_ID,"item/" + item.getRegistryName().getPath()));
+                new ResourceLocation(Aventuria.MOD_ID,"item/" + item.getRegistryName().getPath()));
+    }
+
+    private ItemModelBuilder simpleItemEnchant(@NotNull Enchantment item) {
+        return withExistingParent(item.getRegistryName().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(Aventuria.MOD_ID,"item/" + item.getRegistryName().getPath()));
     }
 
     private ItemModelBuilder handheldItem(Item item) {
         return withExistingParent(item.getRegistryName().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(SocketCraft.MOD_ID,"item/" + item.getRegistryName().getPath()));
+                new ResourceLocation(Aventuria.MOD_ID,"item/" + item.getRegistryName().getPath()));
     }
+
+
 }

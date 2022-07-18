@@ -1,7 +1,7 @@
-package com.gypsyhost.socketcraft.world.feature;
+package com.gypsyhost.aventuria.world.feature;
 
-import com.gypsyhost.socketcraft.registry.ModBlocks;
-import com.gypsyhost.socketcraft.config.SocketCraftCommonConfigs;
+import com.gypsyhost.aventuria.config.CommonConfigs;
+import com.gypsyhost.aventuria.registry.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
@@ -47,26 +47,26 @@ public class ModConfiguredFeature {
 
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> TITANIUM_ORE = FeatureUtils.register("titanium_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_TITANIUM_ORES, SocketCraftCommonConfigs.TITANIUM_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_TITANIUM_ORES, CommonConfigs.titaniumOreVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> TUNGSTEN_ORE = FeatureUtils.register("tungsten_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_TUNGSTEN_ORES, SocketCraftCommonConfigs.TUNGSTEN_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_TUNGSTEN_ORES, CommonConfigs.tungstenOreVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> AVENTURINE_ORE = FeatureUtils.register("aventurine_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_AVENTURINE_ORES, SocketCraftCommonConfigs.TUNGSTEN_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_AVENTURINE_ORES, CommonConfigs.tungstenOreVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CALCITE_ORE = FeatureUtils.register("calcite_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_CALCITE_ORES, SocketCraftCommonConfigs.CALCITE_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_CALCITE_ORES, CommonConfigs.calciteOreVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> PYRITE_ORE = FeatureUtils.register("pyrite_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_PYRITE_ORES, SocketCraftCommonConfigs.PYRITE_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_PYRITE_ORES, CommonConfigs.pyriteOreVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> RUBY_ORE = FeatureUtils.register("ruby_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES, SocketCraftCommonConfigs.RUBY_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES, CommonConfigs.rubyOreVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> TOPAZ_ORE = FeatureUtils.register("topaz_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_TOPAZ_ORES, SocketCraftCommonConfigs.TOPAZ_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_TOPAZ_ORES, CommonConfigs.topazOreVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> UNAKITE_ORE = FeatureUtils.register("unakite_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_UNAKITE_ORES, SocketCraftCommonConfigs.UNAKITE_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_UNAKITE_ORES, CommonConfigs.unakiteOreVeinSize.get()));
 }

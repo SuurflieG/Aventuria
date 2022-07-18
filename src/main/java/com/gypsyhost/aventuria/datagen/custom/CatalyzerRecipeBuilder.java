@@ -1,9 +1,9 @@
-package com.gypsyhost.socketcraft.datagen.custom;
+package com.gypsyhost.aventuria.datagen.custom;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.custom.recipe.CatalyzerRecipe;
+import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.custom.recipe.CatalyzerRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
@@ -124,7 +124,7 @@ public class CatalyzerRecipeBuilder implements RecipeBuilder {
 
         @Override
         public ResourceLocation getId() {
-            return new ResourceLocation(SocketCraft.MOD_ID, this.result.getRegistryName().getPath() + "_from_catalyzer");
+            return new ResourceLocation(Aventuria.MOD_ID, this.result.getRegistryName().getPath() + "_from_catalyzer");
         }
 
         @Override
