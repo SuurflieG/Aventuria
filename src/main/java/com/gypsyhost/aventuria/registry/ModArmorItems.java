@@ -1,7 +1,7 @@
-package com.gypsyhost.socketcraft.registry;
+package com.gypsyhost.aventuria.registry;
 
-import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.modtiers.ModArmorMaterial;
+import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.modtiers.ModArmorMaterial;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModArmorItems {
 
-    public static final DeferredRegister<Item> ARMOR_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SocketCraft.MOD_ID);
+    public static final DeferredRegister<Item> ARMOR_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Aventuria.MOD_ID);
 
     public static final RegistryObject<Item> STEEL_HELMET = ARMOR_ITEMS.register("steel_helmet", () -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));
     public static final RegistryObject<Item> STEEL_CHESTPLATE = ARMOR_ITEMS.register("steel_chestplate", () -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlot.CHEST, new Item.Properties().tab(ModCreativeModeTab.MOD_TAB)));

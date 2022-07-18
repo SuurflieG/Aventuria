@@ -1,7 +1,7 @@
-package com.gypsyhost.socketcraft.registry;
+package com.gypsyhost.aventuria.registry;
 
-import com.gypsyhost.socketcraft.SocketCraft;
-import com.gypsyhost.socketcraft.custom.block.block.*;
+import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.custom.block.block.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -10,7 +10,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SocketCraft.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Aventuria.MOD_ID);
 
     public static final RegistryObject<Block> TITANIUM_ORE = registerBlock("titanium_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> DEEPSLATE_TITANIUM_ORE = registerBlock("deepslate_titanium_ore", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4f).requiresCorrectToolForDrops(), UniformInt.of(2,4)), ModCreativeModeTab.MOD_TAB);
@@ -47,12 +46,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> TUNGSTEN_BLOCK = registerBlock("tungsten_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
 
-    //public static final RegistryObject<Block> GEM_RUBY_BLOCK = registerBlock("gem_ruby_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
-    //public static final RegistryObject<Block> GEM_RAW_RUBY_BLOCK = registerBlock("gem_raw_ruby_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops()), ModCreativeModeTab.MOD_TAB);
-
     public static final RegistryObject<Block> PRESS = registerBlock("press", () -> new PressBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> CATALYZER = registerBlock("catalyzer", () -> new CatalyzerBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> MACHINE_CASING = registerBlock("machine_casing", () -> new MachineCasingBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> UPGRADE_STATION = registerBlock("upgrade_station", () -> new UpgradeStationBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> ELECTRIC_RAIL = registerBlock("electric_rail", () -> new ElectricRailBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).noOcclusion().noCollission()), ModCreativeModeTab.MOD_TAB);
+
+    //public static final RegistryObject<Block> RENDER_BLOCK = BLOCKS.register("render_block", RenderBlock::new);
+
 
 
     //Register Block with tooltip field
