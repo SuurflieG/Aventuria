@@ -21,63 +21,57 @@ public class ModConfiguredFeature {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, Aventuria.MOD_ID);
 
-
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TITANIUM_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TITANIUM_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TITANIUM_ORE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TUNGSTEN_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TUNGSTEN_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TUNGSTEN_ORE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_AVENTURINE_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.AVENTURINE_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_AVENTURINE_ORE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_CALCITE_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.CALCITE_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_CALCITE_ORE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_PYRITE_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.PYRITE_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_PYRITE_ORE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_RUBY_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.RUBY_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TOPAZ_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TOPAZ_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TOPAZ_ORE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_UNAKITE_ORES = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.UNAKITE_ORE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_UNAKITE_ORE.get().defaultBlockState()));
+    // Stone spawn Ores
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> TITANIUM_ORE = CONFIGURED_FEATURES.register("titanium_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_TITANIUM_ORES,CommonConfigs.titaniumOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TITANIUM_ORE.get().defaultBlockState(),CommonConfigs.titaniumOreVeinSize.get())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> TUNGSTEN_ORE = CONFIGURED_FEATURES.register("tungsten_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_TUNGSTEN_ORES,CommonConfigs.titaniumOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TUNGSTEN_ORE.get().defaultBlockState(),CommonConfigs.tungstenOreVeinSize.get())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> AVENTURINE_ORE = CONFIGURED_FEATURES.register("aventurine_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_AVENTURINE_ORES,CommonConfigs.aventurineOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.AVENTURINE_ORE.get().defaultBlockState(),CommonConfigs.aventurineOreVeinSize.get())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> CALCITE_ORE = CONFIGURED_FEATURES.register("calcite_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_CALCITE_ORES,CommonConfigs.calciteOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.CALCITE_ORE.get().defaultBlockState(),CommonConfigs.calciteOreVeinSize.get())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> PYRITE_ORE = CONFIGURED_FEATURES.register("pyrite_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_PYRITE_ORES,CommonConfigs.pyriteOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.PYRITE_ORE.get().defaultBlockState(),CommonConfigs.pyriteOreVeinSize.get())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> RUBY_ORE = CONFIGURED_FEATURES.register("ruby_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES,CommonConfigs.rubyOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.RUBY_ORE.get().defaultBlockState(),CommonConfigs.rubyOreVeinSize.get())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> TOPAZ_ORE = CONFIGURED_FEATURES.register("topaz_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_TOPAZ_ORES,CommonConfigs.topazOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TOPAZ_ORE.get().defaultBlockState(),CommonConfigs.topazOreVeinSize.get())));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> UNAKITE_ORE = CONFIGURED_FEATURES.register("unakite_ore",
-            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_UNAKITE_ORES,CommonConfigs.unakiteOreVeinSize.get())));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.UNAKITE_ORE.get().defaultBlockState(),CommonConfigs.unakiteOreVeinSize.get())));
+
+    // Deepslate Ores
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_TITANIUM_ORE = CONFIGURED_FEATURES.register("deepslate_titanium_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TITANIUM_ORE.get().defaultBlockState(),CommonConfigs.titaniumOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_TUNGSTEN_ORE = CONFIGURED_FEATURES.register("deepslate_tungsten_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TUNGSTEN_ORE.get().defaultBlockState(),CommonConfigs.tungstenOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_AVENTURINE_ORE = CONFIGURED_FEATURES.register("deepslate_aventurine_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_AVENTURINE_ORE.get().defaultBlockState(),CommonConfigs.aventurineOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_CALCITE_ORE = CONFIGURED_FEATURES.register("deepslate_calcite_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_CALCITE_ORE.get().defaultBlockState(),CommonConfigs.calciteOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_PYRITE_ORE = CONFIGURED_FEATURES.register("deepslate_pyrite_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_PYRITE_ORE.get().defaultBlockState(),CommonConfigs.pyriteOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_RUBY_ORE = CONFIGURED_FEATURES.register("deepslate_ruby_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState(),CommonConfigs.rubyOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_TOPAZ_ORE = CONFIGURED_FEATURES.register("deepslate_topaz_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TOPAZ_ORE.get().defaultBlockState(),CommonConfigs.topazOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_UNAKITE_ORE = CONFIGURED_FEATURES.register("deepslate_unakite_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_UNAKITE_ORE.get().defaultBlockState(),CommonConfigs.unakiteOreVeinSize.get())));
 
     public static void register(IEventBus eventBus) {
         CONFIGURED_FEATURES.register(eventBus);

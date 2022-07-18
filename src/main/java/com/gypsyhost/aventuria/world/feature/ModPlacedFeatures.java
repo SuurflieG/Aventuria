@@ -25,7 +25,6 @@ public class ModPlacedFeatures {
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
                     VerticalAnchor.aboveBottom(80)))));
 
-
     public static final RegistryObject<PlacedFeature> TUNGSTEN_ORE_PLACED = PLACED_FEATURE.register("tungsten_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeature.TUNGSTEN_ORE.getHolder().get(),
                     ModOrePlacement.commonOrePlacement(CommonConfigs.tungstenOreVeinsPerChunk.get(), // VeinsPerChunk
@@ -67,6 +66,56 @@ public class ModPlacedFeatures {
                     ModOrePlacement.commonOrePlacement(CommonConfigs.unakiteOreVeinsPerChunk.get(), // VeinsPerChunk
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
                     VerticalAnchor.aboveBottom(80)))));
+
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_TITANIUM_ORE_PLACED = PLACED_FEATURE.register("deepslate_titanium_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_TITANIUM_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.titaniumOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_TUNGSTEN_ORE_PLACED = PLACED_FEATURE.register("deepslate_tungsten_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_TUNGSTEN_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.tungstenOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_AVENTURINE_ORE_PLACED = PLACED_FEATURE.register("deepslate_aventurine_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_AVENTURINE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.aventurineOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_CALCITE_ORE_PLACED = PLACED_FEATURE.register("deepslate_calcite_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_CALCITE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.calciteOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_PYRITE_ORE_PLACED = PLACED_FEATURE.register("deepslate_pyrite_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_PYRITE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.pyriteOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_RUBY_ORE_PLACED = PLACED_FEATURE.register("deepslate_ruby_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_RUBY_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.rubyOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
+
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_TOPAZ_ORE_PLACED = PLACED_FEATURE.register("deepslate_topaz_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_TOPAZ_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.topazOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
+
+    public static final RegistryObject<PlacedFeature> DEEPSLATE_UNAKITE_ORE_PLACED = PLACED_FEATURE.register("deepslate_unakite_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_UNAKITE_ORE.getHolder().get(),
+                    ModOrePlacement.commonOrePlacement(CommonConfigs.unakiteOreVeinsPerChunk.get(), // VeinsPerChunk
+                            HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
+                                    VerticalAnchor.aboveBottom(80)))));
 
     public static void register(IEventBus eventBus) {
         PLACED_FEATURE.register(eventBus);

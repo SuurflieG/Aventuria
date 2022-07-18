@@ -20,5 +20,14 @@ public class ModOreGeneration {
         base.add(ModPlacedFeatures.RUBY_ORE_PLACED.getHolder().get());
         base.add(ModPlacedFeatures.TOPAZ_ORE_PLACED.getHolder().get());
         base.add(ModPlacedFeatures.UNAKITE_ORE_PLACED.getHolder().get());
+
+        base.add(ModPlacedFeatures.DEEPSLATE_TITANIUM_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.DEEPSLATE_TUNGSTEN_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.DEEPSLATE_AVENTURINE_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.DEEPSLATE_CALCITE_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.DEEPSLATE_PYRITE_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.DEEPSLATE_RUBY_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.DEEPSLATE_TOPAZ_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.DEEPSLATE_UNAKITE_ORE_PLACED.getHolder().get());
     }
 }

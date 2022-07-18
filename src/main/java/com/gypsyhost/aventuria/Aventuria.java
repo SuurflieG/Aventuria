@@ -51,13 +51,11 @@ public class Aventuria
         ModRecipes.register(eventBus);
         ModMenuTypes.register(eventBus);
 
-
-
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfigs.SPEC, "aventuria-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfigs.SPEC, "aventuria-common.toml");
 
-        ModConfiguredFeature.register(eventBus);
         ModPlacedFeatures.register(eventBus);
+        ModConfiguredFeature.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
