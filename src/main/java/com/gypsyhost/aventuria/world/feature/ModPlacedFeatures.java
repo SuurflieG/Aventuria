@@ -67,7 +67,6 @@ public class ModPlacedFeatures {
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80),
                     VerticalAnchor.aboveBottom(80)))));
 
-
     public static final RegistryObject<PlacedFeature> DEEPSLATE_TITANIUM_ORE_PLACED = PLACED_FEATURE.register("deepslate_titanium_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_TITANIUM_ORE.getHolder().get(),
                     ModOrePlacement.commonOrePlacement(CommonConfigs.titaniumOreVeinsPerChunk.get(), // VeinsPerChunk
