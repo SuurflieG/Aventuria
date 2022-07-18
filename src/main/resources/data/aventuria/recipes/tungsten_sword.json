@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    " x ",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:tungsten_block"
+    },
+    "s": {
+      "item": "aventuria:titanium_sword"
+    }
+  },
+  "result": {
+    "item": "aventuria:tungsten_sword",
+    "count": 1
+  }
+}

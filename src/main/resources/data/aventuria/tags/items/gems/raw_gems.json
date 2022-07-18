@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "aventuria:gem_raw_aventurine",
+    "aventuria:gem_raw_calcite",
+    "aventuria:gem_raw_pyrite",
+    "aventuria:gem_raw_ruby",
+    "aventuria:gem_raw_topaz",
+    "aventuria:gem_raw_unakite"
+  ]
+}

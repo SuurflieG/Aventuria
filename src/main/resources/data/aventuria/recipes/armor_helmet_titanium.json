@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xbx",
+    "xnx",
+    "   "
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:titanium_block"
+    },
+    "b": {
+      "item": "aventuria:steel_helmet"
+    },
+    "n": {
+      "item": "minecraft:diamond_helmet"
+    }
+  },
+  "result": {
+    "item": "aventuria:titanium_helmet",
+    "count": 1
+  }
+}

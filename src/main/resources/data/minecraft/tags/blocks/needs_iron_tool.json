@@ -1,22 +1,20 @@
 {
   "replace": false,
   "values": [
-    "socketcraft:aventurine_ore",
-    "socketcraft:calcite_ore",
-    "socketcraft:pyrite_ore",
-    "socketcraft:ruby_ore",
-    "socketcraft:topaz_ore",
-    "socketcraft:unakite_ore",
-    "socketcraft:deepslate_aventurine_ore",
-    "socketcraft:deepslate_calcite_ore",
-    "socketcraft:deepslate_pyrite_ore",
-    "socketcraft:deepslate_ruby_ore",
-    "socketcraft:deepslate_topaz_ore",
-    "socketcraft:deepslate_unakite_ore",
-    "socketcraft:energy_generator_basic",
-    "socketcraft:catalyzer",
-    "socketcraft:press",
-    "socketcraft:gem_ruby_block",
-    "socketcraft:gem_raw_ruby_block"
+    "aventuria:aventurine_ore",
+    "aventuria:calcite_ore",
+    "aventuria:pyrite_ore",
+    "aventuria:ruby_ore",
+    "aventuria:topaz_ore",
+    "aventuria:unakite_ore",
+    "aventuria:deepslate_aventurine_ore",
+    "aventuria:deepslate_calcite_ore",
+    "aventuria:deepslate_pyrite_ore",
+    "aventuria:deepslate_ruby_ore",
+    "aventuria:deepslate_topaz_ore",
+    "aventuria:deepslate_unakite_ore",
+    "aventuria:catalyzer",
+    "aventuria:press",
+    "aventuria:upgrade_station"
   ]
 }

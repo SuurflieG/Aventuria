@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "xbx",
+    "x x"
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:steel_block"
+    },
+    "b": {
+      "item": "minecraft:iron_boots"
+    }
+  },
+  "result": {
+    "item": "aventuria:steel_boots",
+    "count": 1
+  }
+}

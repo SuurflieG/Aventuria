@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:steel_nugget"
+    }
+  },
+  "result": {
+    "item": "aventuria:steel_ingot",
+    "count": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xx ",
+    " t ",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:titanium_block"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "t": {
+      "item": "aventuria:steel_hoe"
+    }
+  },
+  "result": {
+    "item": "aventuria:titanium_hoe",
+    "count": 1
+  }
+}

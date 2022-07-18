@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "aventuria:tungsten_dust"
+  },
+  "result": "aventuria:tungsten_ingot",
+  "experience": 1,
+  "cookingtime": 100
+}

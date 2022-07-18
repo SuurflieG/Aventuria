@@ -1,0 +1,15 @@
+{
+  "type": "aventuria:pressing",
+  "ingredients": [
+    {
+      "tag": "aventuria:crafting_hammer"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "item": "aventuria:iron_plate"
+  },
+    "crafttime": 100
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "aventuria:tungsten_ingot"
+    },
+    {
+      "tag": "aventuria:crafting_hammer"
+    }
+  ],
+  "result": {
+    "item": "aventuria:tungsten_dust",
+    "count": 1
+  }
+}

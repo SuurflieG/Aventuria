@@ -1,0 +1,15 @@
+{
+  "type": "aventuria:pressing",
+  "ingredients": [
+    {
+      "tag": "aventuria:crafting_hammer"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "output": {
+    "item": "aventuria:redstone_plate"
+  },
+  "crafttime": 50
+}

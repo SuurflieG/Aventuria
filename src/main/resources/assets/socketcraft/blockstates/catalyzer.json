@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "socketcraft:block/catalyzer" },
-    "facing=east": { "model": "socketcraft:block/catalyzer", "y": 90 },
-    "facing=south": { "model": "socketcraft:block/catalyzer", "y": 180 },
-    "facing=west": { "model": "socketcraft:block/catalyzer", "y": 270 }
-  }
-}

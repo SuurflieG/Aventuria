@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xbx",
+    "xnx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:titanium_block"
+    },
+    "b": {
+      "item": "aventuria:steel_chestplate"
+    },
+    "n": {
+      "item": "minecraft:diamond_chestplate"
+    }
+  },
+  "result": {
+    "item": "aventuria:titanium_chestplate",
+    "count": 1
+  }
+}

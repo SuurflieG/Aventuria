@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:titanium_plate"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "aventuria:crafting_hammer_titanium",
+    "count": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "xbx",
+    "xnx"
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:tungsten_block"
+    },
+    "b": {
+      "item": "aventuria:titanium_boots"
+    },
+    "n": {
+      "item": "minecraft:netherite_boots"
+    }
+  },
+  "result": {
+    "item": "aventuria:tungsten_boots",
+    "count": 1
+  }
+}

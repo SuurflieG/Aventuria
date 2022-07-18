@@ -1,0 +1,15 @@
+{
+  "type": "aventuria:pressing",
+  "ingredients": [
+    {
+      "tag": "aventuria:crafting_hammer"
+    },
+    {
+      "item": "aventuria:tungsten_ingot"
+    }
+  ],
+  "output": {
+    "item": "aventuria:tungsten_plate"
+  },
+  "crafttime": 300
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "rmr",
+    "bpb"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "m": {
+      "item": "aventuria:machine_casing"
+    },
+    "b": {
+      "item": "minecraft:iron_block"
+    },
+    "p": {
+      "item": "minecraft:piston"
+    }
+  },
+  "result": {
+    "item": "aventuria:press",
+    "count": 1
+  }
+}

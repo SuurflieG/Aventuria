@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xx ",
+    "xt ",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "aventuria:titanium_block"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "t": {
+      "item": "aventuria:steel_axe"
+    }
+  },
+  "result": {
+    "item": "aventuria:titanium_axe",
+    "count": 1
+  }
+}

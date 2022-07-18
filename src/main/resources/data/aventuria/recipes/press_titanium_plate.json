@@ -1,0 +1,15 @@
+{
+  "type": "aventuria:pressing",
+  "ingredients": [
+    {
+      "tag": "aventuria:crafting_hammer"
+    },
+    {
+      "item": "aventuria:titanium_ingot"
+    }
+  ],
+  "output": {
+    "item": "aventuria:titanium_plate"
+  },
+  "crafttime": 200
+}
