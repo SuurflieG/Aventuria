@@ -60,10 +60,10 @@ public class CustomShovelItem extends ShovelItem {
     }
 
     public static void changeRange(ItemStack tool) {
-        if (ToolMiningProperties.getRange(tool) == 1)
-            ToolMiningProperties.setRange(tool, 3);
+        if (ToolMiningProperties.getMiningSize(tool) == 1)
+            ToolMiningProperties.setMiningSize(tool, 3);
         else
-            ToolMiningProperties.setRange(tool, 1);
+            ToolMiningProperties.setMiningSize(tool, 1);
     }
 
     public static boolean isHolding(Player entity) {

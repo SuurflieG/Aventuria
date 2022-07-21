@@ -1,6 +1,6 @@
 package com.gypsyhost.aventuria.custom.block.entity;
 
-import com.gypsyhost.aventuria.custom.gui.upgradestation.UpgradeStationMenu;
+import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
 import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
 import com.gypsyhost.aventuria.registry.ModBlockEntities;

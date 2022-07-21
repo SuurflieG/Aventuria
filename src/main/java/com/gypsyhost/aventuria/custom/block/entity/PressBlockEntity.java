@@ -1,7 +1,7 @@
 package com.gypsyhost.aventuria.custom.block.entity;
 
 import com.gypsyhost.aventuria.custom.energy.CapabilityPhotonEnergy;
-import com.gypsyhost.aventuria.custom.gui.press.PressMenu;
+import com.gypsyhost.aventuria.custom.gui.menu.PressMenu;
 import com.gypsyhost.aventuria.custom.recipe.PressRecipe;
 import com.gypsyhost.aventuria.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;

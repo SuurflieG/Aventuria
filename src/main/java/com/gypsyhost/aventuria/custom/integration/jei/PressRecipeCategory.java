@@ -25,6 +25,9 @@ public class PressRecipeCategory implements IRecipeCategory<PressRecipe> {
     private final IDrawable background;
     private final IDrawable icon;
 
+    private final int INPUT_SLOT_A = 0;
+    private final int TOOL_SLOT = 1;
+
     public PressRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 80);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(ModBlocks.PRESS.get()));
@@ -58,8 +61,9 @@ public class PressRecipeCategory implements IRecipeCategory<PressRecipe> {
     @Override
     public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull PressRecipe pressRecipes, @Nonnull IFocusGroup focusGroup) {
         builder.addSlot(RecipeIngredientRole.INPUT, 79, 18).addIngredients(pressRecipes.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 79, 52).addIngredients(pressRecipes.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.CATALYST, 79, 52).addIngredients(pressRecipes.getIngredients().get(1));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 148, 36).addItemStack(pressRecipes.getResultItem());
     }
+
 }

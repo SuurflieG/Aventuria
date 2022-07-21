@@ -1,4 +1,4 @@
-package com.gypsyhost.aventuria.custom.gui.tools;
+package com.gypsyhost.aventuria.custom.gui.screen;
 
 import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.custom.gui.widgets.ToggleButton;
@@ -34,7 +34,7 @@ public class CustomToolScreen extends Screen {
     
     private int currentSize = 1;
     private List<Upgrade> toggleableList = new ArrayList<>();
-    private final HashMap<Upgrade, ToggleButton> toggleButton = new HashMap<>();
+    public final HashMap<Upgrade, ToggleButton> toggleButton = new HashMap<>();
 
     public CustomToolScreen(ItemStack customToolItem) {
         super(new TextComponent("title"));
@@ -71,7 +71,7 @@ public class CustomToolScreen extends Screen {
         }
 
         // Top Row
-        currentSize = ToolMiningProperties.getRange(customToolItem);
+        currentSize = ToolMiningProperties.getMiningSize(customToolItem);
 
         Button sizeButton;
         leftWidgets.add(sizeButton = new Button(baseX + 12, baseY + 20, 60, 20, new TranslatableComponent("aventuria.tooltip.screen.size", currentSize), (button) -> {
@@ -92,7 +92,7 @@ public class CustomToolScreen extends Screen {
         }
     }
 
-    private boolean toggleUpgrade(Upgrade upgrade, boolean update) {
+    public boolean toggleUpgrade(Upgrade upgrade, boolean update) {
         // When the button is clicked we toggle
         if( update ) {
             this.updateButtons(upgrade);
@@ -107,8 +107,7 @@ public class CustomToolScreen extends Screen {
         for(Map.Entry<Upgrade, ToggleButton> btn : this.toggleButton.entrySet()) {
             Upgrade btnUpgrade = btn.getKey();
 
-            if((btnUpgrade.lazyIs(Upgrade.FORTUNE_1) && btn.getValue().isEnabled() && upgrade.lazyIs(Upgrade.SILK))
-                    || ((btnUpgrade.lazyIs(Upgrade.SILK)) && btn.getValue().isEnabled() && upgrade.lazyIs(Upgrade.FORTUNE_1))) {
+            if((btnUpgrade.lazyIs(Upgrade.FORTUNE_1) && btn.getValue().isEnabled() && upgrade.lazyIs(Upgrade.SILK)) || ((btnUpgrade.lazyIs(Upgrade.SILK)) && btn.getValue().isEnabled() && upgrade.lazyIs(Upgrade.FORTUNE_1))) {
                 this.toggleButton.get(btn.getKey()).setEnabled(false);
             }
         }

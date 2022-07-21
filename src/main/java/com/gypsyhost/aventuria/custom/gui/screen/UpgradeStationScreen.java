@@ -1,7 +1,8 @@
-package com.gypsyhost.aventuria.custom.gui.upgradestation;
+package com.gypsyhost.aventuria.custom.gui.screen;
 
 import com.google.common.collect.Lists;
 import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;

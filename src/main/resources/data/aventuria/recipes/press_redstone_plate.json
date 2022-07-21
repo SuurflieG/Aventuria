@@ -2,10 +2,10 @@
   "type": "aventuria:pressing",
   "ingredients": [
     {
-      "tag": "aventuria:crafting_hammer"
+      "item": "minecraft:redstone"
     },
     {
-      "item": "minecraft:redstone"
+      "tag": "aventuria:crafting_hammer"
     }
   ],
   "output": {

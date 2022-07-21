@@ -2,10 +2,10 @@
   "type": "aventuria:pressing",
   "ingredients": [
     {
-      "tag": "aventuria:crafting_hammer"
+      "item": "minecraft:iron_ingot"
     },
     {
-      "item": "minecraft:iron_ingot"
+      "tag": "aventuria:crafting_hammer"
     }
   ],
   "output": {

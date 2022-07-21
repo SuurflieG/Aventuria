@@ -1,8 +1,8 @@
 package com.gypsyhost.aventuria.network.packets;
 
 import com.gypsyhost.aventuria.custom.block.entity.UpgradeStationBlockEntity;
-import com.gypsyhost.aventuria.custom.gui.upgradestation.UpgradeStationCommands;
-import com.gypsyhost.aventuria.custom.gui.upgradestation.UpgradeStationMenu;
+import com.gypsyhost.aventuria.custom.gui.UpgradeStationCommands;
+import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;

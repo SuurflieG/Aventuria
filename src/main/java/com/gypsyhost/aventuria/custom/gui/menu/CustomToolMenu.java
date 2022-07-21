@@ -1,4 +1,4 @@
-package com.gypsyhost.aventuria.custom.gui.tools;
+package com.gypsyhost.aventuria.custom.gui.menu;
 
 import com.gypsyhost.aventuria.custom.gui.slot.ModGhostSlot;
 import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;

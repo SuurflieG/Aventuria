@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "aventuria:steel_ingot",
+    "aventuria:titanium_ingot",
+    "aventuria:tungsten_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:redstone"
+  ]
+}

@@ -1,11 +1,14 @@
 package com.gypsyhost.aventuria.custom.item.upgradecards;
 
+import com.gypsyhost.aventuria.custom.gui.screen.CustomToolScreen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.common.ForgeI18n;
 
 import javax.annotation.Nullable;
@@ -24,6 +27,7 @@ public class UpgradeTools {
     private static final String KEY_UPGRADES = "upgrades";
     private static final String KEY_UPGRADE = "upgrade";
     private static final String KEY_ENABLED = "enabled";
+    private static CustomToolScreen menu;
 
     private static void setUpgradeNBT(CompoundTag nbt, UpgradeCardItem upgrade) {
         ListTag list = nbt.getList(KEY_UPGRADES, Tag.TAG_COMPOUND);
@@ -54,6 +58,8 @@ public class UpgradeTools {
     public static void setUpgrade(ItemStack tool, UpgradeCardItem upgrade) {
         CompoundTag tagCompound = tool.getOrCreateTag();
         setUpgradeNBT(tagCompound, upgrade);
+
+
     }
 
     public static void updateUpgrade(ItemStack tool, Upgrade upgrade) {
@@ -65,14 +71,28 @@ public class UpgradeTools {
             String name = compound.getString(KEY_UPGRADE);
             boolean enabled = compound.getBoolean(KEY_ENABLED);
 
-            if( (name.contains(Upgrade.FORTUNE_1.getBaseName()) && enabled && upgrade.lazyIs(Upgrade.SILK) )
-                    || (name.equals(Upgrade.SILK.getBaseName()) && enabled && upgrade.lazyIs(Upgrade.FORTUNE_1) ))
+            if((name.contains(Upgrade.FORTUNE_1.getBaseName()) && enabled && upgrade.lazyIs(Upgrade.SILK)) || (name.equals(Upgrade.SILK.getBaseName()) && enabled && upgrade.lazyIs(Upgrade.FORTUNE_1)))
                 compound.putBoolean(KEY_ENABLED, false);
 
-            if( name.equals(upgrade.getName()) )
+            if(name.equals(upgrade.getName()))
                 compound.putBoolean(KEY_ENABLED, !compound.getBoolean(KEY_ENABLED));
         });
     }
+
+
+    //Use EnchantmentHelper.getEnchantments to get the enchantments from the stack. Do whatever modifications you want to the map, then use EnchantmentHelper.setEnchantments to store them back in the stack
+    public static void getFortune(ItemStack pStack){
+        EnchantmentHelper.getEnchantments(pStack);
+    }
+
+    public static void applyFortune(ItemStack pStack){
+        int fortune = 0;
+        if(UpgradeTools.containsActiveUpgrade(pStack, Upgrade.FORTUNE_1)){
+            fortune = UpgradeTools.getUpgradeFromTool((pStack), Upgrade.FORTUNE_1).get().getTier();
+            pStack.enchant(Enchantments.BLOCK_FORTUNE, fortune);
+        }
+    }
+
 
     // Return all upgrades in the item.
     public static List<Upgrade> getUpgradesFromTag(CompoundTag tagCompound) {

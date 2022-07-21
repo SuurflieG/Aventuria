@@ -1,5 +1,6 @@
-package com.gypsyhost.aventuria.custom.gui.upgradestation;
+package com.gypsyhost.aventuria.custom.gui;
 
+import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
@@ -68,7 +69,7 @@ public class UpgradeStationCommands {
             }
 
             if (upgrade == Upgrade.THREE_BY_THREE)
-                ToolMiningProperties.setRange(tool, 1);
+                ToolMiningProperties.setMiningSize(tool, 1);
 
         });
     }

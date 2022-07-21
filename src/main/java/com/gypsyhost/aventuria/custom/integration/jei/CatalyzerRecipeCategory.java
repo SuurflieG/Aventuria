@@ -9,6 +9,7 @@ import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -72,6 +73,5 @@ public class CatalyzerRecipeCategory implements IRecipeCategory<CatalyzerRecipe>
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 148, 46).addItemStack(catalyzerRecipes.getResultItem());
     }
-
 
 }

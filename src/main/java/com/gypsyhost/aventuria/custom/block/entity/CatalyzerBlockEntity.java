@@ -1,6 +1,6 @@
 package com.gypsyhost.aventuria.custom.block.entity;
 
-import com.gypsyhost.aventuria.custom.gui.catalyzer.CatalyzerMenu;
+import com.gypsyhost.aventuria.custom.gui.menu.CatalyzerMenu;
 import com.gypsyhost.aventuria.custom.recipe.CatalyzerRecipe;
 import com.gypsyhost.aventuria.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;

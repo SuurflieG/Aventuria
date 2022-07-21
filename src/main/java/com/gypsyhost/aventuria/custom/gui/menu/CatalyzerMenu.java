@@ -1,4 +1,4 @@
-package com.gypsyhost.aventuria.custom.gui.catalyzer;
+package com.gypsyhost.aventuria.custom.gui.menu;
 
 import com.gypsyhost.aventuria.custom.block.entity.CatalyzerBlockEntity;
 import com.gypsyhost.aventuria.custom.gui.slot.ModFuelSlot;

@@ -1,6 +1,7 @@
-package com.gypsyhost.aventuria.custom.gui.upgradestation;
+package com.gypsyhost.aventuria.custom.gui.menu;
 
 import com.gypsyhost.aventuria.custom.gui.slot.ModWatchedSlot;
+import com.gypsyhost.aventuria.custom.gui.UpgradeStationCommands;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;

@@ -1,16 +1,12 @@
 package com.gypsyhost.aventuria.registry;
 
 import com.gypsyhost.aventuria.Aventuria;
-import com.gypsyhost.aventuria.custom.gui.catalyzer.CatalyzerMenu;
-import com.gypsyhost.aventuria.custom.gui.common.FilterMenu;
-import com.gypsyhost.aventuria.custom.gui.press.PressMenu;
-import com.gypsyhost.aventuria.custom.gui.tools.CustomToolScreen;
-import com.gypsyhost.aventuria.custom.gui.upgradestation.UpgradeStationMenu;
-import com.gypsyhost.aventuria.custom.gui.tools.CustomToolMenu;
-import net.minecraft.client.Minecraft;
+import com.gypsyhost.aventuria.custom.gui.menu.CatalyzerMenu;
+import com.gypsyhost.aventuria.custom.gui.menu.PressMenu;
+import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
+import com.gypsyhost.aventuria.custom.gui.menu.CustomToolMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.network.IContainerFactory;
@@ -24,7 +20,6 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<PressMenu>> PRESS_MENU = registerMenuType(PressMenu::new, "press_menu");
     public static final RegistryObject<MenuType<CatalyzerMenu>> CATALYZER_MENU = registerMenuType(CatalyzerMenu::new, "catalyzer_menu");
     public static final RegistryObject<MenuType<CustomToolMenu>> CUSTOM_TOOL_MENU = registerMenuType(CustomToolMenu::new, "custom_tool_menu");
-    public static final RegistryObject<MenuType<FilterMenu>> FILTER_MENU = registerMenuType(FilterMenu::new, "filter_menu");
     public static final RegistryObject<MenuType<UpgradeStationMenu>> UPGRADE_STATION_MENU = registerMenuType(UpgradeStationMenu::new, "upgrade_station_menu");
 
 

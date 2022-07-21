@@ -2,10 +2,10 @@
   "type": "aventuria:pressing",
   "ingredients": [
     {
-      "tag": "aventuria:crafting_hammer"
+      "item": "aventuria:tungsten_ingot"
     },
     {
-      "item": "aventuria:tungsten_ingot"
+      "tag": "aventuria:crafting_hammer"
     }
   ],
   "output": {

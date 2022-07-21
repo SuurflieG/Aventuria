@@ -1,6 +1,6 @@
 package com.gypsyhost.aventuria.registry;
 
-import com.gypsyhost.aventuria.custom.gui.tools.CustomToolScreen;
+import com.gypsyhost.aventuria.custom.gui.screen.CustomToolScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.ItemStack;
 

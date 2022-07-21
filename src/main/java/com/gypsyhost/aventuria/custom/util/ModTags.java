@@ -34,6 +34,9 @@ public class ModTags {
         public static final TagKey<Item> TUNGSTEN_NUGGETS = forgeTag("nuggets/tungsten");
 
         public static final TagKey<Item> RAW_GEMS = tag("gems/raw_gems");
+        public static final TagKey<Item> CRAFTING_HAMMER = tag("crafting_hammer");
+        public static final TagKey<Item> PLATE_INGREDIENTS = tag("plate_ingredients");
+
 
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(Aventuria.MOD_ID, name));

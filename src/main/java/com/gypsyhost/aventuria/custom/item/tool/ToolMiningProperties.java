@@ -19,14 +19,14 @@ public class ToolMiningProperties {
 
     private static final String KEY_MINING_SIZE = "range";
 
-    public static int setRange(ItemStack gadget, int range) {
-        gadget.getOrCreateTag().putInt(KEY_MINING_SIZE, range);
+    public static int setMiningSize(ItemStack tool, int range) {
+        tool.getOrCreateTag().putInt(KEY_MINING_SIZE, range);
         return range;
     }
 
-    public static int getRange(ItemStack gadget) {
-        CompoundTag compound = gadget.getOrCreateTag();
-        return !compound.contains(KEY_MINING_SIZE) ? setRange(gadget, 1) : compound.getInt(KEY_MINING_SIZE);
+    public static int getMiningSize(ItemStack tool) {
+        CompoundTag compound = tool.getOrCreateTag();
+        return !compound.contains(KEY_MINING_SIZE) ? setMiningSize(tool, 1) : compound.getInt(KEY_MINING_SIZE);
     }
 
     // mostly stolen from ItemStackHandler

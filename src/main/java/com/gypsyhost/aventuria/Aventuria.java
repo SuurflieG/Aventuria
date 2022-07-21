@@ -3,10 +3,9 @@ package com.gypsyhost.aventuria;
 import com.gypsyhost.aventuria.config.ClientConfigs;
 import com.gypsyhost.aventuria.config.CommonConfigs;
 import com.gypsyhost.aventuria.custom.energy.CapabilityPhotonEnergy;
-import com.gypsyhost.aventuria.custom.gui.catalyzer.CatalyzerScreen;
-import com.gypsyhost.aventuria.custom.gui.common.FilterScreen;
-import com.gypsyhost.aventuria.custom.gui.press.PressScreen;
-import com.gypsyhost.aventuria.custom.gui.upgradestation.UpgradeStationScreen;
+import com.gypsyhost.aventuria.custom.gui.screen.CatalyzerScreen;
+import com.gypsyhost.aventuria.custom.gui.screen.PressScreen;
+import com.gypsyhost.aventuria.custom.gui.screen.UpgradeStationScreen;
 import com.gypsyhost.aventuria.custom.renderer.CatalyzerBER;
 import com.gypsyhost.aventuria.custom.renderer.UpgradeStationBER;
 import com.gypsyhost.aventuria.network.PacketHandler;
@@ -70,7 +69,6 @@ public class Aventuria
 
         MenuScreens.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         MenuScreens.register(ModMenuTypes.CATALYZER_MENU.get(), CatalyzerScreen::new);
-        MenuScreens.register(ModMenuTypes.FILTER_MENU.get(), FilterScreen::new);
         MenuScreens.register(ModMenuTypes.UPGRADE_STATION_MENU.get(), UpgradeStationScreen::new);
 
         BlockEntityRenderers.register(ModBlockEntities.UPGRADE_STATION.get(), UpgradeStationBER::new);

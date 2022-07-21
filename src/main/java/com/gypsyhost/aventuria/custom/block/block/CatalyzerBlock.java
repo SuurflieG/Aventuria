@@ -101,6 +101,8 @@ public class CatalyzerBlock extends BaseEntityBlock {
         return new CatalyzerBlockEntity(pPos, pState);
     }
 
+
+
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {

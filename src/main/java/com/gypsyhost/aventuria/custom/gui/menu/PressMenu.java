@@ -1,8 +1,10 @@
-package com.gypsyhost.aventuria.custom.gui.press;
+package com.gypsyhost.aventuria.custom.gui.menu;
 
 import com.gypsyhost.aventuria.custom.block.entity.PressBlockEntity;
 import com.gypsyhost.aventuria.custom.gui.slot.ModFuelSlot;
+import com.gypsyhost.aventuria.custom.gui.slot.ModRestrictedTagSlot;
 import com.gypsyhost.aventuria.custom.gui.slot.ModResultSlot;
+import com.gypsyhost.aventuria.custom.util.ModTags;
 import com.gypsyhost.aventuria.registry.ModBlocks;
 import com.gypsyhost.aventuria.registry.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
@@ -39,9 +41,9 @@ public class PressMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, TOOL_SLOT, 70, 49));
+            this.addSlot(new ModRestrictedTagSlot(handler, TOOL_SLOT, 70, 49, () -> ModTags.Items.CRAFTING_HAMMER));
             this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 17, 31));
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT_A, 70, 14));
+            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_A, 70, 14, () -> ModTags.Items.PLATE_INGREDIENTS));
             this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 139, 32));
         });
 
