@@ -1,6 +1,6 @@
 package com.gypsyhost.aventuria.custom.energy;
 
-public interface IPhotonEnergyStorage {
+public interface IPhotonPowerStorage {
 
     /**
      * Adds energy to the storage. Returns quantity of energy that was accepted.
@@ -11,7 +11,7 @@ public interface IPhotonEnergyStorage {
      *            If TRUE, the insertion will only be simulated.
      * @return Amount of energy that was (or would have been, if simulated) accepted by the storage.
      */
-    int receiveEnergy(int maxReceive, boolean simulate);
+    int receivePower(int maxReceive, boolean simulate);
 
     /**
      * Removes energy from the storage. Returns quantity of energy that was removed.
@@ -22,27 +22,42 @@ public interface IPhotonEnergyStorage {
      *            If TRUE, the extraction will only be simulated.
      * @return Amount of energy that was (or would have been, if simulated) extracted from the storage.
      */
-    int extractEnergy(int maxExtract, boolean simulate);
+    int extractPower(int maxExtract, boolean simulate);
 
     /**
      * Returns the amount of energy currently stored.
      */
-    int getEnergyStored();
+    int getPowerStored();
 
     /**
      * Returns the maximum amount of energy that can be stored.
      */
-    int getMaxEnergyStored();
+    int getMaxPowerCapacity();
+
+    /**
+     * Returns the maximum amount of energy that can be received.
+     */
+    int getMaxPowerReceive();
+
+    /**
+     * Returns the maximum amount of energy that can be extracted.
+     */
+    int getMaxPowerExtract();
+
+    /**
+     * Returns the maximum amount of energy that can be generated.
+     */
+    int getMaxPowerGenerate();
 
     /**
      * Returns if this storage can have energy extracted.
-     * If this is false, then any calls to extractEnergy will return 0.
+     * If this is false, then any calls to extractPower will return 0.
      */
     boolean canExtract();
 
     /**
      * Used to determine if this storage can receive energy.
-     * If this is false, then any calls to receiveEnergy will return 0.
+     * If this is false, then any calls to receivePower will return 0.
      */
     boolean canReceive();
 }

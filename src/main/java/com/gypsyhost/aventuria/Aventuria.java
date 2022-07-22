@@ -2,7 +2,8 @@ package com.gypsyhost.aventuria;
 
 import com.gypsyhost.aventuria.config.ClientConfigs;
 import com.gypsyhost.aventuria.config.CommonConfigs;
-import com.gypsyhost.aventuria.custom.energy.CapabilityPhotonEnergy;
+import com.gypsyhost.aventuria.custom.energy.CapabilityPhotonPower;
+import com.gypsyhost.aventuria.custom.gui.screen.BasicPhotonPanelScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.CatalyzerScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.PressScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.UpgradeStationScreen;
@@ -58,7 +59,6 @@ public class Aventuria
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
-        eventBus.addListener(this::registerCapabilities);
 
         MinecraftForge.EVENT_BUS.register(this);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -70,6 +70,7 @@ public class Aventuria
         MenuScreens.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         MenuScreens.register(ModMenuTypes.CATALYZER_MENU.get(), CatalyzerScreen::new);
         MenuScreens.register(ModMenuTypes.UPGRADE_STATION_MENU.get(), UpgradeStationScreen::new);
+        MenuScreens.register(ModMenuTypes.BASIC_PHOTON_PANEL_MENU.get(), BasicPhotonPanelScreen::new);
 
         BlockEntityRenderers.register(ModBlockEntities.UPGRADE_STATION.get(), UpgradeStationBER::new);
         BlockEntityRenderers.register(ModBlockEntities.CATALYZER.get(), CatalyzerBER::new);
@@ -79,11 +80,6 @@ public class Aventuria
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ELECTRIC_RAIL.get(), RenderType.translucent());
 
 
-    }
-
-    public void registerCapabilities(RegisterCapabilitiesEvent event)
-    {
-        CapabilityPhotonEnergy.register(event);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

@@ -19,6 +19,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.MACHINE_CASING.get());
         this.dropSelf(ModBlocks.UPGRADE_STATION.get());
         this.dropSelf(ModBlocks.ELECTRIC_RAIL.get());
+        this.dropSelf(ModBlocks.BASIC_PHOTON_PANEL.get());
         //endregion
 
         //region Ore Blocks that drop raw ores

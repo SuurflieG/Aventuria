@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,powered_photon_power=false": {
+      "model": "aventuria:block/basic_photon_panel"
+    },
+    "facing=south,powered_photon_power=false": {
+      "model": "aventuria:block/basic_photon_panel",
+      "y": 180
+    },
+    "facing=west,powered_photon_power=false": {
+      "model": "aventuria:block/basic_photon_panel",
+      "y": 270
+    },
+    "facing=east,powered_photon_power=false": {
+      "model": "aventuria:block/basic_photon_panel",
+      "y": 90
+    },
+    "facing=north,powered_photon_power=true": {
+      "model": "aventuria:block/basic_photon_panel"
+    },
+    "facing=south,powered_photon_power=true": {
+      "model": "aventuria:block/basic_photon_panel",
+      "y": 180
+    },
+    "facing=west,powered_photon_power=true": {
+      "model": "aventuria:block/basic_photon_panel",
+      "y": 270
+    },
+    "facing=east,powered_photon_power=true": {
+      "model": "aventuria:block/basic_photon_panel",
+      "y": 90
+    }
+  }
+}

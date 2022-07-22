@@ -1,6 +1,5 @@
 package com.gypsyhost.aventuria.custom.block.entity;
 
-import com.gypsyhost.aventuria.custom.energy.CapabilityPhotonEnergy;
 import com.gypsyhost.aventuria.custom.gui.menu.PressMenu;
 import com.gypsyhost.aventuria.custom.recipe.PressRecipe;
 import com.gypsyhost.aventuria.registry.ModBlockEntities;
@@ -101,9 +100,6 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
             return lazyItemHandler.cast();
         }
 
-        if (cap == CapabilityPhotonEnergy.PHOTON_ENERGY) {
-            return lazyItemHandler.cast();
-        }
 
         return super.getCapability(cap, side);
     }

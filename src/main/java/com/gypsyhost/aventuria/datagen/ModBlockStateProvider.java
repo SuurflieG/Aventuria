@@ -38,6 +38,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         horizontalBlock(ModBlocks.UPGRADE_STATION.get(), new ModelFile.UncheckedModelFile(modLoc("block/upgrade_station")));
         horizontalBlock(ModBlocks.CATALYZER.get(), new ModelFile.UncheckedModelFile(modLoc("block/catalyzer")));
+        horizontalBlock(ModBlocks.BASIC_PHOTON_PANEL.get(), new ModelFile.UncheckedModelFile(modLoc("block/basic_photon_panel")));
 
 
 

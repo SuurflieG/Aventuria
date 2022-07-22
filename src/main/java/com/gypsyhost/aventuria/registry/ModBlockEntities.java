@@ -1,6 +1,7 @@
 package com.gypsyhost.aventuria.registry;
 
 import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.custom.block.entity.BasicPhotonPanelBlockEntity;
 import com.gypsyhost.aventuria.custom.block.entity.CatalyzerBlockEntity;
 import com.gypsyhost.aventuria.custom.block.entity.PressBlockEntity;
 import com.gypsyhost.aventuria.custom.block.entity.UpgradeStationBlockEntity;
@@ -22,6 +23,9 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<UpgradeStationBlockEntity>> UPGRADE_STATION = BLOCK_ENTITIES.register("upgrade_station" ,
             () -> BlockEntityType.Builder.of(UpgradeStationBlockEntity::new, ModBlocks.UPGRADE_STATION.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BasicPhotonPanelBlockEntity>> BASIC_PHOTON_PANEL = BLOCK_ENTITIES.register("basic_photon_panel" ,
+            () -> BlockEntityType.Builder.of(BasicPhotonPanelBlockEntity::new, ModBlocks.BASIC_PHOTON_PANEL.get()).build(null));
 
 /*    public static final RegistryObject<BlockEntityType<RenderBlockEntity>> RENDER_BLOCK_TILE = BLOCK_ENTITIES.register("render_block_tile" ,
             () -> BlockEntityType.Builder.of(RenderBlockEntity::new, ModBlocks.RENDER_BLOCK.get()).build(null));*/

@@ -66,5 +66,5 @@ public class CatalyzerScreen extends AbstractContainerScreen<CatalyzerMenu> {
                 renderBackground(pPoseStack);
                 super.render(pPoseStack, mouseX, mouseY, delta);
                 renderTooltip(pPoseStack, mouseX, mouseY);
-                }
         }
+}
