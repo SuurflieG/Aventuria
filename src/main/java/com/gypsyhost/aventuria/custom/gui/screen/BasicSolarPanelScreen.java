@@ -1,7 +1,8 @@
 package com.gypsyhost.aventuria.custom.gui.screen;
 
 import com.gypsyhost.aventuria.Aventuria;
-import com.gypsyhost.aventuria.custom.gui.menu.BasicPhotonPanelMenu;
+import com.gypsyhost.aventuria.custom.block.entity.BasicSolarPanelBlockEntity;
+import com.gypsyhost.aventuria.custom.gui.menu.BasicSolarPanelMenu;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -10,17 +11,17 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class BasicPhotonPanelScreen extends AbstractContainerScreen<BasicPhotonPanelMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Aventuria.MOD_ID, "textures/gui/basic_photon_panel.png");
+public class BasicSolarPanelScreen extends AbstractContainerScreen<BasicSolarPanelMenu> {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Aventuria.MOD_ID, "textures/gui/basic_solar_panel.png");
 
-    int imageHeight = 178;
+    int imageHeight = 166;
     int imageWidth = 176;
-    int titleLabelX = 12;
-    int titleLabelY = 12;
-    int inventoryLabelX = 8;
-    int inventoryLabelY = this.imageHeight - 76;
+    int titleLabelX = 9;
+    int titleLabelY = 9;
+    int inventoryLabelX = 9;
+    int inventoryLabelY = this.imageHeight - 72;
 
-    public BasicPhotonPanelScreen(BasicPhotonPanelMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public BasicSolarPanelScreen(BasicSolarPanelMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
 
     }
@@ -46,7 +47,17 @@ public class BasicPhotonPanelScreen extends AbstractContainerScreen<BasicPhotonP
 
         pPoseStack.pushPose();
         pPoseStack.scale(0.5F, 0.5F, 0.5F);
-        drawString(pPoseStack, this.minecraft.font, "Energy:" + menu.getEnergy() + "/" + menu.getMaxCapacity(), 80,82,8234367);
+        drawString(pPoseStack, this.minecraft.font, "Kilowatts:  " + menu.getKilowatts() + "/" + menu.getMaxCapacity(), 120,43,8234367); // 64 55
+        pPoseStack.popPose();
+
+        pPoseStack.pushPose();
+        pPoseStack.scale(0.5F, 0.5F, 0.5F);
+        drawString(pPoseStack, this.minecraft.font, "Produces:  " + menu.getKilowattPerTick() + " kW/Tick", 120,59,8234367); // 64 55
+        pPoseStack.popPose();
+
+        pPoseStack.pushPose();
+        pPoseStack.scale(0.5F, 0.5F, 0.5F);
+        drawString(pPoseStack, this.minecraft.font, "Output:  " + menu.getExtractRate() + " kW/Tick", 120,75,8234367); // 64 55
         pPoseStack.popPose();
     }
 
@@ -62,10 +73,9 @@ public class BasicPhotonPanelScreen extends AbstractContainerScreen<BasicPhotonP
 
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
-        if(menu.hasEnergy()) {
-            blit(pPoseStack, x + 40, y + 50, 0, 178, menu.getPanelCapacityScaled(), 12); // Power Capacity Display
+        if(menu.hasKilowatts()) {
+            blit(pPoseStack, x + 65, y + 65, 176, 0, menu.getPanelCapacityScaled(), 7); // Power Capacity Display
         }
-
     }
 
     @Override

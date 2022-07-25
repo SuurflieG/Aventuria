@@ -1,9 +1,9 @@
 package com.gypsyhost.aventuria.custom.gui.menu;
 
-import com.gypsyhost.aventuria.custom.block.entity.BasicPhotonPanelBlockEntity;
-import com.gypsyhost.aventuria.custom.energy.CapabilityPhotonPower;
-import com.gypsyhost.aventuria.custom.energy.IPhotonPowerStorage;
-import com.gypsyhost.aventuria.custom.energy.PhotonPowerStorage;
+import com.gypsyhost.aventuria.custom.block.entity.BasicSolarPanelBlockEntity;
+import com.gypsyhost.aventuria.custom.energy.CapabilityKilowatt;
+import com.gypsyhost.aventuria.custom.energy.IKilowattStorage;
+import com.gypsyhost.aventuria.custom.energy.KilowattStorage;
 import com.gypsyhost.aventuria.registry.ModBlocks;
 import com.gypsyhost.aventuria.registry.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
@@ -14,19 +14,19 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-public class BasicPhotonPanelMenu extends AbstractContainerMenu {
-    private final BasicPhotonPanelBlockEntity blockEntity;
+public class BasicSolarPanelMenu extends AbstractContainerMenu {
+    private final BasicSolarPanelBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public BasicPhotonPanelMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
+    public BasicSolarPanelMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
         this(windowId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
-    public BasicPhotonPanelMenu(int windowId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.BASIC_PHOTON_PANEL_MENU.get(), windowId);
+    public BasicSolarPanelMenu(int windowId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.BASIC_SOLAR_PANEL.get(), windowId);
         checkContainerSize(inv, 0);
-        blockEntity = ((BasicPhotonPanelBlockEntity) entity);
+        blockEntity = ((BasicSolarPanelBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
 
@@ -40,18 +40,26 @@ public class BasicPhotonPanelMenu extends AbstractContainerMenu {
         return data.get(0);
     }
 
-    public int getEnergy() {
-        return blockEntity.getCapability(CapabilityPhotonPower.PHOTON_ENERGY).map(IPhotonPowerStorage::getPowerStored).orElse(0);
+    public int getKilowattPerTick() {
+        return data.get(1);
     }
 
-    public boolean hasEnergy() {
-        return blockEntity.getCapability(CapabilityPhotonPower.PHOTON_ENERGY).map(IPhotonPowerStorage::getPowerStored).orElse(0) > 0;
+    public int getExtractRate() {
+        return data.get(2);
+    }
+
+    public int getKilowatts() {
+        return blockEntity.getCapability(CapabilityKilowatt.KILOWATT).map(IKilowattStorage::getKilowattsStored).orElse(0);
+    }
+
+    public boolean hasKilowatts() {
+        return blockEntity.getCapability(CapabilityKilowatt.KILOWATT).map(IKilowattStorage::getKilowattsStored).orElse(0) > 0;
     }
 
     public int getPanelCapacityScaled() {
-        int currentCapacity = getEnergy();  // Current Capacity
+        int currentCapacity = getKilowatts();  // Current Capacity
         int maxCapacity = this.data.get(0); // Max Capacity
-        int progressArrowSize = 122; // This is the width in pixels of your arrow
+        int progressArrowSize = 51; // This is the width in pixels of your arrow
 
         return maxCapacity != 0 ? (int)(((float)currentCapacity / (float)maxCapacity) * progressArrowSize) : currentCapacity;
     }
@@ -62,28 +70,28 @@ public class BasicPhotonPanelMenu extends AbstractContainerMenu {
         addDataSlot(new DataSlot() {
             @Override
             public int get() {
-                return getEnergy() & 0xffff;
+                return getKilowatts() & 0xffff;
             }
 
             @Override
             public void set(int value) {
-                blockEntity.getCapability(CapabilityPhotonPower.PHOTON_ENERGY).ifPresent(h -> {
-                    int energyStored = h.getPowerStored() & 0xffff0000;
-                    ((PhotonPowerStorage)h).setPower(energyStored + (value & 0xffff));
+                blockEntity.getCapability(CapabilityKilowatt.KILOWATT).ifPresent(h -> {
+                    int powerStored = h.getKilowattsStored() & 0xffff0000;
+                    ((KilowattStorage)h).setKilowattsAmount(powerStored + (value & 0xffff));
                 });
             }
         });
         addDataSlot(new DataSlot() {
             @Override
             public int get() {
-                return (getEnergy() >> 16) & 0xffff;
+                return (getKilowatts() >> 16) & 0xffff;
             }
 
             @Override
             public void set(int value) {
-                blockEntity.getCapability(CapabilityPhotonPower.PHOTON_ENERGY).ifPresent(h -> {
-                    int energyStored = h.getPowerStored() & 0x0000ffff;
-                    ((PhotonPowerStorage)h).setPower(energyStored | (value << 16));
+                blockEntity.getCapability(CapabilityKilowatt.KILOWATT).ifPresent(h -> {
+                    int powerStored = h.getKilowattsStored() & 0x0000ffff;
+                    ((KilowattStorage)h).setKilowattsAmount(powerStored | (value << 16));
                 });
             }
         });
@@ -142,20 +150,20 @@ public class BasicPhotonPanelMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), pPlayer, ModBlocks.BASIC_PHOTON_PANEL.get());
+        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), pPlayer, ModBlocks.BASIC_SOLAR_PANEL.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 128 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 186));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 }

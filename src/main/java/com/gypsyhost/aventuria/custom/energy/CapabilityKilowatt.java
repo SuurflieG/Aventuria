@@ -8,25 +8,25 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class CapabilityPhotonPower implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+public class CapabilityKilowatt implements ICapabilityProvider, INBTSerializable<CompoundTag> {
 
-    public static final Capability<IPhotonPowerStorage> PHOTON_ENERGY = CapabilityManager.get(new CapabilityToken<>(){});
+    public static final Capability<IKilowattStorage> KILOWATT = CapabilityManager.get(new CapabilityToken<>(){});
 
-    private PhotonPowerStorage power = null;
-    private final LazyOptional<PhotonPowerStorage> optional = LazyOptional.of(this::createPower);
+    private KilowattStorage kilowattStorage = null;
+    private final LazyOptional<KilowattStorage> optional = LazyOptional.of(this::createKilowattEnergy);
 
-    private PhotonPowerStorage createPower() {
-        if(this.power == null) {
-            this.power = new PhotonPowerStorage();
+    private KilowattStorage createKilowattEnergy() {
+        if(this.kilowattStorage == null) {
+            this.kilowattStorage = new KilowattStorage();
         }
 
-        return this.power;
+        return this.kilowattStorage;
     }
 
     @NotNull
     @Override
     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == PHOTON_ENERGY) {
+        if(cap == KILOWATT) {
             return optional.cast();
         }
 
@@ -36,16 +36,16 @@ public class CapabilityPhotonPower implements ICapabilityProvider, INBTSerializa
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
-        createPower().saveNBTData(nbt);
+        createKilowattEnergy().saveNBTData(nbt);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        createPower().loadNBTData(nbt);
+        createKilowattEnergy().loadNBTData(nbt);
     }
 
-    private CapabilityPhotonPower(){
+    private CapabilityKilowatt(){
 
     }
 
