@@ -33,8 +33,8 @@ public class PressRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, net.minecraft.world.level.Level pLevel) {
-        if(recipeItems.get(1).test(pContainer.getItem(INPUT_SLOT_A))) {
-            return recipeItems.get(0).test(pContainer.getItem(TOOL_SLOT));
+        if(recipeItems.get(0).test(pContainer.getItem(INPUT_SLOT_A))) {
+            return recipeItems.get(1).test(pContainer.getItem(TOOL_SLOT));
         }
         return false;
     }

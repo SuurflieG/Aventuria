@@ -10,10 +10,10 @@ import net.minecraft.world.level.block.Block;
 
 public class ModTags {
     public static class Blocks {
-        /*public static final TagKey<Block> DOWSING_ROD_VALUABLES =
-                tag("dowsing_rod_valuables");
-        public static final TagKey<Block> PAXEL_MINEABLE =
-                tag("mineable/paxel");*/
+        /*public static final TagKey<Block> DOWSING_ROD_VALUABLES = tag("dowsing_rod_valuables");
+        public static final TagKey<Block> PAXEL_MINEABLE =tag("mineable/paxel");*/
+
+        public static final TagKey<Block> TRANSFER_CABLE = forgeTag("transfer_cable");
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(Aventuria.MOD_ID, name));

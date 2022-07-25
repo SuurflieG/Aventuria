@@ -2,8 +2,7 @@ package com.gypsyhost.aventuria;
 
 import com.gypsyhost.aventuria.config.ClientConfigs;
 import com.gypsyhost.aventuria.config.CommonConfigs;
-import com.gypsyhost.aventuria.custom.energy.CapabilityPhotonPower;
-import com.gypsyhost.aventuria.custom.gui.screen.BasicPhotonPanelScreen;
+import com.gypsyhost.aventuria.custom.gui.screen.BasicSolarPanelScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.CatalyzerScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.PressScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.UpgradeStationScreen;
@@ -18,7 +17,6 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -70,7 +68,7 @@ public class Aventuria
         MenuScreens.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         MenuScreens.register(ModMenuTypes.CATALYZER_MENU.get(), CatalyzerScreen::new);
         MenuScreens.register(ModMenuTypes.UPGRADE_STATION_MENU.get(), UpgradeStationScreen::new);
-        MenuScreens.register(ModMenuTypes.BASIC_PHOTON_PANEL_MENU.get(), BasicPhotonPanelScreen::new);
+        MenuScreens.register(ModMenuTypes.BASIC_SOLAR_PANEL.get(), BasicSolarPanelScreen::new);
 
         BlockEntityRenderers.register(ModBlockEntities.UPGRADE_STATION.get(), UpgradeStationBER::new);
         BlockEntityRenderers.register(ModBlockEntities.CATALYZER.get(), CatalyzerBER::new);
@@ -78,6 +76,7 @@ public class Aventuria
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.UPGRADE_STATION.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CATALYZER.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ELECTRIC_RAIL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.KILOWATT_TRANSFER_CABLE.get(), RenderType.translucent());
 
 
     }

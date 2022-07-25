@@ -14,7 +14,7 @@ public class ModUpgradeCards {
     public static final RegistryObject<Item> BLANK = UPGRADECARD_ITEMS.register("upgrade_blank", () -> Upgrade.BLANK.getCard());
     public static final RegistryObject<Item> SILK = UPGRADECARD_ITEMS.register("upgrade_silk", () -> Upgrade.SILK.getCard());
     //public static final RegistryObject<Item> VOID_JUNK = UPGRADECARD_ITEMS.register("upgrade__void_junk", () -> Upgrades.VOID_JUNK.getCard());
-    public static final RegistryObject<Item> MAGNET = UPGRADECARD_ITEMS.register("upgrade__magnet", () -> Upgrade.MAGNET.getCard());
+    public static final RegistryObject<Item> MAGNET = UPGRADECARD_ITEMS.register("upgrade_magnet", () -> Upgrade.MAGNET.getCard());
     public static final RegistryObject<Item> THREE_BY_THREE = UPGRADECARD_ITEMS.register("upgrade_three_by_three", () -> Upgrade.THREE_BY_THREE.getCard());
     public static final RegistryObject<Item> FORTUNE_1 = UPGRADECARD_ITEMS.register("upgrade_fortune_1", () -> Upgrade.FORTUNE_1.getCard());
     public static final RegistryObject<Item> FORTUNE_2 = UPGRADECARD_ITEMS.register("upgrade_fortune_2", () -> Upgrade.FORTUNE_2.getCard());

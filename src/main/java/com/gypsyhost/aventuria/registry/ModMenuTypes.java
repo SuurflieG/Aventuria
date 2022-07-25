@@ -18,7 +18,7 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<CatalyzerMenu>> CATALYZER_MENU = registerMenuType(CatalyzerMenu::new, "catalyzer_menu");
     public static final RegistryObject<MenuType<CustomToolMenu>> CUSTOM_TOOL_MENU = registerMenuType(CustomToolMenu::new, "custom_tool_menu");
     public static final RegistryObject<MenuType<UpgradeStationMenu>> UPGRADE_STATION_MENU = registerMenuType(UpgradeStationMenu::new, "upgrade_station_menu");
-    public static final RegistryObject<MenuType<BasicPhotonPanelMenu>> BASIC_PHOTON_PANEL_MENU = registerMenuType(BasicPhotonPanelMenu::new, "basic_photon_panel");
+    public static final RegistryObject<MenuType<BasicSolarPanelMenu>> BASIC_SOLAR_PANEL = registerMenuType(BasicSolarPanelMenu::new, "basic_solar_panel");
 
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {

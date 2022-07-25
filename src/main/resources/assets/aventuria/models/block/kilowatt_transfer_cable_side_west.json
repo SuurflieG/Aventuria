@@ -1,0 +1,21 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "0": "aventuria:block/kilowatt_transfer_cable_side_west",
+    "particle": "aventuria:block/kilowatt_transfer_cable_side_west"
+  },
+  "elements": [
+    {
+      "from": [0, 6, 6],
+      "to": [6, 10, 10],
+      "faces": {
+        "north": {"uv": [0, 0, 6, 4], "texture": "#0"},
+        "east": {"uv": [0, 8, 4, 12], "texture": "#0"},
+        "south": {"uv": [0, 4, 6, 8], "texture": "#0"},
+        "west": {"uv": [4, 8, 8, 12], "texture": "#0"},
+        "up": {"uv": [12, 4, 6, 0], "texture": "#0"},
+        "down": {"uv": [12, 4, 6, 8], "texture": "#0"}
+      }
+    }
+  ]
+}

@@ -52,7 +52,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> UPGRADE_STATION = registerBlock("upgrade_station", () -> new UpgradeStationBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> ELECTRIC_RAIL = registerBlock("electric_rail", () -> new ElectricRailBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).noOcclusion().noCollission()), ModCreativeModeTab.MOD_TAB);
 
-    public static final RegistryObject<Block> BASIC_PHOTON_PANEL = registerBlock("basic_photon_panel", () -> new BasicPhotonPanelBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).noOcclusion()), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> BASIC_SOLAR_PANEL = registerBlock("basic_solar_panel", () -> new BasicSolarPanelBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2f).noOcclusion()), ModCreativeModeTab.MOD_TAB);
+    public static final RegistryObject<Block> KILOWATT_TRANSFER_CABLE = registerBlock("kilowatt_transfer_cable", () -> new KilowattTransferCable(BlockBehaviour.Properties.of(Material.METAL).strength(2f).noOcclusion()), ModCreativeModeTab.MOD_TAB);
 
 
     //Register Block with tooltip field

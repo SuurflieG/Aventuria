@@ -44,6 +44,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         withExistingParent("upgrade_station", modLoc("block/upgrade_station"));
         withExistingParent("catalyzer", modLoc("block/catalyzer"));
+        withExistingParent("basic_solar_panel", modLoc("block/basic_solar_panel"));
 
 
         simpleItem(ModItems.CATALYST.get());
@@ -129,7 +130,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModUpgradeCards.EFFICIENCY_3.get());
         simpleItem(ModUpgradeCards.EFFICIENCY_4.get());
         simpleItem(ModUpgradeCards.EFFICIENCY_5.get());
-        //simpleItem(ModUpgradeCards.MAGNET.get());
+        simpleItem(ModUpgradeCards.MAGNET.get());
         //simpleItem(ModUpgradeCards.VOID_JUNK.get());
         simpleItem(ModUpgradeCards.SILK.get());
         simpleItem(ModUpgradeCards.THREE_BY_THREE.get());

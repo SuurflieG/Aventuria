@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aventuria:basic_photon_panel"
+          "name": "aventuria:kilowatt_transfer_cable"
         }
       ],
       "conditions": [
