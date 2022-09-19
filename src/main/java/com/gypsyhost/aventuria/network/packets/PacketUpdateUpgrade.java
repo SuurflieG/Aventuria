@@ -4,7 +4,6 @@ package com.gypsyhost.aventuria.network.packets;
 import com.gypsyhost.aventuria.custom.gui.screen.CustomArmorScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.CustomToolScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.CustomWeaponScreen;
-import com.gypsyhost.aventuria.custom.gui.widgets.ToggleButton;
 import com.gypsyhost.aventuria.custom.item.armor.CustomArmorItem;
 import com.gypsyhost.aventuria.custom.item.tool.*;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
@@ -16,12 +15,7 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class PacketUpdateUpgrade {
-    private final String upgrade;
-
-    public PacketUpdateUpgrade(String upgrade) {
-        this.upgrade = upgrade;
-    }
+public record PacketUpdateUpgrade(String upgrade) {
 
     public static void encode(PacketUpdateUpgrade msg, FriendlyByteBuf buffer) {
         buffer.writeUtf(msg.upgrade);
@@ -39,7 +33,7 @@ public class PacketUpdateUpgrade {
                     return;
 
                 Upgrade upgrade = UpgradeTools.getUpgradesByName(msg.upgrade);
-                if( upgrade == null )
+                if (upgrade == null)
                     return;
 
                 ItemStack stack = CustomPickaxeItem.getPickaxe(player);

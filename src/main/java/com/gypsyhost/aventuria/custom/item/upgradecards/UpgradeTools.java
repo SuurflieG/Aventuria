@@ -1,9 +1,5 @@
 package com.gypsyhost.aventuria.custom.item.upgradecards;
 
-import com.gypsyhost.aventuria.custom.gui.screen.CustomToolScreen;
-import com.gypsyhost.aventuria.custom.item.tool.UpgradeHelper;
-import net.minecraft.client.MouseHandler;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;

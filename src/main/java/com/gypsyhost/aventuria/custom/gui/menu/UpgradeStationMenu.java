@@ -42,7 +42,7 @@ public class UpgradeStationMenu extends AbstractContainerMenu {
         this.playerInventory = new InvWrapper(playerInventory);
 
         setupContainerSlots();
-        layoutPlayerInventorySlots(8, 84);
+        layoutPlayerInventorySlots(8, 104);
     }
 
     public UpgradeStationMenu(int windowId, Level world, BlockPos pos, Inventory playerInventory) {
@@ -56,12 +56,12 @@ public class UpgradeStationMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return stillValid(ContainerLevelAccess.create(getBE().getLevel(), blockEntity.getBlockPos()), pPlayer, ModBlocks.UPGRADE_STATION.get());
+        return stillValid(ContainerLevelAccess.create(getBlockEntity().getLevel(), blockEntity.getBlockPos()), pPlayer, ModBlocks.UPGRADE_STATION.get());
     }
 
     private void setupContainerSlots() {
-        this.getBE().getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-            addSlot(new ModWatchedSlot(h, 0,  7, 61, this::updateUpgradeCache));
+        this.getBlockEntity().getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandler -> {
+            addSlot(new ModWatchedSlot(itemHandler, 0,  80, 81, this::updateUpgradeCache));
         });
     }
 
@@ -89,7 +89,7 @@ public class UpgradeStationMenu extends AbstractContainerMenu {
         return upgradeCache;
     }
 
-    public BlockEntity getBE() {
+    public BlockEntity getBlockEntity() {
         return this.blockEntity;
     }
 

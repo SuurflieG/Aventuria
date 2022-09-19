@@ -13,8 +13,6 @@ public class ModTags {
         /*public static final TagKey<Block> DOWSING_ROD_VALUABLES = tag("dowsing_rod_valuables");
         public static final TagKey<Block> PAXEL_MINEABLE =tag("mineable/paxel");*/
 
-        public static final TagKey<Block> TRANSFER_CABLE = forgeTag("transfer_cable");
-
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(Aventuria.MOD_ID, name));
         }
@@ -26,16 +24,10 @@ public class ModTags {
 
 
     public static class Items {
-        public static final TagKey<Item> STEEL_INGOTS = forgeTag("ingots/steel");
-        public static final TagKey<Item> STEEL_NUGGETS = forgeTag("nuggets/steel");
         public static final TagKey<Item> TITANIUM_INGOTS = forgeTag("ingots/titanium");
         public static final TagKey<Item> TITANIUM_NUGGETS = forgeTag("nuggets/titanium");
-        public static final TagKey<Item> TUNGSTEN_INGOTS = forgeTag("ingots/tungsten");
-        public static final TagKey<Item> TUNGSTEN_NUGGETS = forgeTag("nuggets/tungsten");
 
         public static final TagKey<Item> GEMS = tag("gems/gems");
-        public static final TagKey<Item> CRAFTING_HAMMER = tag("crafting_hammer");
-        public static final TagKey<Item> PLATE_INGREDIENTS = tag("plate_ingredients");
 
 
         private static TagKey<Item> tag(String name) {

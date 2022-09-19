@@ -1,4 +1,4 @@
-package com.gypsyhost.aventuria.custom.item.tool;
+package com.gypsyhost.aventuria.custom.item.upgradecards;
 
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;

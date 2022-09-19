@@ -40,7 +40,7 @@ public class UpgradeStationScreen extends AbstractContainerScreen<UpgradeStation
 
     public UpgradeStationScreen(UpgradeStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
-        this.tePos = pMenu.getBE().getBlockPos();
+        this.tePos = pMenu.getBlockEntity().getBlockPos();
         this.menu = pMenu;
         this.playerInventory = pPlayerInventory;
     }
@@ -86,14 +86,14 @@ public class UpgradeStationScreen extends AbstractContainerScreen<UpgradeStation
         RenderSystem.setShaderTexture(0, GUI);
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
-        this.blit(stack, relX - 23, relY, 0, 0, this.imageWidth + 23, this.imageHeight);
+        this.blit(stack, relX - 23, relY, 0, 0, this.imageWidth + 23, this.imageHeight + 20);
     }
 
     @Override
     public void init() {
         super.init();
 
-        this.scrollingUpgrades = new ScrollingUpgrades(Minecraft.getInstance(), this.imageWidth - 14, 53, topPos + 7, leftPos + 7, this);
+        this.scrollingUpgrades = new ScrollingUpgrades(Minecraft.getInstance(), this.imageWidth - 14, 70, topPos + 7, leftPos + 7, this);
         this.addRenderableWidget(this.scrollingUpgrades);
     }
 

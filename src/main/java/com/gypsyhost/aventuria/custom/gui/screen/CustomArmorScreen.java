@@ -5,7 +5,7 @@ import com.gypsyhost.aventuria.custom.gui.widgets.ToggleButton;
 import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
 import com.gypsyhost.aventuria.custom.item.tool.ToolMiningProperties;
-import com.gypsyhost.aventuria.custom.item.tool.UpgradeHelper;
+import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeHelper;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
 import com.gypsyhost.aventuria.network.PacketHandler;

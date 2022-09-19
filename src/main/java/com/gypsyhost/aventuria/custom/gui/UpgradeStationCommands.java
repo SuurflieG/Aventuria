@@ -1,11 +1,11 @@
 package com.gypsyhost.aventuria.custom.gui;
 
 import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
-import com.gypsyhost.aventuria.custom.gui.screen.CustomToolScreen;
 import com.gypsyhost.aventuria.custom.item.armor.CustomArmorItem;
 import com.gypsyhost.aventuria.custom.item.tool.*;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
+import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeHelper;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.inventory.Slot;
