@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS ",
+    "SS ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "aventuria:pyrite_shard"
+    }
+  },
+  "result": {
+    "item": "aventuria:pyrite_block"
+  }
+}

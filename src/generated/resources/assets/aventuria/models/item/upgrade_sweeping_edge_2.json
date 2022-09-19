@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aventuria:item/upgrade_sweeping_edge_2"
+  }
+}

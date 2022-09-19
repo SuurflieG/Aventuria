@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "aventuria:aventurine_shard",
+    "aventuria:pyrite_shard",
+    "aventuria:ruby_shard",
+    "aventuria:spectrolite_shard",
+    "aventuria:topaz_shard",
+    "aventuria:unakite_shard"
+  ]
+}

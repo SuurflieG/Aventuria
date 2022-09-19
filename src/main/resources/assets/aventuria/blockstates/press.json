@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "aventuria:block/press" },
-    "facing=east": { "model": "aventuria:block/press", "y": 90 },
-    "facing=south": { "model": "aventuria:block/press", "y": 180 },
-    "facing=west": { "model": "aventuria:block/press", "y": 270 }
-  }
-}

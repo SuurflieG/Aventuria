@@ -32,6 +32,16 @@ public class CustomShovelItem extends ShovelItem {
         return heldItem;
     }
 
+    @Override
+    public boolean isEnchantable(ItemStack pStack) {
+        return false;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack pStack, ItemStack pBook) {
+        return false;
+    }
+
     public static void applyUpgrade(ItemStack tool, UpgradeCardItem upgradeCardItem) {
         if (UpgradeTools.containsUpgrade(tool, upgradeCardItem.getCard()))
             return;
@@ -66,8 +76,5 @@ public class CustomShovelItem extends ShovelItem {
             ToolMiningProperties.setMiningSize(tool, 1);
     }
 
-    public static boolean isHolding(Player entity) {
-        return getShovel(entity).getItem() instanceof CustomShovelItem;
-    }
 
 }

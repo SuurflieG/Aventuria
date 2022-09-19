@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS ",
+    "SS ",
+    "   "
+  ],
+  "key": {
+    "S": {
+      "item": "aventuria:unakite_shard"
+    }
+  },
+  "result": {
+    "item": "aventuria:unakite_block"
+  }
+}

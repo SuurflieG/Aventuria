@@ -6,12 +6,16 @@ import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
 import com.gypsyhost.aventuria.registry.ModScreens;
 import com.mojang.blaze3d.platform.InputConstants;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 
 public class CustomPickaxeItem extends PickaxeItem {
@@ -33,6 +37,16 @@ public class CustomPickaxeItem extends PickaxeItem {
         return heldItem;
     }
 
+    @Override
+    public boolean isEnchantable(ItemStack pStack) {
+        return false;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack pStack, ItemStack pBook) {
+        return false;
+    }
+
     public static void changeRange(ItemStack tool) {
         if (ToolMiningProperties.getMiningSize(tool) == 1)
             ToolMiningProperties.setMiningSize(tool, 3);
@@ -41,7 +55,7 @@ public class CustomPickaxeItem extends PickaxeItem {
     }
 
     public static void applyUpgrade(ItemStack tool, UpgradeCardItem upgradeCardItem) {
-        if (UpgradeTools.containsUpgrade(tool, upgradeCardItem.getCard()))
+        if (UpgradeTools.containsActiveUpgrade(tool, upgradeCardItem.getCard()))
             return;
 
         UpgradeTools.setUpgrade(tool, upgradeCardItem);

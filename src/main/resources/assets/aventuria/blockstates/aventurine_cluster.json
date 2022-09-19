@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "aventuria:block/aventurine_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "aventuria:block/aventurine_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "aventuria:block/aventurine_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "aventuria:block/aventurine_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "aventuria:block/aventurine_cluster"
+    },
+    "facing=west": {
+      "model": "aventuria:block/aventurine_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

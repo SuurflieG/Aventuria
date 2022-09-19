@@ -2,18 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "xx ",
-    "xt ",
+    "xn ",
     " s "
   ],
   "key": {
     "x": {
-      "item": "aventuria:titanium_block"
+      "item": "aventuria:titanium_ingot"
     },
     "s": {
       "item": "minecraft:stick"
     },
-    "t": {
-      "item": "aventuria:steel_axe"
+    "n": {
+      "item": "minecraft:diamond_axe"
     }
   },
   "result": {

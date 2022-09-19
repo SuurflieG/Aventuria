@@ -2,8 +2,6 @@
   "replace": false,
   "values": [
     "aventuria:titanium_ore",
-    "aventuria:tungsten_ore",
-    "aventuria:deepslate_titanium_ore",
-    "aventuria:deepslate_tungsten_ore"
+    "aventuria:deepslate_titanium_ore"
   ]
 }

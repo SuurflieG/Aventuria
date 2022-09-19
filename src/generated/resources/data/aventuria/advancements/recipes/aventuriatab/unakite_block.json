@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "aventuria:unakite_block"
+    ]
+  },
+  "criteria": {
+    "has_unakite_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aventuria:unakite_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "aventuria:unakite_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_unakite_block",
+      "has_the_recipe"
+    ]
+  ]
+}

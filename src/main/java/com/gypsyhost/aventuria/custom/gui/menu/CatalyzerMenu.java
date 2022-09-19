@@ -46,10 +46,10 @@ public class CatalyzerMenu extends AbstractContainerMenu {
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
             this.addSlot(new ModFuelSlot(handler, FUEL_SLOT, 12, 83));
-            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_LEFT, 40, 48, () -> ModTags.Items.RAW_GEMS));
-            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_TOP, 74, 14, () -> ModTags.Items.RAW_GEMS));
-            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_RIGHT, 108, 48, () -> ModTags.Items.RAW_GEMS));
-            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_BOTTOM, 74, 82, () -> ModTags.Items.RAW_GEMS));
+            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_LEFT, 40, 48, () -> ModTags.Items.GEMS));
+            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_TOP, 74, 14, () -> ModTags.Items.GEMS));
+            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_RIGHT, 108, 48, () -> ModTags.Items.GEMS));
+            this.addSlot(new ModRestrictedTagSlot(handler, INPUT_SLOT_BOTTOM, 74, 82, () -> ModTags.Items.GEMS));
             this.addSlot(new ModRestrictedSlot(handler, CATALYZER, 74, 48, ModItems.CATALYST));
             this.addSlot(new ModResultSlot(handler, RESULT_SLOT, 140, 48));
         });

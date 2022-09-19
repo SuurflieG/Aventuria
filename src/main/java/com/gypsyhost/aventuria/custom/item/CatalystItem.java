@@ -20,6 +20,8 @@ public class CatalystItem extends Item {
         }
     }
 
+
+
     @Override
     public boolean hasContainerItem(ItemStack stack) {
         return true;

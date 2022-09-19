@@ -7,7 +7,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab MOD_TAB = new CreativeModeTab("aventuriatab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.CATALYST.get());
+            return new ItemStack(ModItems.TITANIUM_INGOT.get());
         }
     };
 }

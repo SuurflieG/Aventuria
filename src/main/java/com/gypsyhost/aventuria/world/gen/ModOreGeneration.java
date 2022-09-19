@@ -13,21 +13,13 @@ public class ModOreGeneration {
         List<Holder<PlacedFeature>> base = event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
 
         base.add(ModPlacedFeatures.TITANIUM_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.TUNGSTEN_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.AVENTURINE_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.CALCITE_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.PYRITE_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.RUBY_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.TOPAZ_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.UNAKITE_ORE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.AVENTURINE_GEODE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.PYRITE_GEODE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.RUBY_GEODE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.TOPAZ_GEODE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.SPECTROLITE_GEODE_PLACED.getHolder().get());
+        base.add(ModPlacedFeatures.UNAKITE_GEODE_PLACED.getHolder().get());
 
         base.add(ModPlacedFeatures.DEEPSLATE_TITANIUM_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.DEEPSLATE_TUNGSTEN_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.DEEPSLATE_AVENTURINE_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.DEEPSLATE_CALCITE_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.DEEPSLATE_PYRITE_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.DEEPSLATE_RUBY_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.DEEPSLATE_TOPAZ_ORE_PLACED.getHolder().get());
-        base.add(ModPlacedFeatures.DEEPSLATE_UNAKITE_ORE_PLACED.getHolder().get());
     }
 }

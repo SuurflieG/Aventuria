@@ -3,11 +3,11 @@ package com.gypsyhost.aventuria.custom.gui.screen;
 import com.google.common.collect.Lists;
 import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
-import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
+import com.gypsyhost.aventuria.custom.item.armor.CustomArmorItem;
+import com.gypsyhost.aventuria.custom.item.tool.*;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
-import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
 import com.gypsyhost.aventuria.network.PacketHandler;
 import com.gypsyhost.aventuria.network.packets.PacketExtractUpgrade;
 import com.gypsyhost.aventuria.network.packets.PacketInsertUpgrade;
@@ -33,36 +33,36 @@ public class UpgradeStationScreen extends AbstractContainerScreen<UpgradeStation
 
     private final ResourceLocation GUI = new ResourceLocation(Aventuria.MOD_ID, "textures/gui/upgrade_station.png");
     private final BlockPos tePos;
-    private final UpgradeStationMenu container;
+    private final UpgradeStationMenu menu;
     private Inventory playerInventory;
     private ScrollingUpgrades scrollingUpgrades;
 
 
-    public UpgradeStationScreen(UpgradeStationMenu container, Inventory inv, Component name) {
-        super(container, inv, name);
-        this.tePos = container.getTE().getBlockPos();
-        this.container = container;
-        this.playerInventory = inv;
+    public UpgradeStationScreen(UpgradeStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+        super(pMenu, pPlayerInventory, pTitle);
+        this.tePos = pMenu.getBE().getBlockPos();
+        this.menu = pMenu;
+        this.playerInventory = pPlayerInventory;
     }
 
     @Override
-    public void render(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
-        this.renderBackground(stack);
-        super.render(stack, mouseX, mouseY, partialTicks);
+    public void render(PoseStack pPoseStack, int mouseX, int mouseY, float partialTicks) {
+        this.renderBackground(pPoseStack);
+        super.render(pPoseStack, mouseX, mouseY, partialTicks);
 
-        this.scrollingUpgrades.render(stack, mouseX, mouseY, partialTicks);
-        this.renderTooltip(stack, mouseX, mouseY); // @mcp: renderTooltip = renderHoveredToolTip
+        this.scrollingUpgrades.render(pPoseStack, mouseX, mouseY, partialTicks);
+        this.renderTooltip(pPoseStack, mouseX, mouseY); // @mcp: renderTooltip = renderHoveredToolTip
 
         int relX = (this.width) / 2;
         int relY = (this.height) / 2;
 
-        drawCenteredString(stack, font, ForgeI18n.getPattern(String.format("%s.%s", Aventuria.MOD_ID, "text.modification_table")), relX, relY - 100, 0xFFFFFF);
+        drawCenteredString(pPoseStack, font, ForgeI18n.getPattern(String.format("%s.%s", Aventuria.MOD_ID, "text.modification_table")), relX, relY - 100, 0xFFFFFF);
 
-        if (this.container.getUpgradesCache().size() == 0) {
+        if (this.menu.getUpgradesCache().size() == 0) {
             String string = ForgeI18n.getPattern(String.format("%s.%s", Aventuria.MOD_ID, "text.empty_table_helper"));
             String[] parts = string.split("\n");
             for (int i = 0; i < parts.length; i++) {
-                drawScaledCenteredString(stack, (relX + 30) - (font.width(parts[0]) / 2), (relY - 68) + (i * font.lineHeight), .8f, parts[i], 0xFFFFFF);
+                drawScaledCenteredString(pPoseStack, (relX + 30) - (font.width(parts[0]) / 2), (relY - 68) + (i * font.lineHeight), .8f, parts[i], 0xFFFFFF);
             }
         }
     }
@@ -93,16 +93,20 @@ public class UpgradeStationScreen extends AbstractContainerScreen<UpgradeStation
     public void init() {
         super.init();
 
-        this.scrollingUpgrades = new ScrollingUpgrades(Minecraft.getInstance(), this.imageWidth - 14, 72, topPos + 7, leftPos + 7, this);
+        this.scrollingUpgrades = new ScrollingUpgrades(Minecraft.getInstance(), this.imageWidth - 14, 53, topPos + 7, leftPos + 7, this);
         this.addRenderableWidget(this.scrollingUpgrades);
     }
 
     @Override
     public boolean mouseClicked(double mouseXIn, double mouseYIn, int p_231044_5_) {
         ItemStack heldStack = this.menu.getCarried();
-        ItemStack toolItem = this.container.slots.get(0).getItem();
+        ItemStack toolItem = this.menu.slots.get(0).getItem();
         if (pickaxePresent(mouseXIn, mouseYIn, heldStack, toolItem)) return false;
         if (shovelPresent(mouseXIn, mouseYIn, heldStack, toolItem)) return false;
+        if (axePresent(mouseXIn, mouseYIn, heldStack, toolItem)) return false;
+        if (hoePresent(mouseXIn, mouseYIn, heldStack, toolItem)) return false;
+        if (swordPresent(mouseXIn, mouseYIn, heldStack, toolItem)) return false;
+        if (armorPresent(mouseXIn, mouseYIn, heldStack, toolItem)) return false;
         return super.mouseClicked(mouseXIn, mouseYIn, p_231044_5_);
     }
 
@@ -123,6 +127,66 @@ public class UpgradeStationScreen extends AbstractContainerScreen<UpgradeStation
 
     private boolean shovelPresent(double mouseXIn, double mouseYIn, ItemStack heldStack, ItemStack toolItem) {
         if (!toolItem.isEmpty() && toolItem.getItem() instanceof CustomShovelItem && !heldStack.isEmpty() && heldStack.getItem() instanceof UpgradeCardItem) {
+            if (scrollingUpgrades.isMouseOver(mouseXIn, mouseYIn)) {
+                // Send packet to remove the item from the inventory and add it to the table
+                if (UpgradeTools.containsUpgrade(toolItem, ((UpgradeCardItem) heldStack.getItem()).getCard())) {
+                    return true;
+                }
+
+                PacketHandler.sendToServer(new PacketInsertUpgrade(this.tePos, heldStack));
+                this.menu.setCarried(ItemStack.EMPTY);
+            }
+        }
+        return false;
+    }
+
+    private boolean axePresent(double mouseXIn, double mouseYIn, ItemStack heldStack, ItemStack toolItem) {
+        if (!toolItem.isEmpty() && toolItem.getItem() instanceof CustomAxeItem && !heldStack.isEmpty() && heldStack.getItem() instanceof UpgradeCardItem) {
+            if (scrollingUpgrades.isMouseOver(mouseXIn, mouseYIn)) {
+                // Send packet to remove the item from the inventory and add it to the table
+                if (UpgradeTools.containsUpgrade(toolItem, ((UpgradeCardItem) heldStack.getItem()).getCard())) {
+                    return true;
+                }
+
+                PacketHandler.sendToServer(new PacketInsertUpgrade(this.tePos, heldStack));
+                this.menu.setCarried(ItemStack.EMPTY);
+            }
+        }
+        return false;
+    }
+
+    private boolean hoePresent(double mouseXIn, double mouseYIn, ItemStack heldStack, ItemStack toolItem) {
+        if (!toolItem.isEmpty() && toolItem.getItem() instanceof CustomHoeItem && !heldStack.isEmpty() && heldStack.getItem() instanceof UpgradeCardItem) {
+            if (scrollingUpgrades.isMouseOver(mouseXIn, mouseYIn)) {
+                // Send packet to remove the item from the inventory and add it to the table
+                if (UpgradeTools.containsUpgrade(toolItem, ((UpgradeCardItem) heldStack.getItem()).getCard())) {
+                    return true;
+                }
+
+                PacketHandler.sendToServer(new PacketInsertUpgrade(this.tePos, heldStack));
+                this.menu.setCarried(ItemStack.EMPTY);
+            }
+        }
+        return false;
+    }
+
+    private boolean swordPresent(double mouseXIn, double mouseYIn, ItemStack heldStack, ItemStack toolItem) {
+        if (!toolItem.isEmpty() && toolItem.getItem() instanceof CustomSwordItem && !heldStack.isEmpty() && heldStack.getItem() instanceof UpgradeCardItem) {
+            if (scrollingUpgrades.isMouseOver(mouseXIn, mouseYIn)) {
+                // Send packet to remove the item from the inventory and add it to the table
+                if (UpgradeTools.containsUpgrade(toolItem, ((UpgradeCardItem) heldStack.getItem()).getCard())) {
+                    return true;
+                }
+
+                PacketHandler.sendToServer(new PacketInsertUpgrade(this.tePos, heldStack));
+                this.menu.setCarried(ItemStack.EMPTY);
+            }
+        }
+        return false;
+    }
+
+    private boolean armorPresent(double mouseXIn, double mouseYIn, ItemStack heldStack, ItemStack toolItem) {
+        if (!toolItem.isEmpty() && toolItem.getItem() instanceof CustomArmorItem && !heldStack.isEmpty() && heldStack.getItem() instanceof UpgradeCardItem) {
             if (scrollingUpgrades.isMouseOver(mouseXIn, mouseYIn)) {
                 // Send packet to remove the item from the inventory and add it to the table
                 if (UpgradeTools.containsUpgrade(toolItem, ((UpgradeCardItem) heldStack.getItem()).getCard())) {
@@ -158,7 +222,7 @@ public class UpgradeStationScreen extends AbstractContainerScreen<UpgradeStation
 
         @Override
         protected int getContentHeight() {
-            return (int) Math.ceil(this.parent.container.getUpgradesCache().size() / 7f) * 20;
+            return (int) Math.ceil(this.parent.menu.getUpgradesCache().size() / 7f) * 20;
         }
 
         @Override
@@ -168,7 +232,7 @@ public class UpgradeStationScreen extends AbstractContainerScreen<UpgradeStation
             int y = relativeY;
 
             int index = 0;
-            for (Upgrade upgrade : this.parent.container.getUpgradesCache()) {
+            for (Upgrade upgrade : this.parent.menu.getUpgradesCache()) {
                 Minecraft.getInstance().getItemRenderer().renderGuiItem(new ItemStack(upgrade.getCard()), x, y);
 
                 if (isMouseOver(mouseX, mouseY) && (mouseX > x && mouseX < x + 15 && mouseY > y && mouseY < y + 15))

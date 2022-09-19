@@ -1,19 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "xbx",
     "xnx",
+    "xxx",
     "xxx"
   ],
   "key": {
     "x": {
-      "item": "aventuria:titanium_block"
-    },
-    "b": {
-      "item": "aventuria:steel_chestplate"
+      "item": "aventuria:titanium_ingot"
     },
     "n": {
-      "item": "minecraft:diamond_chestplate"
+      "item": "minecraft:diamond"
     }
   },
   "result": {

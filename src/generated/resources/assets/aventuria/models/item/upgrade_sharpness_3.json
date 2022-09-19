@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aventuria:item/upgrade_sharpness_3"
+  }
+}

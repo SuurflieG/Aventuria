@@ -3,14 +3,14 @@
   "pattern": [
     " x ",
     " x ",
-    " s "
+    " n "
   ],
   "key": {
     "x": {
-      "item": "aventuria:titanium_block"
+      "item": "aventuria:titanium_ingot"
     },
-    "s": {
-      "item": "aventuria:steel_sword"
+    "n": {
+      "item": "minecraft:diamond"
     }
   },
   "result": {

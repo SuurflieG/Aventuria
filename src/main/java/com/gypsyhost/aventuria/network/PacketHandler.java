@@ -59,7 +59,6 @@ public class PacketHandler {
 
         //Client Side
         HANDLER.registerMessage(id++, PacketInsertUpgrade.class,      PacketInsertUpgrade::encode,        PacketInsertUpgrade::decode,        PacketInsertUpgrade::handler);
-        //HANDLER.registerMessage(id++, PacketDurabilitySync.class,     PacketDurabilitySync::encode,       PacketDurabilitySync::decode,       PacketDurabilitySync.Handler::handle);
     }
 
     public static void sendTo(Object msg, ServerPlayer player) {

@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class ToggleButton extends AbstractWidget {
-    private final Predicate<Boolean> onPress;
-    private boolean enabled;
-    private final ResourceLocation texture;
+    public final Predicate<Boolean> onPress;
+    public boolean enabled;
+    public final ResourceLocation texture;
 
     public ToggleButton(int xIn, int yIn, Component msg, ResourceLocation texture, Predicate<Boolean> onPress) {
         super(xIn, yIn, 16, 16, msg);
@@ -46,7 +46,6 @@ public class ToggleButton extends AbstractWidget {
     public List<FormattedCharSequence> getTooltip() {
         return Language.getInstance().getVisualOrder(Arrays.asList(this.getMessage(), new TextComponent("Enabled: " + this.enabled).withStyle(this.enabled ? ChatFormatting.GREEN : ChatFormatting.GRAY)));
     }
-
 
     @Override
     public void onClick(double pMouseX, double pMouseY) {

@@ -13,9 +13,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements ArmorMaterial {
 
-    STEEL("steel", 30, new int[]{2, 5, 6, 2}, 15, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.of(ModItems.STEEL_INGOT.get())),
-    TITANIUM("titanium", 66, new int[]{3, 6, 8, 3}, 25, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> Ingredient.of(ModItems.TITANIUM_INGOT.get())),
-    TUNGSTEN("tungsten", 74, new int[]{3, 6, 8, 3}, 35, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.of(ModItems.TUNGSTEN_INGOT.get()));
+    TITANIUM("titanium", 66, new int[]{3, 6, 8, 3}, 25, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> Ingredient.of(ModItems.TITANIUM_INGOT.get()));
 
 
 //    IRON("iron", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {return Ingredient.of(Items.IRON_INGOT);}),

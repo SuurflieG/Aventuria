@@ -1,6 +1,7 @@
 package com.gypsyhost.aventuria.registry;
 
 import com.gypsyhost.aventuria.Aventuria;
+import com.gypsyhost.aventuria.custom.item.tool.CustomSwordItem;
 import com.gypsyhost.aventuria.modtiers.ModItemTier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
@@ -15,9 +16,7 @@ public class ModWeaponItems {
 
     private static final Item.Properties CREATIVE_TAB = new Item.Properties().tab(ModCreativeModeTab.MOD_TAB);
 
-    public static final RegistryObject<Item> STEEL_SWORD = WEAPON_ITEMS.register("steel_sword", () -> new SwordItem(ModItemTier.STEEL, 4, 0f, CREATIVE_TAB));
-    public static final RegistryObject<Item> TITANIUM_SWORD = WEAPON_ITEMS.register("titanium_sword", () -> new SwordItem(ModItemTier.TITANIUM, 7, 0f, CREATIVE_TAB));
-    public static final RegistryObject<Item> TUNGSTEN_SWORD = WEAPON_ITEMS.register("tungsten_sword", () -> new SwordItem(ModItemTier.TUNGSTEN, 15, 0f, CREATIVE_TAB));
+    public static final RegistryObject<Item> TITANIUM_SWORD = WEAPON_ITEMS.register("titanium_sword", () -> new CustomSwordItem(ModItemTier.TITANIUM, 7, 0f, CREATIVE_TAB));
 
 
     public static void  register(IEventBus eventBus) {

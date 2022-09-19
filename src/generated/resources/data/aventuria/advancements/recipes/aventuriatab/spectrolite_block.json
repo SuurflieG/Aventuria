@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "aventuria:spectrolite_block"
+    ]
+  },
+  "criteria": {
+    "has_spectrolite_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aventuria:spectrolite_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "aventuria:spectrolite_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_spectrolite_block",
+      "has_the_recipe"
+    ]
+  ]
+}

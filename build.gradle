@@ -113,8 +113,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.24'
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.68'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.1.76'
 
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")

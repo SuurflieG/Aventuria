@@ -1,6 +1,8 @@
 package com.gypsyhost.aventuria.custom.gui.menu;
 
 import com.gypsyhost.aventuria.custom.gui.slot.ModGhostSlot;
+import com.gypsyhost.aventuria.custom.item.tool.CustomAxeItem;
+import com.gypsyhost.aventuria.custom.item.tool.CustomHoeItem;
 import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
 import com.gypsyhost.aventuria.registry.ModMenuTypes;
@@ -52,10 +54,10 @@ public class CustomToolMenu extends AbstractContainerMenu {
     @Override
     public void clicked(int slotId, int dragType, ClickType clickTypeIn, Player player) {
         if ((slotId < this.slots.size() && slotId >= 0 && this.slots.get(slotId).getItem().getItem() instanceof CustomPickaxeItem)
-                || (slotId < this.slots.size() && slotId >= 0 && this.slots.get(slotId).getItem().getItem() instanceof CustomShovelItem)
-/*                || (slotId < this.slots.size() && slotId >= 0 && this.slots.get(slotId).getItem().getItem() instanceof CustomAxeItem)
-                || (slotId < this.slots.size() && slotId >= 0 && this.slots.get(slotId).getItem().getItem() instanceof CustomHoeItem)*/ // For later use when all tools ect are custom and can access GUI
-                || clickTypeIn == ClickType.SWAP) {
+            || (slotId < this.slots.size() && slotId >= 0 && this.slots.get(slotId).getItem().getItem() instanceof CustomShovelItem)
+            || (slotId < this.slots.size() && slotId >= 0 && this.slots.get(slotId).getItem().getItem() instanceof CustomAxeItem)
+            || (slotId < this.slots.size() && slotId >= 0 && this.slots.get(slotId).getItem().getItem() instanceof CustomHoeItem)
+            || clickTypeIn == ClickType.SWAP) {
             return ;
         }
 

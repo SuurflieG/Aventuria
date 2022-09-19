@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "aventuria:block/medium_pyrite_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "aventuria:block/medium_pyrite_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "aventuria:block/medium_pyrite_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "aventuria:block/medium_pyrite_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "aventuria:block/medium_pyrite_bud"
+    },
+    "facing=west": {
+      "model": "aventuria:block/medium_pyrite_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

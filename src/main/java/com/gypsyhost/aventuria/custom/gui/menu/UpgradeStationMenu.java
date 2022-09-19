@@ -2,11 +2,11 @@ package com.gypsyhost.aventuria.custom.gui.menu;
 
 import com.gypsyhost.aventuria.custom.gui.slot.ModWatchedSlot;
 import com.gypsyhost.aventuria.custom.gui.UpgradeStationCommands;
-import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
+import com.gypsyhost.aventuria.custom.item.armor.CustomArmorItem;
+import com.gypsyhost.aventuria.custom.item.tool.*;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
-import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
 import com.gypsyhost.aventuria.registry.ModBlocks;
 import com.gypsyhost.aventuria.registry.ModMenuTypes;
 import net.minecraft.client.Minecraft;
@@ -56,18 +56,26 @@ public class UpgradeStationMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return stillValid(ContainerLevelAccess.create(getTE().getLevel(), blockEntity.getBlockPos()), pPlayer, ModBlocks.UPGRADE_STATION.get());
+        return stillValid(ContainerLevelAccess.create(getBE().getLevel(), blockEntity.getBlockPos()), pPlayer, ModBlocks.UPGRADE_STATION.get());
     }
 
     private void setupContainerSlots() {
-        this.getTE().getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+        this.getBE().getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
             addSlot(new ModWatchedSlot(h, 0,  7, 61, this::updateUpgradeCache));
         });
     }
 
+
+    // Need to add the other custom tools, weapon and armor in this check in order for it to show the installed upgrades in the bench
     private void updateUpgradeCache(int index) {
         ItemStack stack = this.getSlot(index).getItem();
-        if((stack.isEmpty() && !upgradeCache.isEmpty()) || !(stack.getItem() instanceof CustomPickaxeItem || !(stack.getItem() instanceof CustomShovelItem))) {
+        if((stack.isEmpty() && !upgradeCache.isEmpty())
+                || !(stack.getItem() instanceof CustomPickaxeItem
+                || stack.getItem() instanceof CustomShovelItem
+                || stack.getItem() instanceof CustomAxeItem
+                || stack.getItem() instanceof CustomHoeItem
+                || stack.getItem() instanceof CustomSwordItem
+                || stack.getItem() instanceof CustomArmorItem)) {
             upgradeCache.clear();
             return;
         }
@@ -81,7 +89,7 @@ public class UpgradeStationMenu extends AbstractContainerMenu {
         return upgradeCache;
     }
 
-    public BlockEntity getTE() {
+    public BlockEntity getBE() {
         return this.blockEntity;
     }
 
@@ -124,7 +132,12 @@ public class UpgradeStationMenu extends AbstractContainerMenu {
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
-                if (stack.getItem() instanceof CustomPickaxeItem || stack.getItem() instanceof CustomShovelItem) {
+                if (stack.getItem() instanceof CustomPickaxeItem
+                        || stack.getItem() instanceof CustomShovelItem
+                        || stack.getItem() instanceof CustomAxeItem
+                        || stack.getItem() instanceof CustomHoeItem
+                        || stack.getItem() instanceof CustomSwordItem
+                        || stack.getItem() instanceof CustomArmorItem) {
                     if (!this.moveItemStackTo(stack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }

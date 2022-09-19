@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "aventuria:block/machine_casing" },
-    "facing=east": { "model": "aventuria:block/machine_casing", "y": 90 },
-    "facing=south": { "model": "aventuria:block/machine_casing", "y": 180 },
-    "facing=west": { "model": "aventuria:block/machine_casing", "y": 270 }
-  }
-}

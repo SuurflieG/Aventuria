@@ -1,6 +1,8 @@
 package com.gypsyhost.aventuria.network.packets;
 
 
+import com.gypsyhost.aventuria.custom.item.tool.CustomAxeItem;
+import com.gypsyhost.aventuria.custom.item.tool.CustomHoeItem;
 import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
 import net.minecraft.network.FriendlyByteBuf;
@@ -29,6 +31,12 @@ public class PacketChangeMiningSize {
 
                 ItemStack shovel = CustomShovelItem.getShovel(player);
                 CustomShovelItem.changeRange(shovel);
+
+                ItemStack axe = CustomAxeItem.getAxe(player);
+                CustomAxeItem.changeRange(axe);
+
+                ItemStack hoe = CustomHoeItem.getHoe(player);
+                CustomHoeItem.changeRange(hoe);
             });
 
             ctx.get().setPacketHandled(true);

@@ -1,8 +1,8 @@
 package com.gypsyhost.aventuria.custom.block.entity;
 
 import com.gypsyhost.aventuria.custom.gui.menu.UpgradeStationMenu;
-import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
-import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
+import com.gypsyhost.aventuria.custom.item.armor.CustomArmorItem;
+import com.gypsyhost.aventuria.custom.item.tool.*;
 import com.gypsyhost.aventuria.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -43,7 +43,13 @@ public class UpgradeStationBlockEntity extends BlockEntity implements MenuProvid
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return slot == 0 && stack.getItem() instanceof CustomPickaxeItem || stack.getItem() instanceof CustomShovelItem;
+                return slot == 0 &&
+                        stack.getItem() instanceof CustomPickaxeItem
+                        || stack.getItem() instanceof CustomShovelItem
+                        || stack.getItem() instanceof CustomAxeItem
+                        || stack.getItem() instanceof CustomHoeItem
+                        || stack.getItem() instanceof CustomSwordItem
+                        || stack.getItem() instanceof CustomArmorItem;
             }
         };
     }
