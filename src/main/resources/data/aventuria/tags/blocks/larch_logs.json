@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "aventuria:larch_log",
+    "aventuria:larch_wood",
+    "aventuria:stripped_larch_log",
+    "aventuria:stripped_larch_wood"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aventuria:item/upgrade_three_by_three"
+    "layer0": "aventuria:item/portal_opener"
   }
 }

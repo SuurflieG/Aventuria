@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "aventuria:block/stripped_larch_log_top",
+    "side": "aventuria:block/stripped_larch_log"
+  }
+}

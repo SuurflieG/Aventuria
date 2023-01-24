@@ -9,9 +9,12 @@ import com.gypsyhost.aventuria.custom.item.tool.*;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkEvent;
+import org.apache.logging.log4j.core.jmx.Server;
 
 import java.util.function.Supplier;
 
@@ -29,6 +32,7 @@ public record PacketUpdateUpgrade(String upgrade) {
         public static void handle(PacketUpdateUpgrade msg, Supplier<NetworkEvent.Context> ctx) {
             ctx.get().enqueueWork(() -> {
                 ServerPlayer player = ctx.get().getSender();
+
                 if (player == null)
                     return;
 

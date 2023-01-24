@@ -3,11 +3,15 @@ package com.gypsyhost.aventuria;
 import com.gypsyhost.aventuria.config.ClientConfigs;
 import com.gypsyhost.aventuria.config.CommonConfigs;
 import com.gypsyhost.aventuria.custom.gui.screen.CatalyzerScreen;
+import com.gypsyhost.aventuria.custom.gui.screen.CustomEquipmentScreen;
 import com.gypsyhost.aventuria.custom.gui.screen.UpgradeStationScreen;
-import com.gypsyhost.aventuria.custom.renderer.CatalyzerBER;
-import com.gypsyhost.aventuria.custom.renderer.UpgradeStationBER;
+import com.gypsyhost.aventuria.client.render.CatalyzerBER;
+import com.gypsyhost.aventuria.client.render.UpgradeStationBER;
+import com.gypsyhost.aventuria.custom.gui.widgets.EquipmentSelectButton;
+import com.gypsyhost.aventuria.custom.util.AventuriaKeyBinding;
 import com.gypsyhost.aventuria.network.PacketHandler;
 import com.gypsyhost.aventuria.registry.*;
+import com.gypsyhost.aventuria.world.dimension.ModDimensions;
 import com.gypsyhost.aventuria.world.feature.ModConfiguredFeature;
 import com.gypsyhost.aventuria.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -40,12 +44,15 @@ public class Aventuria
         ModItems.register(eventBus);
         ModUpgradeCards.register(eventBus);
         ModBlocks.register(eventBus);
+        ModTreeBlocks.register(eventBus);
         ModArmorItems.register(eventBus);
         ModToolItems.register(eventBus);
         ModWeaponItems.register(eventBus);
         ModBlockEntities.register(eventBus);
         ModRecipes.register(eventBus);
         ModMenuTypes.register(eventBus);
+
+        ModDimensions.register();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfigs.SPEC, "aventuria-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfigs.SPEC, "aventuria-common.toml");
@@ -62,6 +69,8 @@ public class Aventuria
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
+
+        AventuriaKeyBinding.register();
 
         MenuScreens.register(ModMenuTypes.CATALYZER_MENU.get(), CatalyzerScreen::new);
         MenuScreens.register(ModMenuTypes.UPGRADE_STATION_MENU.get(), UpgradeStationScreen::new);
@@ -102,10 +111,13 @@ public class Aventuria
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MEDIUM_UNAKITE_BUD.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.LARGE_UNAKITE_BUD.get(), RenderType.cutout());
 
+        ItemBlockRenderTypes.setRenderLayer(ModTreeBlocks.LARCH_SAPLING.get(), RenderType.cutout());
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(PacketHandler::register);
+
 
     }
 

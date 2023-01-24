@@ -3,11 +3,15 @@ package com.gypsyhost.aventuria.world.feature;
 import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.config.CommonConfigs;
 import com.gypsyhost.aventuria.registry.ModBlocks;
+import com.gypsyhost.aventuria.registry.ModTreeBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.data.worldgen.features.TreeFeatures;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GeodeBlockSettings;
@@ -15,9 +19,17 @@ import net.minecraft.world.level.levelgen.GeodeCrackSettings;
 import net.minecraft.world.level.levelgen.GeodeLayerSettings;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -35,6 +47,19 @@ public class ModConfiguredFeature {
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> DEEPSLATE_TITANIUM_ORE = CONFIGURED_FEATURES.register("deepslate_titanium_ore",
             () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TITANIUM_ORE.get().defaultBlockState(),CommonConfigs.deepslateTitaniumOreVeinSize.get())));
+
+    public static final RegistryObject<ConfiguredFeature<?,?>> LARCH_TREE = CONFIGURED_FEATURES.register("larch_tree", () ->
+            new ConfiguredFeature<>(Feature.TREE,
+                    new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(ModTreeBlocks.LARCH_LOG.get()),
+                            new StraightTrunkPlacer(20,8,4), BlockStateProvider.simple(ModTreeBlocks.LARCH_LEAVES.get()),
+                            new SpruceFoliagePlacer(UniformInt.of(8, 12), UniformInt.of(2, 4), UniformInt.of(5, 8)),
+                            new TwoLayersFeatureSize(10,2,8)).build()));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> LARCH_SPAWN = CONFIGURED_FEATURES.register("larch_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
+                    new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(ModPlacedFeatures.LARCH_CHECKED.getHolder().get(),
+                            0.9F)), ModPlacedFeatures.LARCH_CHECKED.getHolder().get())));
+
+
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> AVENTURINE_GEODE = CONFIGURED_FEATURES.register("amethyst_geode",
             () -> new ConfiguredFeature<>(Feature.GEODE, new GeodeConfiguration(new GeodeBlockSettings(BlockStateProvider.simple(Blocks.AIR),

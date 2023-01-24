@@ -15,7 +15,8 @@ public enum Upgrade {
     BLANK("blank", false),
 
     SILK("silk", true),
-    THREE_BY_THREE("three_by_three", false),
+    EXPANDER("expander", false),
+    DEPTH("depth", false),
     MAGNET("magnet", true),
     MENDING("mending",true),
     AQUA_AFFINITY("aqua_affinity",true),

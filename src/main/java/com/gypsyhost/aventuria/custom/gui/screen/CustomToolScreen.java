@@ -32,6 +32,7 @@ public class CustomToolScreen extends Screen {
     private final ItemStack customToolItem;
     
     private int currentSize = 1;
+    private int currentDepth = 1;
     public List<Upgrade> toggleableList = new ArrayList<>();
     public static HashMap<Upgrade, ToggleButton> toggleButton = new HashMap<>();
     public static ToggleButton Btn;
@@ -57,8 +58,7 @@ public class CustomToolScreen extends Screen {
         // Remove 6 from x to center it as the padding on the right pushes off center
         int index = 0, x = baseX + 13, y = baseY + 98;
         for (Upgrade upgrade : toggleableList) {
-            Btn = new ToggleButton(x + (index * 18), y, UpgradeTools.getName(upgrade),
-                    new ResourceLocation(Aventuria.MOD_ID, "textures/item/upgrade_" + upgrade.getName() + ".png"), send -> this.toggleUpgrade(upgrade, send));
+            Btn = new ToggleButton(x + (index * 18), y, UpgradeTools.getName(upgrade), new ResourceLocation(Aventuria.MOD_ID, "textures/item/upgrade_" + upgrade.getName() + ".png"), send -> this.toggleUpgrade(upgrade, send));
             addRenderableWidget(Btn);
             toggleButton.put(upgrade, Btn);
 
@@ -71,20 +71,35 @@ public class CustomToolScreen extends Screen {
         }
 
         // Top Row
-        currentSize = ToolMiningProperties.getMiningSize(customToolItem);
+        currentSize = ToolProperties.getMiningSize(customToolItem);
+        currentDepth = ToolProperties.getMiningDepth(customToolItem);
 
         Button sizeButton;
+        Button depthButton;
         leftWidgets.add(sizeButton = new Button(baseX + 12, baseY + 20, 60, 20, new TranslatableComponent("aventuria.tooltip.screen.size", currentSize), (button) -> {
-            currentSize = currentSize == 1 ? 3 : 1;
+            if(currentSize == 1) currentSize = 3;
+            else if(currentSize == 3) currentSize = 5;
+            else if(currentSize == 5) currentSize = 7;
+            else currentSize = 1;
             button.setMessage(getTrans("tooltip.screen.size", currentSize));
             PacketHandler.sendToServer(new PacketChangeMiningSize());
         }));
+        leftWidgets.add(depthButton = new Button(baseX + 12, baseY + 45, 60, 20, new TranslatableComponent("aventuria.tooltip.screen.depth", currentDepth), (button) -> {
+            if(currentDepth == 1) currentDepth = 3;
+            else if(currentDepth == 3) currentDepth = 5;
+            else if(currentDepth == 5) currentDepth = 7;
+            else currentDepth = 1;
+            button.setMessage(getTrans("tooltip.screen.depth", currentDepth));
+            PacketHandler.sendToServer(new PacketChangeMiningDepth());
+        }));
 
         // Button logic
-        if(!UpgradeTools.containsActiveUpgrade(customToolItem, Upgrade.THREE_BY_THREE))
+        if(!UpgradeTools.containsActiveUpgrade(customToolItem, Upgrade.EXPANDER))
             sizeButton.active = false;
+        if(!UpgradeTools.containsActiveUpgrade(customToolItem, Upgrade.DEPTH))
+            depthButton.active = false;
 
-        // Lay the buttons out, too lazy to figure out the math every damn time.
+        // Lay the buttons out
         // Ordered by where you add them.
         for(int i = 0; i < leftWidgets.size(); i ++) {
             leftWidgets.get(i).y = (baseY + 20) + (i * 25);

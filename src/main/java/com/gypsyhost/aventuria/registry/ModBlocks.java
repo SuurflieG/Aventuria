@@ -78,6 +78,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MEDIUM_UNAKITE_BUD = registerBlock("medium_unakite_bud", () -> new UnakiteClusterBlock(4, 3, BlockBehaviour.Properties.copy(Blocks.MEDIUM_AMETHYST_BUD).sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel((pLightEmission) -> 3)), ModCreativeModeTab.MOD_TAB);
     public static final RegistryObject<Block> SMALL_UNAKITE_BUD = registerBlock("small_unakite_bud", () -> new UnakiteClusterBlock(3, 4, BlockBehaviour.Properties.copy(Blocks.SMALL_AMETHYST_BUD).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((pLightEmission) -> 2)), ModCreativeModeTab.MOD_TAB);
 
+    public static final RegistryObject<Block> AVENTURIA_PORTAL = registerBlockWithoutBlockItem("aventurine_portal", AventuriaPortalBlock::new);
 
 
     //Register Block with tooltip field
@@ -111,6 +112,10 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItemNoTab(String name, RegistryObject<T> block) {

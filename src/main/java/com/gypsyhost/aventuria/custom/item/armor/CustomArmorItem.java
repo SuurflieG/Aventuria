@@ -2,7 +2,7 @@ package com.gypsyhost.aventuria.custom.item.armor;
 
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
-import com.gypsyhost.aventuria.custom.util.OurKeys;
+import com.gypsyhost.aventuria.custom.util.AventuriaKeyBinding;
 import com.gypsyhost.aventuria.registry.ModScreens;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.world.InteractionHand;
@@ -12,7 +12,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
@@ -61,7 +60,7 @@ public class CustomArmorItem extends ArmorItem {
         // Only perform the shift action
         if (pPlayer.isShiftKeyDown()) {
             if (pLevel.isClientSide) {
-                if (OurKeys.shiftClickGuiBinding.getKey() == InputConstants.UNKNOWN) {
+                if (AventuriaKeyBinding.GUI_KEY_SHIFT_RIGHT_CLICK.getKey() == InputConstants.UNKNOWN) {
                     ModScreens.openArmorSettingsScreen(itemstack);
                     return InteractionResultHolder.pass(itemstack);
                 }

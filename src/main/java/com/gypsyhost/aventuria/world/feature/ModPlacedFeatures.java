@@ -3,11 +3,13 @@ package com.gypsyhost.aventuria.world.feature;
 import com.google.common.collect.ImmutableList;
 import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.config.CommonConfigs;
+import com.gypsyhost.aventuria.registry.ModTreeBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -16,6 +18,8 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.List;
 
 public class ModPlacedFeatures {
 
@@ -33,6 +37,18 @@ public class ModPlacedFeatures {
             () -> new PlacedFeature(ModConfiguredFeature.DEEPSLATE_TITANIUM_ORE.getHolder().get(),
                     ModOrePlacement.commonOrePlacement(CommonConfigs.deepslateTitaniumOreVeinsPerChunk.get(), // VeinsPerChunk
                             HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(24)))));
+
+    // TREE CONFIGS
+
+    public static final RegistryObject<PlacedFeature> LARCH_CHECKED = PLACED_FEATURE.register("larch_checked",
+            () -> new PlacedFeature(ModConfiguredFeature.LARCH_TREE.getHolder().get(),
+                    List.of(PlacementUtils.filteredByBlockSurvival(ModTreeBlocks.LARCH_SAPLING.get()))));
+
+    public static final RegistryObject<PlacedFeature> LARCH_PLACED = PLACED_FEATURE.register("larch_placed",
+            () -> new PlacedFeature(ModConfiguredFeature.LARCH_SPAWN.getHolder().get(), VegetationPlacements.treePlacement
+                    (RarityFilter.onAverageOnceEvery(10))));
+
+
 
     // GEODE CONFIGS
 

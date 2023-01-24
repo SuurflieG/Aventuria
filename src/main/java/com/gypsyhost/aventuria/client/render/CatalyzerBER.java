@@ -1,4 +1,4 @@
-package com.gypsyhost.aventuria.custom.renderer;
+package com.gypsyhost.aventuria.client.render;
 
 import com.gypsyhost.aventuria.custom.block.entity.CatalyzerBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;

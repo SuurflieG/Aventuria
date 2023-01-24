@@ -4,7 +4,7 @@ import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.custom.gui.widgets.ToggleButton;
 import com.gypsyhost.aventuria.custom.item.tool.CustomPickaxeItem;
 import com.gypsyhost.aventuria.custom.item.tool.CustomShovelItem;
-import com.gypsyhost.aventuria.custom.item.tool.ToolMiningProperties;
+import com.gypsyhost.aventuria.custom.item.tool.ToolProperties;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeHelper;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
@@ -74,7 +74,7 @@ public class CustomArmorScreen extends Screen {
         }
 
         // Top Row
-        currentSize = ToolMiningProperties.getMiningSize(customToolItem);
+        currentSize = ToolProperties.getMiningSize(customToolItem);
 
         Button sizeButton;
         leftWidgets.add(sizeButton = new Button(baseX + 12, baseY + 20, 60, 20, new TranslatableComponent("aventuria.tooltip.screen.size", currentSize), (button) -> {
@@ -84,7 +84,7 @@ public class CustomArmorScreen extends Screen {
         }));
 
         // Button logic
-        if(!UpgradeTools.containsActiveUpgrade(customToolItem, Upgrade.THREE_BY_THREE))
+        if(!UpgradeTools.containsActiveUpgrade(customToolItem, Upgrade.EXPANDER))
             sizeButton.active = false;
 
         // Lay the buttons out, too lazy to figure out the math every damn time.

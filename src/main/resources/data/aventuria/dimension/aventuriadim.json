@@ -1,0 +1,138 @@
+{
+  "type": {
+    "ultrawarm": false,
+    "natural": true,
+    "piglin_safe": true,
+    "respawn_anchor_works": true,
+    "bed_works": true,
+    "has_raids": false,
+    "has_skylight": true,
+    "has_ceiling": true,
+    "coordinate_scale": 1,
+    "ambient_light": 0.7,
+    "logical_height": 320,
+    "effects": "minecraft:overworld",
+    "infiniburn": "#minecraft:infiniburn_overworld",
+    "min_y": -64,
+    "height": 320
+  },
+  "generator": {
+    "type": "minecraft:noise",
+    "seed": 560980813,
+    "settings": {
+      "sea_level": 55,
+      "disable_mob_generation": false,
+      "aquifers_enabled": true,
+      "ore_veins_enabled": true,
+      "legacy_random_source": false,
+      "default_block": {
+        "Name": "minecraft:grass_block"
+      },
+      "default_fluid": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "level": "5"
+        }
+      },
+      "noise": {
+        "min_y": -64,
+        "height": 384,
+        "size_horizontal": 1,
+        "size_vertical": 2,
+        "sampling": {
+          "xz_scale": 0.9999999814507745,
+          "y_scale": 0.9999999814507745,
+          "xz_factor": 80,
+          "y_factor": 160
+        },
+        "bottom_slide": {
+          "target": 0.1171875,
+          "size": 3,
+          "offset": 0
+        },
+        "top_slide": {
+          "target": -0.078125,
+          "size": 2,
+          "offset": 8
+        },
+        "terrain_shaper": {
+          "offset": 0,
+          "factor": 0,
+          "jaggedness": 0
+        }
+      },
+      "noise_router": {
+        "barrier": 0,
+        "fluid_level_floodedness": 0,
+        "fluid_level_spread": 0,
+        "lava": 0,
+        "temperature": 0,
+        "vegetation": 0,
+        "continents": 0,
+        "erosion": 0,
+        "depth": 0,
+        "ridges": 0,
+        "initial_density_without_jaggedness": 0,
+        "final_density": {
+          "type": "minecraft:interpolated",
+          "argument": "minecraft:overworld/base_3d_noise"
+        },
+        "vein_toggle": 0,
+        "vein_ridged": 0,
+        "vein_gap": 0
+      },
+      "surface_rule": {
+        "type": "minecraft:sequence",
+        "sequence": [
+          {
+            "type": "minecraft:block",
+            "result_state": {
+              "Name": "minecraft:grass_block"
+            }
+          },
+          {
+            "type": "minecraft:block",
+            "result_state": {
+              "Name": "minecraft:dirt"
+            }
+          },
+          {
+            "type": "minecraft:block",
+            "result_state": {
+              "Name": "minecraft:stone"
+            }
+          }
+        ]
+      }
+    },
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "minecraft:plains",
+          "parameters": {
+            "temperature": 0.5,
+            "humidity": 0.5,
+            "continentalness": 0.5,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "minecraft:forest",
+          "parameters": {
+            "temperature": 0.4,
+            "humidity": 0.4,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        }
+      ]
+    }
+  }
+}

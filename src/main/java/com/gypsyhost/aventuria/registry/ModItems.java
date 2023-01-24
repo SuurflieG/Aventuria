@@ -2,6 +2,7 @@ package com.gypsyhost.aventuria.registry;
 
 import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.custom.item.CatalystItem;
+import com.gypsyhost.aventuria.custom.item.PortalOpener;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,6 +30,8 @@ public class ModItems {
     public static final RegistryObject<Item> TOPAZ_SHARD = ITEMS.register("topaz_shard", () -> new Item(CREATIVE_TAB));
     public static final RegistryObject<Item> SPECTROLITE_SHARD = ITEMS.register("spectrolite_shard", () -> new Item(CREATIVE_TAB));
     public static final RegistryObject<Item> UNAKITE_SHARD = ITEMS.register("unakite_shard", () -> new Item(CREATIVE_TAB));
+
+    public static final RegistryObject<Item> PORTAL_OPENER = ITEMS.register("portal_opener", PortalOpener::new);
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

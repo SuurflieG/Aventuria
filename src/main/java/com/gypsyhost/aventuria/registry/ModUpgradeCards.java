@@ -2,7 +2,6 @@ package com.gypsyhost.aventuria.registry;
 
 import com.gypsyhost.aventuria.Aventuria;
 import com.gypsyhost.aventuria.custom.item.upgradecards.Upgrade;
-import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,7 +17,9 @@ public class ModUpgradeCards {
 
     public static final RegistryObject<Item> MAGNET = UPGRADECARD_ITEMS.register("upgrade_magnet", () -> Upgrade.MAGNET.getCard());
 
-    public static final RegistryObject<Item> THREE_BY_THREE = UPGRADECARD_ITEMS.register("upgrade_three_by_three", () -> Upgrade.THREE_BY_THREE.getCard());
+    public static final RegistryObject<Item> EXPANDER = UPGRADECARD_ITEMS.register("upgrade_expander", () -> Upgrade.EXPANDER.getCard());
+
+    public static final RegistryObject<Item> DEPTH = UPGRADECARD_ITEMS.register("upgrade_depth", () -> Upgrade.DEPTH.getCard());
 
     public static final RegistryObject<Item> AQUA_AFFINITY = UPGRADECARD_ITEMS.register("upgrade_aqua_affinity", () -> Upgrade.AQUA_AFFINITY.getCard());
 

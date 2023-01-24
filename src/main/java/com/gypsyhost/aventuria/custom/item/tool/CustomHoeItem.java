@@ -3,7 +3,7 @@ package com.gypsyhost.aventuria.custom.item.tool;
 
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeCardItem;
 import com.gypsyhost.aventuria.custom.item.upgradecards.UpgradeTools;
-import com.gypsyhost.aventuria.custom.util.OurKeys;
+import com.gypsyhost.aventuria.custom.util.AventuriaKeyBinding;
 import com.gypsyhost.aventuria.registry.ModScreens;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.world.InteractionHand;
@@ -46,10 +46,10 @@ public class CustomHoeItem extends HoeItem {
     }
 
     public static void changeRange(ItemStack tool) {
-        if (ToolMiningProperties.getMiningSize(tool) == 1)
-            ToolMiningProperties.setMiningSize(tool, 3);
+        if (ToolProperties.getMiningSize(tool) == 1)
+            ToolProperties.setMiningSize(tool, 3);
         else
-            ToolMiningProperties.setMiningSize(tool, 1);
+            ToolProperties.setMiningSize(tool, 1);
     }
 
     public static void applyUpgrade(ItemStack tool, UpgradeCardItem upgradeCardItem) {
@@ -66,7 +66,7 @@ public class CustomHoeItem extends HoeItem {
         // Only perform the shift action
         if (pPlayer.isShiftKeyDown()) {
             if (pLevel.isClientSide) {
-                if (OurKeys.shiftClickGuiBinding.getKey() == InputConstants.UNKNOWN) {
+                if (AventuriaKeyBinding.GUI_KEY_SHIFT_RIGHT_CLICK.getKey() == InputConstants.UNKNOWN) {
                     ModScreens.openToolSettingsScreen(itemstack);
                     return InteractionResultHolder.pass(itemstack);
                 }

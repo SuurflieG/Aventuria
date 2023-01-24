@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "axis=z": { "model": "aventuria:block/aventurine_portal_ew" },
+    "axis=x": { "model": "aventuria:block/aventurine_portal_ns" }
+  }
+}

@@ -86,16 +86,6 @@ public class UpgradeStationBlock extends Block implements EntityBlock {
         }
     }
 
-//    @Override
-//    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-//        if (pState.getBlock() != pNewState.getBlock()) {
-//            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-//            if (blockEntity instanceof SocketStationBlockEntity) {
-//                ((SocketStationBlockEntity) blockEntity).drops();
-//            }
-//        }
-//    }
-
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos,
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {

@@ -51,6 +51,7 @@ public class PacketHandler {
         HANDLER.registerMessage(id++, PacketExtractUpgrade.class,     PacketExtractUpgrade::encode,       PacketExtractUpgrade::decode,       PacketExtractUpgrade.Handler::handle);
         HANDLER.registerMessage(id++, PacketUpdateUpgrade.class,      PacketUpdateUpgrade::encode,        PacketUpdateUpgrade::decode,        PacketUpdateUpgrade.Handler::handle);
         HANDLER.registerMessage(id++, PacketChangeMiningSize.class,   PacketChangeMiningSize::encode,     PacketChangeMiningSize::decode,     PacketChangeMiningSize.Handler::handle);
+        HANDLER.registerMessage(id++, PacketChangeMiningDepth.class,   PacketChangeMiningDepth::encode,     PacketChangeMiningDepth::decode,     PacketChangeMiningDepth.Handler::handle);
         HANDLER.registerMessage(id++, PacketGhostSlot.class,          PacketGhostSlot::encode,            PacketGhostSlot::decode,            PacketGhostSlot.Handler::handle);
 
         //region Server side packets for all Menu's
@@ -77,55 +78,55 @@ public class PacketHandler {
         HANDLER.sendToServer(msg);
     }
 
-    /**
+/*    *//**
      * Sends a vanilla packet to the given player
      * @param player  Player
      * @param packet  Packet
-     */
+     *//*
     public void sendVanillaPacket(Entity player, Packet<?> packet) {
         if (player instanceof ServerPlayer serverPlayer) {
             serverPlayer.connection.send(packet);
         }
     }
 
-    /**
+    *//**
      * Same as , but checks that the world is a serverworld
      * @param msg       Packet to send
      * @param world     World instance
      * @param position  Target position
-     */
+     *//*
     public void sendToClientsAround(Object msg, @Nullable LevelAccessor world, BlockPos position) {
         if (world instanceof ServerLevel server) {
             sendToClientsAround(msg, server, position);
         }
     }
 
-    /**
+    *//**
      * Sends a packet to all entities tracking the given entity
      * @param msg     Packet
      * @param entity  Entity to check
-     */
+     *//*
 
     public void sendToTrackingAndSelf(Object msg, Entity entity) {
         HANDLER.send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), msg);
     }
 
-    /**
+    *//**
      * Sends a packet to all entities tracking the given entity
      * @param msg     Packet
      * @param entity  Entity to check
-     */
+     *//*
 
     public void sendToTracking(Object msg, Entity entity) {
         HANDLER.send(PacketDistributor.TRACKING_ENTITY.with(() -> entity), msg);
     }
 
-    /**
+    *//**
      * Sends a packet to the whole player list
      * @param targetedPlayer  Main player to target, if null uses whole list
      * @param playerList      Player lists to use if main player is null
      * @param msg             Message to send
-     */
+     *//*
     public void sendToPlayerList(@Nullable ServerPlayer targetedPlayer, PlayerList playerList, Object msg) {
         if (targetedPlayer != null) {
             sendTo(msg, targetedPlayer);
@@ -136,13 +137,13 @@ public class PacketHandler {
         }
     }
 
-    /**
+    *//**
      * Sends a packet to the given packet distributor
      * @param target   Packet target
      * @param message  Packet to send
-     */
+     *//*
     public void send(PacketDistributor.PacketTarget target, Object message) {
         HANDLER.send(target, message);
-    }
+    }*/
 
 }

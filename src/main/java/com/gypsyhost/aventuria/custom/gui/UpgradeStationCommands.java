@@ -96,8 +96,8 @@ public class UpgradeStationCommands {
     private static void applyUpgradeWhenInserted(ItemStack tool, Upgrade card) {
         //boolean flag = card.isEnabled();
 
-        if(card == Upgrade.THREE_BY_THREE)
-            ToolMiningProperties.setMiningSize(tool, 1);
+        if(card == Upgrade.EXPANDER)
+            ToolProperties.setMiningSize(tool, 1);
         if(card == Upgrade.MENDING){
             UpgradeHelper.applyMending(tool);
         }
@@ -173,8 +173,8 @@ public class UpgradeStationCommands {
     private static void removeUpgradeWhenRemoved(ItemStack tool, Upgrade card) {
         //boolean flag = card.isEnabled();
 
-        if(card == Upgrade.THREE_BY_THREE)
-            ToolMiningProperties.setMiningSize(tool, 1);
+        if(card == Upgrade.EXPANDER)
+            ToolProperties.setMiningSize(tool, 1);
         if(card == Upgrade.MENDING){
             UpgradeHelper.removeMending(tool);
             card.setEnabled(true);

@@ -14,19 +14,30 @@ import java.util.List;
  * With some changes from me.
  */
 
-public class ToolMiningProperties {
-    private ToolMiningProperties() {}
+public class ToolProperties {
+    private ToolProperties() {}
 
-    private static final String KEY_MINING_SIZE = "range";
+    private static final String KEY_MINING_SIZE = "size";
+    private static final String KEY_MINING_DEPTH = "depth";
 
-    public static int setMiningSize(ItemStack tool, int range) {
-        tool.getOrCreateTag().putInt(KEY_MINING_SIZE, range);
-        return range;
+    public static int setMiningSize(ItemStack tool, int size) {
+        tool.getOrCreateTag().putInt(KEY_MINING_SIZE, size);
+        return size;
     }
 
     public static int getMiningSize(ItemStack tool) {
         CompoundTag compound = tool.getOrCreateTag();
         return !compound.contains(KEY_MINING_SIZE) ? setMiningSize(tool, 1) : compound.getInt(KEY_MINING_SIZE);
+    }
+
+    public static int setMiningDepth(ItemStack tool, int depth) {
+        tool.getOrCreateTag().putInt(KEY_MINING_DEPTH, depth);
+        return depth;
+    }
+
+    public static int getMiningDepth(ItemStack tool) {
+        CompoundTag compound = tool.getOrCreateTag();
+        return !compound.contains(KEY_MINING_DEPTH) ? setMiningDepth(tool, 1) : compound.getInt(KEY_MINING_DEPTH);
     }
 
     // mostly stolen from ItemStackHandler

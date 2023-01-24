@@ -88,7 +88,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModUpgradeCards.BLANK.get());
         simpleItem(ModUpgradeCards.MAGNET.get());
         simpleItem(ModUpgradeCards.SILK.get());
-        simpleItem(ModUpgradeCards.THREE_BY_THREE.get());
+        simpleItem(ModUpgradeCards.EXPANDER.get());
+        simpleItem(ModUpgradeCards.DEPTH.get());
 
         simpleItem(ModUpgradeCards.AQUA_AFFINITY.get());
 
